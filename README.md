@@ -1,6 +1,13 @@
 # revive
  Relearning the forgotten
 
+Target - Autonomous Vehicle Tech Infrastructure (AVTI)
+
+Implement the MVP in the design document (repo/doc/system_design.md). Mock with interfaces all the extra features.
+
+Tech Stack - Java, Hibernate, Postgres, MongoDB, SpringMVC
+Protocol - OBD2, RestAPI, Payment
+
 * Concepts
   * Java
     * Deployment on Linux with apache-tomcat
