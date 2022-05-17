@@ -18,7 +18,24 @@
       * Lambda
     * Design Pattern
       * Singleton for Database instance
-  * Database Query
-    * SQL
-    * PreparedStatement
-    * Hibernate query
+  * Database
+    * Query
+      * SQL
+        * DML - Insert, Update
+        * DDL - Create table, Drop table, Tablespaces,Indexey
+        * Key - Primary Key, Foriegn Key, Unique
+        * ID - Generator/Counter
+        * Views from tables for reports
+      * PreparedStatement
+      * Hibernate query
+  * Apache Spark
+    * Query from OracleDB to Hive
+    * Query from Hive tp OracleDB
+    * Distributed cache-Infinispan for fast startup of lookup table
+  * Database Upgrade
+    * Hibernate Framework for compatibility
+    * Restructure table to follow format
+    * Installer modes
+      * PreInstaller
+      * PreInstaller
+      * PostInstaller
