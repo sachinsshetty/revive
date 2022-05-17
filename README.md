@@ -5,6 +5,8 @@ Target - Autonomous Vehicle Tech Infrastructure (AVTI)
 
 Implement the MVP in the design document (repo/doc/system_design.md). Mock with interfaces all the extra features.
 
+Release notes for versions available at (repo/doc/release.md)
+
 Tech Stack - Java, Hibernate, Postgres, MongoDB, SpringMVC
 Protocol - OBD2, RestAPI, Payment
 
