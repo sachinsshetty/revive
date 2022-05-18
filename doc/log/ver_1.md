@@ -9,6 +9,7 @@
 Source for steps
 *  https://www.jetbrains.com/help/space/publish-artifacts-from-a-gradle-project.html
 * https://www.vogella.com/tutorials/EclipseGradle/article.html
+* createing fat jar or uber-jar :  https://www.baeldung.com/gradle-fat-jar
 * Conversion Steps
 	* Add build.gradle file in root project directory
 	* Add configurations
