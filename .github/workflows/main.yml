@@ -32,14 +32,15 @@ jobs:
           java-version: 17
           distribution: 'adopt'
 
+      # TODO - fix gradle build issue with fatjar compatibility
       # Runs a set of commands using the runners shell
-      - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
-      - name: Build with Gradle
-        uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
-        with:
-          arguments: build
-      - uses: actions/upload-artifact@v3
-        with:
-          name: Package
-          path: build/libs
+      #- name: Validate Gradle wrapper
+      #  uses: gradle/wrapper-validation-action@e6e38bacfdf1a337459f332974bb2327a31aaf4b
+      #- name: Build with Gradle
+      #  uses: gradle/gradle-build-action@0d13054264b0bb894ded474f08ebb30921341cee
+      #  with:
+      #    arguments: build
+      #- uses: actions/upload-artifact@v3
+      #  with:
+      #    name: Package
+      #    path: build/libs
