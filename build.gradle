@@ -7,15 +7,24 @@ buildscript {
     }
 }
 
+plugins {
+	id 'org.springframework.boot' version '2.6.7'
+}
+
 
 apply plugin: 'java'
 apply plugin: 'eclipse'
+apply plugin: 'io.spring.dependency-management'
 apply plugin: 'com.github.johnrengelman.shadow'
 archivesBaseName = 'reviveJar'
 version = '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
+}
+
+springBoot {
+	mainClass = 'slabs.tech.avti.Server'
 }
 
 jar {
@@ -37,7 +46,15 @@ task customFatJar(type: Jar) {
     with jar
 }
 
+tasks.named("bootRun") {
+	mainClass = 'slabs.tech.avti.Server'
+}
+
+
 dependencies {
    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.25'
    compile group: 'org.slf4j', name: 'slf4j-simple', version: '1.7.25'
+  	implementation('org.springframework.boot:spring-boot-starter-web')
+	implementation('org.springframework.boot:spring-boot-starter-data-jpa')
+//	providedRuntime('org.springframework.boot:spring-boot-starter-tomcat')
 }
