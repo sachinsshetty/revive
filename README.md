@@ -1,6 +1,7 @@
 # revive
 
-* Target - Autonomous Vehicle Tech Infrastructure (AVTI)
+* Target - Autonomous Vehicle Tech Infrastructure (AVTI) for Stealth Startup
+* Location - Germany/India
 
 * Implement the MVP in the design document (repo/doc/system_design.md). Mock with interfaces all the extra features.
 
