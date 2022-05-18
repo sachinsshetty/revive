@@ -34,6 +34,6 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Build with Gradle
-        uses: gradle/gradle-build-action@v3
+        uses: gradle/gradle-build-action@v2
         with:
           arguments: build
