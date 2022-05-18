@@ -11,3 +11,6 @@
   * Tech Stack
     * Core Java
     * Postgre
+
+    * Tech Stack - Java, Hibernate, Postgres, MongoDB, SpringMVC
+    Protocol - OBD2, RestAPI, Payment.
