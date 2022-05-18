@@ -1,5 +1,18 @@
 package slabs.tech.avti.vehicle;
 
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.EntityListeners;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+@Entity
+@Table(name = "driver")
+@EntityListeners(AuditingEntityListener.class)
 public class Driver {
 
 	public Driver(long id, String name) {
@@ -8,7 +21,11 @@ public class Driver {
 		this.name = name;
 	}
 
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
+	
+	@Column(name = "name", nullable = false)
 	private String name;
 
 	public long getId() {

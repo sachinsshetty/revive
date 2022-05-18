@@ -8,7 +8,11 @@ import slabs.tech.avti.vehicle.Autonomy;
 import slabs.tech.avti.vehicle.Battery;
 import slabs.tech.avti.vehicle.Driver;
 import slabs.tech.avti.vehicle.Vehicle;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+
+@SpringBootApplication
 public class Server {
 
 
@@ -30,6 +34,8 @@ public class Server {
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 		
+		SpringApplication.run(Server.class, args);
+		
 		System.out.println("Simulator for Autonomous Vehicle Tech Infrasture (AVTI)");
 		
 		long driverId = 1;
@@ -48,6 +54,16 @@ public class Server {
 		
 		Server server = new Server();
 		server.connect();
+		
+		
+		try
+		{
+		    Thread.sleep(1000);
+		}
+		catch(InterruptedException ex)
+		{
+		    Thread.currentThread().interrupt();
+		}
 		
 		
 		

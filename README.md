@@ -7,6 +7,11 @@
 
 * Release notes for versions available at (repo/doc/release.md)
 
+* Execution Steps
+  * Run in Terminal the command 'gradle wrapper'
+  * Execute './gradlew bootRun'
+
+
 * Classes
   * Vehicle
   * Charging Stall
