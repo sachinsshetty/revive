@@ -29,3 +29,11 @@ Implementation Flow
 * ver1 : Core Java -> Database Connection Postgres -> Hibernate
 * ver2 : Heroku -> Apache Tomcat
 * ver3 : SpringBoot -> AWS
+
+
+Install :
+* PostgreSQL
+* Postman desktop
+* PostManAPi : Post : http://localhost:8090/avti/api/v1/drivers 
+	Headers -> Content-Type : application/json
+	Body : { "name" : "driverName" }

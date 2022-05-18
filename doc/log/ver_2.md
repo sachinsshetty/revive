@@ -14,4 +14,4 @@ Source for steps
 * https://spring.io/guides/gs/convert-jar-to-war/
 * SpringBoot Gradle - https://docs.spring.io/spring-boot/docs/2.6.7/gradle-plugin/reference/htmlsingle/
 * https://github.com/ro6ley/java-hibernate-example
-
+* https://spring.io/guides/gs/consuming-rest/

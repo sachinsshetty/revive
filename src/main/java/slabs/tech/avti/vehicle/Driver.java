@@ -15,11 +15,6 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class Driver {
 
-	public Driver(long id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
-	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
