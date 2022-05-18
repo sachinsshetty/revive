@@ -44,11 +44,7 @@ public class Vehicle {
 		// TODO Auto-generated method stub
 		return super.toString();
 	}
-	@Override
-	protected void finalize() throws Throwable {
-		// TODO Auto-generated method stub
-		super.finalize();
-	}
+
 	public Autonomy getAutonomy() {
 		return autonomy;
 	}

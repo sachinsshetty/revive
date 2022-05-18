@@ -47,10 +47,5 @@ public class Stall {
 		// TODO Auto-generated method stub
 		return super.toString();
 	}
-	@Override
-	protected void finalize() throws Throwable {
-		// TODO Auto-generated method stub
-		super.finalize();
-	}
 
 }
