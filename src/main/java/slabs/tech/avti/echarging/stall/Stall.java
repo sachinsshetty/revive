@@ -1,5 +1,4 @@
-package slabs.tech.avti.vehicle;
-
+package slabs.tech.avti.echarging.stall;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,20 +7,30 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name = "driver")
+@Table(name = "stall")
 @EntityListeners(AuditingEntityListener.class)
-public class Driver {
-
+public class Stall {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
-	@Column(name = "name", nullable = false)
-	private String name;
+
+	@Column(name = "usage_time", nullable = false)
+	private long usageTime;
+
+	// private Map<Long,Double> rate;
+
+	public long getUsageTime() {
+		return usageTime;
+	}
+
+	public void setUsageTime(long usageTime) {
+		this.usageTime = usageTime;
+	}
 
 	public long getId() {
 		return id;
@@ -31,14 +40,12 @@ public class Driver {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
+//	public Map<Long, Double> getRate() {
+//		return rate;
+//	}
+//	public void setRate(Map<Long, Double> rate) {
+//		this.rate = rate;
+//	}
 	@Override
 	public int hashCode() {
 		// TODO Auto-generated method stub
@@ -60,9 +67,7 @@ public class Driver {
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub
-		String driverString = " ID - " + getId() + " , Name - " + getName();
-		return driverString;
+		return super.toString();
 	}
-
 
 }

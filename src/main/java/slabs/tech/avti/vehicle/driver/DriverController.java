@@ -1,4 +1,4 @@
-package slabs.tech.avti.vehicle;
+package slabs.tech.avti.vehicle.driver;
 
 import java.util.HashMap;
 import java.util.List;

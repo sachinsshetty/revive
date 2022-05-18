@@ -1,4 +1,4 @@
-package slabs.tech.avti.vehicle;
+package slabs.tech.avti.vehicle.driver;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

@@ -1,5 +1,7 @@
 package slabs.tech.avti.vehicle;
 
+import slabs.tech.avti.vehicle.driver.Driver;
+
 public class Vehicle {
 	
 	private Driver driver;

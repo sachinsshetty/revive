@@ -1,13 +1,12 @@
 package slabs.tech.avti.echarging;
 
+import slabs.tech.avti.echarging.location.Location;
+import slabs.tech.avti.echarging.powerprovider.PowerProvider;
+
 public class ECharge {
 	
-	public ECharge(Location location, PowerProvider powerProvider) {
-		super();
-		this.location = location;
-		this.powerProvider = powerProvider;
-	}
 
+	private long id;
 	private Location location;
 	private PowerProvider powerProvider;
 
