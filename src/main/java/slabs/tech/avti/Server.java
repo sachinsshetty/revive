@@ -1,6 +1,9 @@
 package slabs.tech.avti;
 
+import slabs.tech.avti.vehicle.Autonomy;
+import slabs.tech.avti.vehicle.Battery;
 import slabs.tech.avti.vehicle.Driver;
+import slabs.tech.avti.vehicle.Vehicle;
 
 public class Server {
 
@@ -14,9 +17,14 @@ public class Server {
 		
 		Driver driver = new Driver(driverId, driverName);
 		
-		System.out.println(driver);
+		Battery battery = new Battery();
 		
+		Autonomy autonomy = new Autonomy();
+		
+		Vehicle vehicle = new Vehicle(driver, battery, autonomy);
 
+		
+		System.out.println(vehicle);
 	}
 
 }
