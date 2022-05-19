@@ -24,3 +24,12 @@ Backend Infra
     * AWS
     * Github for code
     * GSM / Cellular  - Mock with Interfaces
+* Classes  
+  * Vehicle
+  * Charging Stall
+  * Route Map
+  * Payment - income from Driver, expense to PowerProvider
+  * ServiceCenter
+  * Rent/Lease
+  * Insurance
+  * Recycle

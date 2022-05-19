@@ -3,7 +3,9 @@
 |No. | Step | Status | Date |
 |--|--|--|--|
 |1.| Connect to Postgres JDBC| Done | 18-May-22 |
-|2.| Connect Postgres with  Hibernate | | 18-May-22| 
+|2.| Connect Postgres with  Hibernate | Done | 18-May-22| 
+|3.| Update to SpringMVC |  | 19-May-22| 
+
 
 Source for steps
 * https://www.postgresqltutorial.com/postgresql-jdbc/connecting-to-postgresql-database/
@@ -15,3 +17,4 @@ Source for steps
 * SpringBoot Gradle - https://docs.spring.io/spring-boot/docs/2.6.7/gradle-plugin/reference/htmlsingle/
 * https://github.com/ro6ley/java-hibernate-example
 * https://spring.io/guides/gs/consuming-rest/
+* https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html

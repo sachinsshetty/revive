@@ -1,7 +1,6 @@
 # revive
 
 * Target - Autonomous Vehicle Tech Infrastructure (AVTI) for Stealth Startup
-* Location - Germany/India
 
 * Implement the MVP in the design document (repo/doc/system_design.md). Mock with interfaces all the extra features.
 
@@ -11,7 +10,22 @@
   * Run in Terminal the command 'gradle wrapper'
   * Execute './gradlew bootRun'
 
+* Version
+	* Current  
+		* ver2 : Java + SpringBoot + PostgreSQL + HibernateJPA + SpringMVC
+	* Released
+		* ver1 : Java + PostgreSQL + JDBC
 
+Currently deployed at
+  * localhost
+
+### Prerequisites : 
+* Install PostgreSQL
+* Install Postman desktop
+	* PostManAPi : Post : http://localhost:8090/avti/api/v1/drivers 
+	Headers -> Content-Type : application/json
+	Body : { "name" : "driverName" }
+	
 * Classes
   * Vehicle
   * Charging Stall
@@ -21,19 +35,3 @@
   * Rent/Lease
   * Insurance
   * Recycle
-
-Currently deployed at
-  * localhost
-
-Implementation Flow
-* ver1 : Core Java -> Database Connection Postgres -> Hibernate
-* ver2 : Heroku -> Apache Tomcat
-* ver3 : SpringBoot -> AWS
-
-
-Install :
-* PostgreSQL
-* Postman desktop
-* PostManAPi : Post : http://localhost:8090/avti/api/v1/drivers 
-	Headers -> Content-Type : application/json
-	Body : { "name" : "driverName" }
