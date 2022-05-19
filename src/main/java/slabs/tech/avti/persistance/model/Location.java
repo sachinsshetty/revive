@@ -1,4 +1,4 @@
-package slabs.tech.avti.echarging.location;
+package slabs.tech.avti.persistance.model;
 
 import java.util.List;
 
@@ -12,9 +12,6 @@ import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import slabs.tech.avti.echarging.coordinate.CoOrdinate;
-import slabs.tech.avti.echarging.stall.Stall;
-
 @Entity
 @Table(name = "location")
 @EntityListeners(AuditingEntityListener.class)
@@ -23,10 +20,10 @@ public class Location {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
+
 	@Column(name = "name", nullable = false)
 	private String name;
-	
+
 //	private List<Stall> stalls;
 //	private CoOrdinate coordinate;
 //

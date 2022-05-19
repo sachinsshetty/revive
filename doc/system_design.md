@@ -1,6 +1,6 @@
 # AVTI - Autonomous Vehicle Transport Infrastructure
 
-* Actors
+* Entities
   * Vehicle
     * Battery Management
     * Sensor Telematics
@@ -11,25 +11,23 @@
     * Maintenance
     * Price Management
     * Route Optimisation
-
-Backend Infra
-  * Data
-    * Flow
-      * Kafka topics for logging
-    * Storage
-      * Postgres / SQLite for Driver Info
-      * MongoDB for unstructure data
-        * Camera Sensor information
-  * Deployment
-    * AWS
-    * Github for code
-    * GSM / Cellular  - Mock with Interfaces
-* Classes  
-  * Vehicle
-  * Charging Stall
   * Route Map
   * Payment - income from Driver, expense to PowerProvider
   * ServiceCenter
   * Rent/Lease
   * Insurance
   * Recycle
+
+
+* Backend Infra
+  * Data
+    * Flow
+      * Kafka topics for logging
+    * Storage
+      * Postgres / SQLite for Driver Info
+      * MongoDB for unstructured data
+        * Camera Sensor information
+  * Deployment
+    * AWS
+    * Github for code
+    * GSM / Cellular  - Mock with Interfaces

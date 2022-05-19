@@ -1,4 +1,4 @@
-package slabs.tech.avti.vehicle.driver;
+package slabs.tech.avti.persistance.model;
 
 
 import javax.persistence.Column;

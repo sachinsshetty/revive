@@ -1,4 +1,4 @@
-package slabs.tech.avti.echarging.stall;
+package slabs.tech.avti.persistance.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

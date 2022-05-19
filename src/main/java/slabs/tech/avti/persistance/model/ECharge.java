@@ -1,10 +1,6 @@
-package slabs.tech.avti.echarging;
-
-import slabs.tech.avti.echarging.location.Location;
-import slabs.tech.avti.echarging.powerprovider.PowerProvider;
+package slabs.tech.avti.persistance.model;
 
 public class ECharge {
-	
 
 	private long id;
 	private Location location;

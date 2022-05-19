@@ -18,3 +18,5 @@ Source for steps
 * https://github.com/ro6ley/java-hibernate-example
 * https://spring.io/guides/gs/consuming-rest/
 * https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html
+* ubuntu - https://www.pgadmin.org/download/pgadmin-4-apt/
+* Spring MVC - https://www.baeldung.com/spring-mvc-tutorial
