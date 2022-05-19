@@ -1,6 +1,4 @@
-package slabs.tech.avti.vehicle;
-
-import slabs.tech.avti.persistance.model.Driver;
+package slabs.tech.avti.persistance.model;
 
 public class Vehicle {
 
