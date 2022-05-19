@@ -4,7 +4,9 @@
 |--|--|--|--|
 |1.| Connect to Postgres JDBC| Done | 18-May-22 |
 |2.| Connect Postgres with  Hibernate | Done | 18-May-22| 
-|3.| Update to SpringMVC |  | 19-May-22| 
+|3.| Update to SpringMVC | Done | 19-May-22|
+|4.| Hibernate Map Object | Done | 20-May-22|
+|5.| Simple UI - Display All Table Info | WIP | 20-May-22 |
 
 
 Source for steps
@@ -20,3 +22,5 @@ Source for steps
 * https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html
 * ubuntu - https://www.pgadmin.org/download/pgadmin-4-apt/
 * Spring MVC - https://www.baeldung.com/spring-mvc-tutorial
+* Hibernate Mapping - https://thorben-janssen.com/ultimate-guide-association-mappings-jpa-hibernate/
+* https://thorben-janssen.com/entity-mappings-introduction-jpa-fetchtypes/

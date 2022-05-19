@@ -8,9 +8,9 @@ public class Application {
 
 	public static void main(String[] args) {
 
-		SpringApplication.run(Application.class, args);
-
 		System.out.println("Simulator for Autonomous Vehicle Tech Infrasture (AVTI)");
+
+		SpringApplication.run(Application.class, args);
 
 	}
 

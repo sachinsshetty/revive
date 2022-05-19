@@ -8,6 +8,8 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -24,8 +26,10 @@ public class Location {
 	@Column(name = "name", nullable = false)
 	private String name;
 
-//	private List<Stall> stalls;
-//	private CoOrdinate coordinate;
+	@OneToMany
+	private List<Stall> stalls;
+	@ManyToOne
+	private CoOrdinate coordinate;
 //
 //	public CoOrdinate getCoordinate() {
 //		return coordinate;
