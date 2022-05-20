@@ -40,6 +40,11 @@ dependencies {
    compile "org.springframework.boot:spring-boot-starter-web:1.5.9.RELEASE"
    compile "org.springframework.boot:spring-boot-starter-data-jpa:1.5.9.RELEASE"
    compile "org.springframework.boot:spring-boot-starter-cache:1.5.9.RELEASE"
+   compile "org.springframework.boot:spring-boot-starter-security:1.5.9.RELEASE"
+   compile "org.springframework.boot:spring-boot-starter-thymeleaf:1.5.9.RELEASE"
+   compile "org.springframework.boot:spring-boot-starter-test:1.5.9.RELEASE"
+   compile "io.rest-assured:rest-assured"
+   compile "javax.servlet:javax.servlet-api:4.0.0"
    runtimeOnly 'org.postgresql:postgresql'
 
 }

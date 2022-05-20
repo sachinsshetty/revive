@@ -7,6 +7,9 @@
 |3.| Update to SpringMVC | Done | 19-May-22|
 |4.| Hibernate Map Object | Done | 20-May-22|
 |5.| Simple UI - Display All Table Info | WIP | 20-May-22 |
+|6.| Setup Test Unit  | | |
+|7.| Setup Code Coverage | |
+|8 | Exception Handling | || 
 
 
 Source for steps
@@ -24,3 +27,13 @@ Source for steps
 * Spring MVC - https://www.baeldung.com/spring-mvc-tutorial
 * Hibernate Mapping - https://thorben-janssen.com/ultimate-guide-association-mappings-jpa-hibernate/
 * https://thorben-janssen.com/entity-mappings-introduction-jpa-fetchtypes/
+* https://www.baeldung.com/hibernate-query-to-custom-class
+* baeldung - https://github.com/eugenp/tutorials/tree/master/spring-boot-modules/
+* sprint boot bootstrap - https://github.com/eugenp/tutorials/tree/master/spring-boot-modules/spring-boot-bootstrap
+* https://www.baeldung.com/spring-boot-start
+
+* Test Case Setup
+	* https://github.com/eugenp/tutorials/blob/master/spring-boot-modules/spring-boot-bootstrap/src/test/java/com/baeldung/SpringBootBootstrapLiveTest.java
+
+* Exception handling
+	* https://github.com/eugenp/tutorials/blob/master/spring-boot-modules/spring-boot-bootstrap/src/main/java/com/baeldung/web/exception/BookIdMismatchException.java

@@ -15,14 +15,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import slabs.tech.avti.persistance.model.Driver;
 import slabs.tech.avti.persistance.repo.DriverRepository;
-
+import org.springframework.http.HttpStatus;
 
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/api/drivers")
 public class DriverController {
 
   @Autowired
@@ -33,7 +34,7 @@ public class DriverController {
    *
    * @return the list
    */
-  @GetMapping("/drivers")   // GET Method for reading operation
+  @GetMapping				   // GET Method for reading operation
 	public List<Driver> getAllDrivers() {
     return driverRepository.findAll();
   }
@@ -45,7 +46,7 @@ public class DriverController {
    * @return the drivers by id
    * @throws Exception
    */
-  @GetMapping("/drivers/{id}")    // GET Method for Read operation
+  @GetMapping("/{id}")    // GET Method for Read operation
   public ResponseEntity<Driver> getDriverById(@PathVariable(value = "id") Long driverId)
       throws Exception {
 
@@ -60,7 +61,8 @@ public class DriverController {
    * @param driver the driver
    * @return the driver
    */
-  @PostMapping("/drivers")     // POST Method for Create operation
+  @PostMapping   // POST Method for Create operation
+  @ResponseStatus(HttpStatus.CREATED)
   public Driver createDriver(@Valid @RequestBody Driver driver) {
     return driverRepository.save(driver);
   }
@@ -73,7 +75,7 @@ public class DriverController {
    * @return the response entity
    * @throws Exception
    */
-  @PutMapping("/drivers/{id}")    // PUT Method for Update operation
+  @PutMapping("/{id}")    // PUT Method for Update operation
   public ResponseEntity<Driver> updateDriver(
       @PathVariable(value = "id") Long driverId, @Valid @RequestBody Driver driverDetails)
       throws Exception {
@@ -95,7 +97,7 @@ public class DriverController {
    * @return the map of the deleted driver
    * @throws Exception the exception
    */
-  @DeleteMapping("/driver/{id}")    // DELETE Method for Delete operation
+  @DeleteMapping("/{id}")    // DELETE Method for Delete operation
   public Map<String, Boolean> deleteDriver(@PathVariable(value = "id") Long driverId) throws Exception {
     Driver driver = driverRepository.findById(driverId)
                 .orElseThrow(() -> new Exception("Driver " + driverId + " not found"));
