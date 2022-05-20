@@ -37,3 +37,5 @@ Source for steps
 
 * Exception handling
 	* https://github.com/eugenp/tutorials/blob/master/spring-boot-modules/spring-boot-bootstrap/src/main/java/com/baeldung/web/exception/BookIdMismatchException.java
+	https://www.baeldung.com/spring-5-junit-config
+* https://www.baeldung.com/junit-5-gradle

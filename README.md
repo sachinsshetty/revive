@@ -24,32 +24,32 @@
 
 *  Final Tech Stack (Proposed)
 
-  |Tech | Use Case |
-  |--|--|
-  | Java | . |
-  | Hibernate | . |
-  | PostgreSQL |  . |
-  | Gradle | . |
-  | SpringBoot, MVC |  |
-  | JUnit | . |
-  | git , Github Action | . |
-  | REST | . |
-  | Maven | . |
-  | Docker | . |
-  | Kubernetes | . |
-  | Jenkins | . |
-  | Micro Services | . |
-  | AWS | . |
-  | Message Bus| . |
-  | OAuth | . |
-  | Apache Kafka | . |
-  | Dashboard | . |
+  |Tech | Ver | Use Case |
+  |--|--|--|
+  | Java | 17  | . |
+  | Hibernate | . | . |
+  | PostgreSQL | 14 |   . |
+  | Gradle | 7.4.2 | . |
+  | SpringBoot, MVC | 2.7.0 | . |
+  | JUnit | 5 | . |
+  | git , Github Action | . | . |
+  | REST | . | . |
+  | Maven | . | . |
+  | Docker | . | . |
+  | Kubernetes | . |. |
+  | Jenkins | . |. |
+  | Micro Services | . |. |
+  | AWS | . |. |
+  | Message Bus| . |. |
+  | OAuth | . |. |
+  | Apache Kafka | . |. |
+  | Dashboard | . |. |
 
 * Release Version
 	* Current  
 		* 1.0
       * Tech Stack
-      
+
       |Tech | Status |
       |--|--|
       | Java | Done |
@@ -60,6 +60,7 @@
       | JUnit | Done |
       | git + Github Action | WIP |
       | REST | Done |
+
       * Entity
         * Vehicle , Driver , Stall, Payment
   * Released
