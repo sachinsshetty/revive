@@ -10,6 +10,7 @@
 |6.| Setup Test Unit  | | |
 |7.| Setup Code Coverage | |
 |8 | Exception Handling | || 
+|9 |Setup Docker - SpringBoot + PostgreSQL| | | 
 
 
 Source for steps
@@ -39,3 +40,9 @@ Source for steps
 	* https://github.com/eugenp/tutorials/blob/master/spring-boot-modules/spring-boot-bootstrap/src/main/java/com/baeldung/web/exception/BookIdMismatchException.java
 	https://www.baeldung.com/spring-5-junit-config
 * https://www.baeldung.com/junit-5-gradle
+* * postgres - ubuntu - https://www.tecmint.com/install-postgresql-and-pgadmin-in-ubuntu/
+* -- create database avti;
+* --  grant all privileges on database avti to postgres;
+* Docker 
+
+https://www.baeldung.com/spring-boot-postgresql-docker

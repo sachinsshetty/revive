@@ -15,38 +15,38 @@ repositories {
 	mavenCentral()
 }
 
-dependencies {
-	implementation 'org.springframework.boot:spring-boot-starter'
-
-
-   implementation "org.springframework.boot:spring-boot-starter-web"
-   implementation "org.springframework.boot:spring-boot-starter-data-jpa"
-   implementation "org.springframework.boot:spring-boot-starter-cache"
-   implementation "org.springframework.boot:spring-boot-starter-security"
-   implementation "org.springframework.boot:spring-boot-starter-thymeleaf"
-   implementation "org.springframework.boot:spring-boot-starter-validation"
-   	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
-   implementation "io.rest-assured:rest-assured"
-   implementation "javax.servlet:javax.servlet-api:4.0.0"
-   runtimeOnly 'org.postgresql:postgresql'
-
-   testImplementation "org.junit.jupiter:junit-jupiter-api"
-   testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
-   	testImplementation 'org.springframework.boot:spring-boot-starter-test'
-	testImplementation 'org.springframework.security:spring-security-test'
-
-
-}
-
 tasks.named('test') {
 	useJUnitPlatform()
 }
 
 springBoot {
-	mainClass = 'slabs.tech.avti.Server'
+	mainClass = 'slabs.tech.avti.Application'
 }
-
 
 tasks.named("bootRun") {
-	mainClass = 'slabs.tech.avti.Server'
+	mainClass = 'slabs.tech.avti.Application'
 }
+
+
+dependencies {
+
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation "org.springframework.boot:spring-boot-starter-web"
+	implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+	implementation "org.springframework.boot:spring-boot-starter-cache"
+	implementation "org.springframework.boot:spring-boot-starter-security"
+	implementation "org.springframework.boot:spring-boot-starter-thymeleaf"
+	implementation "org.springframework.boot:spring-boot-starter-validation"
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	implementation "io.rest-assured:rest-assured"
+	implementation "javax.servlet:javax.servlet-api:4.0.0"
+	
+	testImplementation "org.junit.jupiter:junit-jupiter-api"
+	testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	
+	runtimeOnly 'org.postgresql:postgresql'
+
+}
+
