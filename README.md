@@ -23,41 +23,43 @@
 
 
 *  Final Tech Stack (Proposed)
+
   |Tech | Use Case |
   |--|--|
-  | Java | |
-  | Hibernate | |
-  | PostgreSQL |  |
-  | Gradle |  |
-  | SpringBoot+MVC |  |
-  | JUnit | |
-  | git + Github Action |  |
-  | REST | |
-  | Maven | |
-  | Docker | |
-  | Kubernetes | |
-  | Jenkins | |
-  | Micro Services | |
-  | AWS | |
-  | Message Bus| |
-  | OAuth | |
-  | Apache Kafka | |
-  | Dashboard | |
+  | Java | . |
+  | Hibernate | . |
+  | PostgreSQL |  . |
+  | Gradle | . |
+  | SpringBoot, MVC |  |
+  | JUnit | . |
+  | git , Github Action | . |
+  | REST | . |
+  | Maven | . |
+  | Docker | . |
+  | Kubernetes | . |
+  | Jenkins | . |
+  | Micro Services | . |
+  | AWS | . |
+  | Message Bus| . |
+  | OAuth | . |
+  | Apache Kafka | . |
+  | Dashboard | . |
 
 * Release Version
 	* Current  
 		* 1.0
       * Tech Stack
+      
       |Tech | Status |
       |--|--|
       | Java | Done |
       | Hibernate | Done |
       | PostgreSQL | Done |
       | Gradle | Done |
-      | SpringBoot+MVC | WIP |
-      | JUnit | |
+      | SpringBoot+MVC | Done |
+      | JUnit | Done |
       | git + Github Action | WIP |
-      | REST | WIP |
+      | REST | Done |
       * Entity
         * Vehicle , Driver , Stall, Payment
   * Released
