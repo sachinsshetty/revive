@@ -18,15 +18,9 @@ public class Vehicle {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
+
 	@ManyToOne
 	private Driver driver;
-	
-	@ManyToOne
-	private Battery battery;
-	
-	@ManyToOne
-	private Autonomy autonomy;
 
 	public Driver getDriver() {
 		return driver;
@@ -36,19 +30,10 @@ public class Vehicle {
 		this.driver = driver;
 	}
 
-	public Battery getBattery() {
-		return battery;
-	}
-
-	public void setBattery(Battery battery) {
-		this.battery = battery;
-	}
-
-	public Vehicle(Driver driver, Battery battery, Autonomy autonomy) {
+	public Vehicle(Driver driver) {
 		super();
 		this.driver = driver;
-		this.battery = battery;
-		this.autonomy = autonomy;
+
 	}
 
 	@Override
@@ -75,12 +60,5 @@ public class Vehicle {
 		return super.toString();
 	}
 
-	public Autonomy getAutonomy() {
-		return autonomy;
-	}
-
-	public void setAutonomy(Autonomy autonomy) {
-		this.autonomy = autonomy;
-	}
 
 }

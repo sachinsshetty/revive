@@ -40,6 +40,11 @@
 
 * Note : Use the docker-compose.yml directly to run the Application, required base images are available at https://hub.docker.com
 
+* Docker Images
+  * avti-app : openjdk:17-alpine :  229 Mb
+  * avti-db : postgres:alpine3.15 : 80.7 Mb
+    * Reduce java docker by using jre instead of jdk, it will save spaces. Create script which generates required customer jre.
+
 * Prerequisites :
   * Install PostgreSQL
   * Install Postman desktop

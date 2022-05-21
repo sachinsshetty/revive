@@ -46,3 +46,6 @@ Source for steps
 * Docker 
 
 https://www.baeldung.com/spring-boot-postgresql-docker
+* docker reduce . https://medium.com/@ievgen.degtiarenko/reduce-size-of-docker-image-with-spring-boot-application-2b3632263350
+* recuing jre sizw - https://www.baeldung.com/jlink
+* https://hub.docker.com/r/bellsoft/liberica-openjdk-alpine
