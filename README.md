@@ -2,10 +2,18 @@
 
 * Simulation for Autonomous Vehicle Tech Infrastructure (AVTI)
 
+* Learnings from the project available at [Wiki](https://github.com/sachinsshetty/revive/blob/main/doc/wiki.md)
+
+* Implement the MVP in the design document [System Design](https://github.com/sachinsshetty/revive/blob/main/doc/system_design.md). Mock with interfaces all the extra features.
+
+* Release notes for versions available at [Releases](https://github.com/sachinsshetty/revive/blob/main/doc/release.md)
+
 * Currently deployed and tested at
   * Local Machine
     * Windows 10
     * Ubuntu 22
+  * Docker
+    * Ubuntu
 
 * Steps
   * Docker
@@ -52,25 +60,25 @@
 *  Final Tech Stack (Proposed)
 
   |Tech | Ver | Use Case |
-  |--|--|--|
-  | Java | 17  | . |
-  | Hibernate | . | . |
-  | PostgreSQL | 14 |   . |
-  | Gradle | 7.4.2 | . |
-  | SpringBoot, MVC | 2.7.0 | . |
-  | JUnit | 5 | . |
-  | git , Github Action | . | . |
-  | REST | . | . |
-  | Maven | . | . |
-  | Docker | 20 | . |
-  | Kubernetes | . |. |
-  | Jenkins | . |. |
-  | Micro Services | . |. |
-  | AWS | . |. |
-  | Message Bus| . |. |
-  | OAuth | . |. |
-  | Apache Kafka | . |. |
-  | Dashboard | . |. |
+  |---|---|---|
+  | Java | 17  | -- |
+  | Hibernate | -- | -- |
+  | PostgreSQL | 14 | -- |
+  | Gradle | 7.4.2 | Compile Code |
+  | SpringBoot, MVC | 2.7.0 | Design Pattern |
+  | JUnit | 5 | Unit/Integration Test |
+  | git , Github Action | Version Control, CI/CD | -- |
+  | REST | -- | -- |
+  | Maven | -- | -- |
+  | Docker | 20 | micro service deployment |
+  | Kubernetes | -- | container orchestration |
+  | Jenkins | -- | -- |
+  | Micro Services | -- | -- |
+  | AWS | -- | -- |
+  | Message Bus| -- |-- |
+  | OAuth | -- | -- |
+  | Apache Kafka | -- | -- |
+  | Dashboard | -- | -- |
 
 * Release Version
 	* Current  
@@ -78,7 +86,7 @@
       * Tech Stack
 
       |Tech | Status |
-      |--|--|
+      |---|---|
       | Java | Done |
       | Hibernate | Done |
       | PostgreSQL | Done |
@@ -99,8 +107,3 @@
   * PostManAPi : Post : http://localhost:8080/avti/api/drivers
       Headers -> Content-Type : application/json
 	    Body : raw :  : { "name" : "driverName" }
-
-
-* Implement the MVP in the design document (repo/doc/system_design.md). Mock with interfaces all the extra features.
-
-* Release notes for versions available at (repo/doc/release.md)
