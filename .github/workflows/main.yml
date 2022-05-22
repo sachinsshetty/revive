@@ -16,9 +16,11 @@ jobs:
 
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
+      with:
+        arguments: build --scan
 
-    - name: Execute Gradle build
-      run: ./gradlew build --no-daemon
+#    - name: Execute Gradle build
+#      run: ./gradlew build --no-daemon
 
 
 #

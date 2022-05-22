@@ -1,5 +1,7 @@
 # revive
 
+![Build](https://github.com/sachinsshetty/revive/actions/workflows/main.yml/badge.svg) ![CodeQL](https://github.com/sachinsshetty/revive/actions/workflows/codeql-analysis.yml/badge.svg) 
+
 * Simulation for Autonomous Vehicle Tech Infrastructure (AVTI)
 
 * Learnings from the project available at [Wiki](https://github.com/sachinsshetty/revive/blob/main/doc/wiki.md)
