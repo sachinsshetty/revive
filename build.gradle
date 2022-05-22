@@ -40,13 +40,17 @@ dependencies {
 	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
 	implementation "io.rest-assured:rest-assured"
 	implementation "javax.servlet:javax.servlet-api:4.0.0"
-	
+
 	testImplementation "org.junit.jupiter:junit-jupiter-api"
 	testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.springframework.security:spring-security-test'
-	
+
 	runtimeOnly 'org.postgresql:postgresql'
 
 }
 
+//buildScan {
+//    termsOfServiceUrl = 'https://gradle.com/terms-of-service'
+//    termsOfServiceAgree = 'yes'
+//}
