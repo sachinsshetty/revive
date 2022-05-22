@@ -1,20 +1,15 @@
 package slabs.tech.avti;
 
 import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
-import static org.apache.commons.lang3.RandomStringUtils.randomNumeric;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import java.util.List;
-
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
-import slabs.tech.avti.persistance.model.Driver;
-
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import slabs.tech.avti.persistance.model.Driver;
 
 public class DriverTest {
 

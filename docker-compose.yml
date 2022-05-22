@@ -1,0 +1,20 @@
+services:
+  app:
+    image: 'docker-avti-java'
+    build:
+      context: .
+    container_name: app
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/avti_db
+      - SPRING_DATASOURCE_USERNAME=avti_db
+      - SPRING_DATASOURCE_PASSWORD=avti_db
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+
+  db:
+    image: 'docker-avti-db'
+    container_name: db
+    environment:
+      - POSTGRES_USER=avti_db
+      - POSTGRES_PASSWORD=avti_db

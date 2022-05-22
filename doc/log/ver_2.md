@@ -10,6 +10,7 @@
 |6.| Setup Test Unit  | | |
 |7.| Setup Code Coverage | |
 |8 | Exception Handling | || 
+|9 |Setup Docker - SpringBoot + PostgreSQL| | | 
 
 
 Source for steps
@@ -37,3 +38,24 @@ Source for steps
 
 * Exception handling
 	* https://github.com/eugenp/tutorials/blob/master/spring-boot-modules/spring-boot-bootstrap/src/main/java/com/baeldung/web/exception/BookIdMismatchException.java
+	https://www.baeldung.com/spring-5-junit-config
+* https://www.baeldung.com/junit-5-gradle
+* * postgres - ubuntu - https://www.tecmint.com/install-postgresql-and-pgadmin-in-ubuntu/
+* -- create database avti;
+* --  grant all privileges on database avti to postgres;
+* Docker 
+
+https://www.baeldung.com/spring-boot-postgresql-docker
+* docker reduce . https://medium.com/@ievgen.degtiarenko/reduce-size-of-docker-image-with-spring-boot-application-2b3632263350
+* recuing jre sizw - https://www.baeldung.com/jlink
+* https://hub.docker.com/r/bellsoft/liberica-openjdk-alpine
+
+
+* Spring MVC
+	* https://www.learn-it-with-examples.com/development/java/thymeleaf/display-database-table-java-thymeleaf.html
+	* https://www.codementor.io/@olebueziobinnadavid/setting-up-and-displaying-a-list-of-objects-in-a-table-thymeleaf-1cifoviz5e
+	
+	https://bushansirgur.in/spring-boot-thymeleaf-display-list-of-records-from-database/
+	https://spring.io/guides/gs/serving-web-content/
+	
+	https://frontbackend.com/thymeleaf/spring-boot-bootstrap-thymeleaf-datatable

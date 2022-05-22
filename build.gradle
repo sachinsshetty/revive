@@ -1,50 +1,52 @@
-buildscript {
-    repositories {
-        jcenter()
-    }
-    dependencies {
-        classpath 'org.springframework.boot:spring-boot-gradle-plugin:2.0.0.BUILD-SNAPSHOT'
-    }
-}
-
 plugins {
-	id 'org.springframework.boot' version '2.6.7'
+	id 'org.springframework.boot' version '2.7.0'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'eclipse'
 }
 
+archivesBaseName = 'revive'
 
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: 'io.spring.dependency-management'
-apply plugin: 'org.springframework.boot'
-
-
-archivesBaseName = 'reviveJar'
-version = '1.0-SNAPSHOT'
+group = 'slabs.tech.avti'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '17'
 
 repositories {
-    mavenCentral()
+	mavenCentral()
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
 }
 
 springBoot {
-	mainClass = 'slabs.tech.avti.Server'
+	mainClass = 'slabs.tech.avti.Application'
 }
 
-
 tasks.named("bootRun") {
-	mainClass = 'slabs.tech.avti.Server'
+	mainClass = 'slabs.tech.avti.Application'
 }
 
 
 dependencies {
 
-   compile "org.springframework.boot:spring-boot-starter-web:1.5.9.RELEASE"
-   compile "org.springframework.boot:spring-boot-starter-data-jpa:1.5.9.RELEASE"
-   compile "org.springframework.boot:spring-boot-starter-cache:1.5.9.RELEASE"
-   compile "org.springframework.boot:spring-boot-starter-security:1.5.9.RELEASE"
-   compile "org.springframework.boot:spring-boot-starter-thymeleaf:1.5.9.RELEASE"
-   compile "org.springframework.boot:spring-boot-starter-test:1.5.9.RELEASE"
-   compile "io.rest-assured:rest-assured"
-   compile "javax.servlet:javax.servlet-api:4.0.0"
-   runtimeOnly 'org.postgresql:postgresql'
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation "org.springframework.boot:spring-boot-starter-web"
+	implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+	implementation "org.springframework.boot:spring-boot-starter-cache"
+	implementation "org.springframework.boot:spring-boot-starter-security"
+	implementation "org.springframework.boot:spring-boot-starter-thymeleaf"
+	implementation "org.springframework.boot:spring-boot-starter-validation"
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+	implementation "io.rest-assured:rest-assured"
+	implementation "javax.servlet:javax.servlet-api:4.0.0"
+	
+	testImplementation "org.junit.jupiter:junit-jupiter-api"
+	testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'org.springframework.security:spring-security-test'
+	
+	runtimeOnly 'org.postgresql:postgresql'
 
 }
+
