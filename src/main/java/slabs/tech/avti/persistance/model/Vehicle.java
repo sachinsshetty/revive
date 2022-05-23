@@ -1,7 +1,5 @@
 package slabs.tech.avti.persistance.model;
 
-import java.util.Objects;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
@@ -60,29 +58,6 @@ public class Vehicle {
 
 	public void setStatus(Boolean status) {
 		this.status = status;
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, reg_no, status, user_name);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Vehicle other = (Vehicle) obj;
-		return id == other.id && Objects.equals(reg_no, other.reg_no) && Objects.equals(status, other.status)
-				&& Objects.equals(user_name, other.user_name);
-	}
-
-	@Override
-	public String toString() {
-		return "Vehicle [id=" + id + ", user_name=" + user_name + ", reg_no=" + reg_no + ", status=" + status + "]";
 	}
 
 }

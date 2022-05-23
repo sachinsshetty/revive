@@ -1,7 +1,5 @@
 package slabs.tech.avti.persistance.model;
 
-import java.util.Objects;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
@@ -62,29 +60,4 @@ public class Stall {
 		this.longitude = longitude;
 	}
 
-	@Override
-	public String toString() {
-		return "Stall [id=" + id + ", user_name=" + user_name + ", latitude=" + latitude + ", longitude=" + longitude
-				+ "]";
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, latitude, longitude, user_name);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Stall other = (Stall) obj;
-		return id == other.id && Double.doubleToLongBits(latitude) == Double.doubleToLongBits(other.latitude)
-				&& Objects.equals(longitude, other.longitude) && Objects.equals(user_name, other.user_name);
-	}
-
-	
 }

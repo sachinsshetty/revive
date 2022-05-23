@@ -1,7 +1,5 @@
 package slabs.tech.avti.persistance.model;
 
-import java.util.Objects;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
@@ -9,6 +7,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
@@ -68,33 +67,5 @@ public class Driver {
 		this.id = id;
 	}
 
-	@Override
-	public int hashCode() {
-		return Objects.hash(first_name, id, last_name, status, user_name);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Driver other = (Driver) obj;
-		return Objects.equals(first_name, other.first_name) && id == other.id
-				&& Objects.equals(last_name, other.last_name) && Objects.equals(status, other.status)
-				&& Objects.equals(user_name, other.user_name);
-	}
-
-	public void setStatus(Boolean status) {
-		this.status = status;
-	}
-
-	@Override
-	public String toString() {
-		return "Driver [id=" + id + ", user_name=" + user_name + ", first_name=" + first_name + ", last_name="
-				+ last_name + ", status=" + status + "]";
-	}
 
 }
