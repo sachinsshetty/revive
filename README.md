@@ -1,109 +1,70 @@
 # revive
 
-* Simulation for Autonomous Vehicle Tech Infrastructure (AVTI)
+![Build](https://github.com/sachinsshetty/revive/actions/workflows/main.yml/badge.svg) ![CodeQL](https://github.com/sachinsshetty/revive/actions/workflows/codeql-analysis.yml/badge.svg)
 
-* Learnings from the project available at [Wiki](https://github.com/sachinsshetty/revive/blob/main/doc/wiki.md)
+* Micro-service library for Autonomous Vehicle Tech Infrastructure (AVTI)
 
-* Implement the MVP in the design document [System Design](https://github.com/sachinsshetty/revive/blob/main/doc/system_design.md). Mock with interfaces all the extra features.
+#### Important Links
 
-* Release notes for versions available at [Releases](https://github.com/sachinsshetty/revive/blob/main/doc/release.md)
+| Description | Document |
+|---|---|
+|Learnings from the project available at [wiki.md](https://github.com/sachinsshetty/revive/blob/main/doc/wiki.md)|[wiki.md](https://github.com/sachinsshetty/revive/blob/main/doc/wiki.md)|
+|Implement the MVP in the design document [system_design.md](https://github.com/sachinsshetty/revive/blob/main/doc/system_design.md)|[system_design.md](https://github.com/sachinsshetty/revive/blob/main/doc/system_design.md)|
+|Build steps maintained at the document [build.md](https://github.com/sachinsshetty/revive/blob/main/doc/build.md)|[build.md](https://github.com/sachinsshetty/revive/blob/main/doc/build.md)|
+|Release notes for versions available at [release.md](https://github.com/sachinsshetty/revive/blob/main/doc/release.md)|[release.md](https://github.com/sachinsshetty/revive/blob/main/doc/release.md)|
 
-* Currently deployed and tested at
-  * Local Machine
-    * Windows 10
-    * Ubuntu 22
-  * Docker
-    * Ubuntu
+#### Deployment
 
-* Steps
-  * Docker
-    * Build Steps
-      * In the base directory , Execute in terminal 'gradle wrapper'
-      * Execute './gradlew bootJar -x test'
-        * This step creates an executable jar in build/libs
+| Environment | Status | Release Version |
+|---|---|---|
+| Local Machine - Windows 10 | Done | 1.0 |
+| Local Machine - Ubuntu | Done | 1.0 |
+| Docker - alpine-linux | Done | 1.0 |
 
-      * In the src/main/docker/java directory
-        * Copy the generated jar to the current directory.
-        * Execute the command "docker build -t docker-avti-java ."
-      * In the src/main/docker/db directory
-        * Execute the command "docker build -t docker-avti-db ."
+##### Build Status - Java version
 
-    * Execution Step
-      * In the base directory, Execute in terminal "docker-compose up"
-      * Use the command 'docker inspect JavaAppcontainerID' to find ip of the docker instance.
-      * Access the Application with link "DockerIp:8080"
+| JDK | 11 | 17 | 18 |
+|---|---|---|---|
+| ubuntu-latest | Pass | Pass | Pass |
+| windows-latest | Pass | Pass | Pass |
+| macOS-latest | Pass | Pass | Pass |
 
-  * Standalone
-    * Build Steps
-      * Execute in terminal 'gradle wrapper'
-      * Execute './gradlew bootJar'
-        * This step creates an executable jar in build/libs
+* Source - [Github Actions](https://github.com/sachinsshetty/revive/actions/workflows/main.yml)
 
-    * Execution Steps
-      * Execute in base directory './gradlew bootRun'
-        * This runs the latest code directly
-      * Execute in build/libs directory 'java -jar reviveJar-1.0-SNAPSHOT.jar'
-        * This runs the jar file created from the build step.
-      * Access the Application with link "localhost:8080"
+###### Docker Images
 
-* Note : Use the docker-compose.yml directly to run the Application, required base images are available at https://hub.docker.com
+| Docker Image | Tagname | Size(Mb) | Version |
+|---|---|---|---|
+| App | [slabstech/avti-app](https://hub.docker.com/r/slabstech/avti-app) | 229 | 1 |
+| DB | [slabstech/avti-db](https://hub.docker.com/r/slabstech/avti-db) | 80.7 | 1 |
 
-* Docker Images
-  * avti-app : openjdk:17-alpine :  229 Mb
-  * avti-db : postgres:alpine3.15 : 80.7 Mb
+#### Tech Stack
+
+  |Tech | Version | Status | Use Case | App Version |
+  |---|---|---|---|---|
+  | Java | 17 JPA | WIP |-- | 1.0 |
+  | Hibernate | -- | Done |-- | 1.0 |
+  | PostgreSQL | 14 | Done |-- | 1.0 |
+  | Gradle | 7.4.2 | Done | Compile code build tool | 1.0 |
+  | SpringBoot, MVC | 2.7.0 | Design Pattern |-- | 1.0 |
+  | JUnit | 5 | Done | Unit/Integration Test | 1.0 |
+  | git , Github Action | -- | Done | Version Control, CI/CD | 1.0|
+  | Docker | 20 | Done | micro service deployment | 1.0 |
+  | REST | -- | -- |-- | 1.0 |
+  | Maven | -- | -- |-- |-- |
+  | Kubernetes | -- | -- | -- |-- |
+  | Jenkins | -- | -- |-- |-- |
+  | Micro Services | -- | -- |-- |-- |
+  | AWS | -- | -- |-- |-- |
+  | Message Bus| -- |-- |-- |-- |
+  | OAuth | -- | -- |-- |-- |
+  | Apache Kafka | -- | -- |-- |-- |
+  | Dashboard | -- | -- |-- |-- |
+
+* Services
+  * Vehicle , Driver , Stall, Payment
+
+
+  * TODO :  
     * Reduce java docker by using jre instead of jdk, it will save spaces. Create script which generates required customer jre.
-
-* Prerequisites :
-  * Install PostgreSQL
-  * Install Postman desktop
-
-*  Final Tech Stack (Proposed)
-
-  |Tech | Ver | Use Case |
-  |---|---|---|
-  | Java | 17  | -- |
-  | Hibernate | -- | -- |
-  | PostgreSQL | 14 | -- |
-  | Gradle | 7.4.2 | Compile Code |
-  | SpringBoot, MVC | 2.7.0 | Design Pattern |
-  | JUnit | 5 | Unit/Integration Test |
-  | git , Github Action | Version Control, CI/CD | -- |
-  | REST | -- | -- |
-  | Maven | -- | -- |
-  | Docker | 20 | micro service deployment |
-  | Kubernetes | -- | container orchestration |
-  | Jenkins | -- | -- |
-  | Micro Services | -- | -- |
-  | AWS | -- | -- |
-  | Message Bus| -- |-- |
-  | OAuth | -- | -- |
-  | Apache Kafka | -- | -- |
-  | Dashboard | -- | -- |
-
-* Release Version
-	* Current  
-		* 1.0
-      * Tech Stack
-
-      |Tech | Status |
-      |---|---|
-      | Java | Done |
-      | Hibernate | Done |
-      | PostgreSQL | Done |
-      | Gradle | Done |
-      | SpringBoot+MVC | Done |
-      | JUnit | Done |
-      | git + Github Action | WIP |
-      | REST | Done |
-      | Docker | Done |
-
-      * Entity
-        * Vehicle , Driver , Stall, Payment
-  * Released
-
-
-* Sample Entry into PostgreSQL DB
-  * Curl command :
-  * PostManAPi : Post : http://localhost:8080/avti/api/drivers
-      Headers -> Content-Type : application/json
-	    Body : raw :  : { "name" : "driverName" }
+    * Use the docker-compose.yml directly to run the Application, required base images are available at https://hub.docker.com

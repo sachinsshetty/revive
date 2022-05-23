@@ -1,3 +1,5 @@
+# WIKI
+
 * Java
   * Use jdeps and jlink to create custom jre customised to application requirements. Reduce the docker images as jre in 17 is officially not released .
     * use bellsoft jre to temporarily test builds for java 17 jre.

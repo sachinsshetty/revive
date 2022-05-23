@@ -19,7 +19,13 @@ public class Payment {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
 
-	@Column(name = "usage_time", nullable = false)
-	private long usageTime;
+	@Column(name = "user_name", nullable = false, unique = true)
+	private String user_name;
+	
+	@Column(name = "gateway", nullable = false)
+	private String gateway;
+
+	@Column(name = "balance", nullable = false)
+	private double balance;
 
 }

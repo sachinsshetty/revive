@@ -1,5 +1,6 @@
 package slabs.tech.avti.persistance.model;
 
+import java.util.Objects;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,13 +16,49 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class Driver {
 
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-	
-	@Column(name = "name", nullable = false)
-	private String name;
+
+	@Column(name = "user_name", nullable = false, unique = true)
+	private String user_name;
+
+	@Column(name = "first_name", nullable = false)
+	private String first_name;
+
+	@Column(name = "last_name")
+	private String last_name;
+
+	@Column(name = "status", nullable = false)
+	private Boolean status;
+
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+	public String getFirst_name() {
+		return first_name;
+	}
+
+	public void setFirst_name(String first_name) {
+		this.first_name = first_name;
+	}
+
+	public String getLast_name() {
+		return last_name;
+	}
+
+	public void setLast_name(String last_name) {
+		this.last_name = last_name;
+	}
+
+	public Boolean getStatus() {
+		return status;
+	}
 
 	public long getId() {
 		return id;
@@ -31,38 +68,33 @@ public class Driver {
 		this.id = id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public void setName(String name) {
-		this.name = name;
-	}
-
 	@Override
 	public int hashCode() {
-		// TODO Auto-generated method stub
-		return super.hashCode();
+		return Objects.hash(first_name, id, last_name, status, user_name);
 	}
 
 	@Override
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
-		return super.equals(obj);
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Driver other = (Driver) obj;
+		return Objects.equals(first_name, other.first_name) && id == other.id
+				&& Objects.equals(last_name, other.last_name) && Objects.equals(status, other.status)
+				&& Objects.equals(user_name, other.user_name);
 	}
 
-	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		// TODO Auto-generated method stub
-		return super.clone();
+	public void setStatus(Boolean status) {
+		this.status = status;
 	}
 
 	@Override
 	public String toString() {
-		// TODO Auto-generated method stub
-		String driverString = " ID - " + getId() + " , Name - " + getName();
-		return driverString;
+		return "Driver [id=" + id + ", user_name=" + user_name + ", first_name=" + first_name + ", last_name="
+				+ last_name + ", status=" + status + "]";
 	}
-
 
 }
