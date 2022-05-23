@@ -1,6 +1,6 @@
 # revive
 
-![Build](https://github.com/sachinsshetty/revive/actions/workflows/main.yml/badge.svg) ![CodeQL](https://github.com/sachinsshetty/revive/actions/workflows/codeql-analysis.yml/badge.svg) 
+![Build](https://github.com/sachinsshetty/revive/actions/workflows/main.yml/badge.svg) ![CodeQL](https://github.com/sachinsshetty/revive/actions/workflows/codeql-analysis.yml/badge.svg)
 
 * Simulation for Autonomous Vehicle Tech Infrastructure (AVTI)
 
@@ -16,6 +16,17 @@
     * Ubuntu 22
   * Docker
     * Ubuntu
+* Build Status - Java version
+|OS | 11 | 17 | 18 |
+|---|---|---|---|
+| Ubuntu | Pass | Pass | Pass |
+| Ubuntu | Pass | Pass | Pass |
+| Ubuntu | Pass | Pass | Pass |
+
+ Java Version
+  * Ubuntu - 11 : Pass , 17 : Pass, 18 : Pass
+  * Windows - 11 : Pass , 17 : Pass, 18 : Pass
+  * MacOs - 11 : Pass , 17 : Pass, 18 : Pass
 
 * Steps
   * Docker
