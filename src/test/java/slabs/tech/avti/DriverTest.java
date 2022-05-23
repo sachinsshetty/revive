@@ -116,7 +116,7 @@ public class DriverTest {
 
     private Driver createRandomDriver() {
         final Driver driver = new Driver();
-        driver.setName(randomAlphabetic(10));
+        driver.setFirst_name(randomAlphabetic(10));
         return driver;
     }
 
