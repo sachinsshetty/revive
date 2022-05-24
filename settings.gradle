@@ -1,2 +1,3 @@
-rootProject.name = ‘revive’
-include ‘:Frontend’, ‘:Backend’
+rootProject.name = 'revive'
+include ("frontend")
+include ("backend")
