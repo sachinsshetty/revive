@@ -46,8 +46,8 @@ Source for steps
 	* https://www.baeldung.com/junit-5-gradle
 * postgres
 	* ubuntu - https://www.tecmint.com/install-postgresql-and-pgadmin-in-ubuntu/
-	* create database avti;
-	* grant all privileges on database avti to postgres;
+	* create database avti_db;
+	* grant all privileges on database avti_db to avti_db;
 
 * Docker
 	* https://www.baeldung.com/spring-boot-postgresql-docker

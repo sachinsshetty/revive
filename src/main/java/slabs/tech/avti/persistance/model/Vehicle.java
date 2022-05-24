@@ -41,4 +41,28 @@ public class Vehicle {
 		this.id = id;
 	}
 
+	public String getUser_name() {
+		return user_name;
+	}
+
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
+	}
+
+	public String getReg_no() {
+		return reg_no;
+	}
+
+	public void setReg_no(String reg_no) {
+		this.reg_no = reg_no;
+	}
+
+	public Boolean getStatus() {
+		return status;
+	}
+
+	public void setStatus(Boolean status) {
+		this.status = status;
+	}
+
 }
