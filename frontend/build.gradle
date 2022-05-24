@@ -1,4 +1,3 @@
-
 buildscript {
     repositories {
         mavenCentral()
@@ -7,15 +6,13 @@ buildscript {
         }
     }
 
-
-}
-
-plugins {
-  id "com.github.node-gradle.node" version "3.1.1"
+    dependencies {
+        classpath 'com.moowork.gradle:gradle-node-plugin:1.2.0'
+    }
 }
 
 apply plugin: 'base'
-apply plugin: 'com.github.node-gradle.node' // gradle-node-plugin
+apply plugin: 'com.moowork.node' // gradle-node-plugin
 node {
     /* gradle-node-plugin configuration
        https://github.com/srs/gradle-node-plugin/blob/master/docs/node.md
@@ -24,7 +21,7 @@ node {
     */
 
     // Version of node to use.
-    version = '16.5.0'
+    version = '16.5.1'
 
     // Version of npm to use.
     npmVersion = '8.5.5'
@@ -76,9 +73,30 @@ artifacts {
 
 assemble.dependsOn packageNpmApp
 
+String testsExecutedMarkerName = "${projectDir}/.tests.executed"
 
+task test(type: NpmTask) {
+    dependsOn assemble
+
+    // force Jest test runner to execute tests once and finish the process instead of starting watch mode
+    environment CI: 'true'
+
+    args = ['run', 'test']
+    
+    inputs.files fileTree('src')
+    inputs.file 'package.json'
+    inputs.file 'package-lock.json'
+
+    // allows easy triggering re-tests
+    doLast {
+        new File(testsExecutedMarkerName).text = 'delete this file to force re-execution JavaScript tests'
+    }
+    outputs.file testsExecutedMarkerName
+}
+
+check.dependsOn test
 
 clean {
     delete packageNpmApp.archivePath
-
+    delete testsExecutedMarkerName
 }
