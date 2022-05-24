@@ -6,6 +6,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -16,7 +17,9 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class Driver {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "driver_generator")
+	@SequenceGenerator(name = "driver_generator", sequenceName = "driver_id_seq", allocationSize = 1)
+	@Column(name = "id", updatable = false, nullable = false)
 	private long id;
 
 	@Column(name = "user_name", nullable = false, unique = true)
@@ -66,6 +69,5 @@ public class Driver {
 	public void setId(long id) {
 		this.id = id;
 	}
-
 
 }
