@@ -13,6 +13,14 @@
 |Build steps maintained at the document [build.md](https://github.com/sachinsshetty/revive/blob/main/doc/build.md)|[build.md](https://github.com/sachinsshetty/revive/blob/main/doc/build.md)|
 |Release notes for versions available at [release.md](https://github.com/sachinsshetty/revive/blob/main/doc/release.md)|[release.md](https://github.com/sachinsshetty/revive/blob/main/doc/release.md)|
 
+#### Releases
+
+| Version | Function | Status |
+|---|---|---|
+| 1.0 | App / DB Microservice, Dashboard | WIP |
+| 2.0 | DB, App-Microservice split into 4 entities, OAuth |  TBD |
+| 3.0 | Kafka processing| TBD |
+
 #### Deployment
 
 | Environment | Status | Release Version |

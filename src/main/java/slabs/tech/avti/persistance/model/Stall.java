@@ -1,5 +1,7 @@
 package slabs.tech.avti.persistance.model;
 
+import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
@@ -29,7 +31,7 @@ public class Stall {
 	private double latitude;
 
 	@Column(name = "longitude", nullable = false, unique = true)
-	private String longitude;
+	private double longitude;
 
 	public long getId() {
 		return id;
@@ -49,18 +51,8 @@ public class Stall {
 
 	public double getLatitude() {
 		return latitude;
+
 	}
 
-	public void setLatitude(double latitude) {
-		this.latitude = latitude;
-	}
-
-	public String getLongitude() {
-		return longitude;
-	}
-
-	public void setLongitude(String longitude) {
-		this.longitude = longitude;
-	}
-
+	
 }

@@ -6,7 +6,9 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
 import javax.persistence.SequenceGenerator;
+
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -16,10 +18,11 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class Configuration {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "configuration_generator")
-    @SequenceGenerator(name="configuration_generator", sequenceName = "configuration_id_seq", allocationSize = 1)
-    @Column(name = "id", updatable = false, nullable = false)
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "configuration_generator")
+  @SequenceGenerator(name="configuration_generator", sequenceName = "configuration_id_seq", allocationSize = 1)
+  @Column(name = "id", updatable = false, nullable = false)
 	private long id;
 
 	@Column(name = "key", nullable = false, unique = true)
