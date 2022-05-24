@@ -8,6 +8,7 @@ import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -18,7 +19,9 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 public class Stall {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "stall_generator")
+	@SequenceGenerator(name = "stall_generator", sequenceName = "stall_id_seq", allocationSize = 1)
+	@Column(name = "id", updatable = false, nullable = false)
 	private long id;
 
 	@Column(name = "user_name", nullable = false, unique = true)
@@ -28,7 +31,7 @@ public class Stall {
 	private double latitude;
 
 	@Column(name = "longitude", nullable = false, unique = true)
-	private String longitude;
+	private double longitude;
 
 	public long getId() {
 		return id;
@@ -48,42 +51,7 @@ public class Stall {
 
 	public double getLatitude() {
 		return latitude;
-	}
 
-	public void setLatitude(double latitude) {
-		this.latitude = latitude;
-	}
-
-	public String getLongitude() {
-		return longitude;
-	}
-
-	public void setLongitude(String longitude) {
-		this.longitude = longitude;
-	}
-
-	@Override
-	public String toString() {
-		return "Stall [id=" + id + ", user_name=" + user_name + ", latitude=" + latitude + ", longitude=" + longitude
-				+ "]";
-	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, latitude, longitude, user_name);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Stall other = (Stall) obj;
-		return id == other.id && Double.doubleToLongBits(latitude) == Double.doubleToLongBits(other.latitude)
-				&& Objects.equals(longitude, other.longitude) && Objects.equals(user_name, other.user_name);
 	}
 
 	

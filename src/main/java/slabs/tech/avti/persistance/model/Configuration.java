@@ -1,13 +1,14 @@
 package slabs.tech.avti.persistance.model;
 
-import java.util.Objects;
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+
+import javax.persistence.SequenceGenerator;
+
 import javax.persistence.Table;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
@@ -17,8 +18,11 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @EntityListeners(AuditingEntityListener.class)
 public class Configuration {
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "configuration_generator")
+  @SequenceGenerator(name="configuration_generator", sequenceName = "configuration_id_seq", allocationSize = 1)
+  @Column(name = "id", updatable = false, nullable = false)
 	private long id;
 
 	@Column(name = "key", nullable = false, unique = true)
@@ -72,36 +76,6 @@ public class Configuration {
 
 	public void setVersion(int version) {
 		this.version = version;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Configuration other = (Configuration) obj;
-		return id == other.id && Objects.equals(key, other.key) && Objects.equals(status, other.status)
-				&& Objects.equals(value, other.value) && version == other.version;
-	}
-
-	@Override
-	protected Object clone() throws CloneNotSupportedException {
-		// TODO Auto-generated method stub
-		return super.clone();
-	}
-	
-	@Override
-	public int hashCode() {
-		return Objects.hash(id, key, status, value, version);
-	}
-
-	@Override
-	public String toString() {
-		return "Configuration [id=" + id + ", key=" + key + ", value=" + value + ", status=" + status + ", version="
-				+ version + "]";
 	}
 
 

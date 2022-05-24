@@ -6,14 +6,17 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-public class SimpleController {
+public class HomePageController {
 
     @Value("${spring.application.name}")
     String appName;
-
+   
     @RequestMapping("/")
     public String homePage(Model model) {
         model.addAttribute("appName", appName);
+        
+        model.addAttribute("serviceNames", "App.DB");
+        
         return "home";
     }
 }
