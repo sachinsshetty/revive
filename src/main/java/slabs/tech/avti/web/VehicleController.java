@@ -17,7 +17,7 @@ import slabs.tech.avti.persistance.model.Vehicle;
 import slabs.tech.avti.persistance.repo.VehicleRepository;
 
 @RestController
-@RequestMapping("/api/vehicles")
+@RequestMapping("/vehicles")
 public class VehicleController {
 
 	@Autowired

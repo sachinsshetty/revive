@@ -41,3 +41,10 @@
 
 * Prerequisites :
 * Install PostgreSQL
+
+
+
+  * TODO :  
+* Reduce java docker by using jre instead of jdk, it will save spaces. Create script which generates required customer jre.
+* Use the docker-compose.yml directly to run the Application, required base images are available at https://hub.docker.com
+

@@ -11,7 +11,7 @@ import slabs.tech.avti.persistance.model.Stall;
 import slabs.tech.avti.persistance.repo.StallRepository;
 
 @RestController
-@RequestMapping("/api/stalls")
+@RequestMapping("/stalls")
 public class StallController {
 
 	@Autowired

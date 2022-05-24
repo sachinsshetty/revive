@@ -23,7 +23,7 @@ import slabs.tech.avti.persistance.repo.DriverRepository;
 import org.springframework.http.HttpStatus;
 
 @RestController
-@RequestMapping("/api/drivers")
+@RequestMapping("/drivers")
 public class DriverController {
 
   @Autowired
