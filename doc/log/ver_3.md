@@ -24,7 +24,4 @@ Source for steps
   * cd frontend     
   * npm install --save bootstrap@5.1 react-cookie@4.1.1 react-router-dom@5.3.0 reactstrap@8.10.0
 
-* Gradle build- react + Spring boot 
-	* https://medium.com/@gkkomensi/packaging-react-and-springboot-applications-with-gradle-23b76523512c
-	* https://github.com/arnaud-deprez/spring-boot-react-sample
   
