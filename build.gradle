@@ -14,9 +14,9 @@ repositories {
 	mavenCentral()
 }
 
-tasks.named('test') {
-	useJUnitPlatform()
-}
+//tasks.named('test') {
+//	useJUnitPlatform()
+//}
 
 springBoot {
 	mainClass = 'slabs.tech.avti.Application'

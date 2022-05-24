@@ -17,7 +17,7 @@
 
 | Version | Function | Status |
 |---|---|---|
-| 1.0 | App / DB Microservice, Dashboard | WIP |
+| 1.0 | App / DB Microservice, ReactJS Dashboard | WIP |
 | 2.0 | DB, App-Microservice split into 4 entities, OAuth |  TBD |
 | 3.0 | Kafka processing| TBD |
 
@@ -57,7 +57,8 @@
   | SpringBoot, MVC | 2.7.0 | Design Pattern |-- | 1.0 |
   | JUnit | 5 | Done | Unit/Integration Test | 1.0 |
   | git , Github Action | -- | Done | Version Control, CI/CD | 1.0|
-  | Docker | 20 | Done | micro service deployment | 1.0 |
+  | Docker | 20 | Done | micro services deployment | 1.0 |
+  | React JS | -- | Done | Front end Dashboards | 1.0 |
   | REST | -- | -- |-- | 1.0 |
   | Maven | -- | -- |-- |-- |
   | Kubernetes | -- | -- | -- |-- |
@@ -67,12 +68,6 @@
   | Message Bus| -- |-- |-- |-- |
   | OAuth | -- | -- |-- |-- |
   | Apache Kafka | -- | -- |-- |-- |
-  | Dashboard | -- | -- |-- |-- |
-
+  
 * Services
   * Vehicle , Driver , Stall, Payment
-
-
-  * TODO :  
-    * Reduce java docker by using jre instead of jdk, it will save spaces. Create script which generates required customer jre.
-    * Use the docker-compose.yml directly to run the Application, required base images are available at https://hub.docker.com
