@@ -4,9 +4,10 @@
 |--|--|--|--|
 |1.| Run main class from Server.java eclipse control panel| Done | 18-May-22 |
 |2.| Generate artifacts for deployment | Done| 18-May-22|
-|3.| Create Test Suite|||
-|4.| Run from apache-tomcat | ||
+|3.| Create Test Suite|Done|20-May-22|
+|4.| Run from apache-tomcat/spring boot | Done |21-5-22|
 |5.| Create github action to build | Done | 18-May-22|
+
 
 Source for steps
 *  https://www.jetbrains.com/help/space/publish-artifacts-from-a-gradle-project.html

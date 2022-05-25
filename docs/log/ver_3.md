@@ -2,14 +2,19 @@
 
 |No. | Step | Status | Date |
 |---|---|---|---|
-|1.| UI | WIP  | 22-May-22 |
-|2.| Github actions | WIP | 22-May-22|
-|3.| Readme status links | | 22-May-22 |
+|1.| UI | WIP  | 25-May-22 |
+|2.| Github actions | Done | 23-May-22|
+|3.| Readme status links | Done | 23-May-22 |
+|4.| Integrate ReactJS Front-end | Done | 24-May-22 |
+|5.| Integrate Oauth | -- | --|
+|6.| docker compose for AWS |-- | -- |
+|7.| Gradle pack  Reach + SpringBoot | WIP | 25-5-22 |
+
+
 Source for steps
 * Github Actions - https://tomgregory.com/build-gradle-projects-with-github-actions/
 
 * Micro Service -  https://dzone.com/articles/build-and-package-a-microservices-architecture-wit
-
 
 * ReactJS -
  * https://spring.io/guides/tutorials/react-and-spring-data-rest/
@@ -26,11 +31,10 @@ Source for steps
   * cd frontend     
   * npm install --save bootstrap@5.1 react-cookie@4.1.1 react-router-dom@5.3.0 reactstrap@8.10.0
   * npm start
+  * npm run build
 
-
--oauth .- https://www.baeldung.com/spring-security-oauth
-https://www.baeldung.com/spring-mvc May 23
-Spring Live reloaf - https://www.codejava.net/frameworks/spring-boot/spring-boot-auto-reload-changes-using-livereload-and-devtools
+* oauth .- https://www.baeldung.com/spring-security-oauth
+* Spring Live reloaf - https://www.codejava.net/frameworks/spring-boot/spring-boot-auto-reload-changes-using-livereload-and-devtools
 
 Init DB ;
 * custom sequence
@@ -40,6 +44,11 @@ Init DB ;
 * https://www.baeldung.com/hibernate-identifiers
 * https://github.com/eugenp/tutorials/tree/master/persistence-modules/spring-boot-persistence
 
-
 * Gradle split
 * https://www.petrikainulainen.net/programming/gradle/getting-started-with-gradle-creating-a-multi-project-build/
+
+
+* Integrating Gradle + Spring Boot + React 
+	* https://github.com/node-gradle/gradle-node-plugin/blob/master/docs/usage.md
+	* https://github.com/rewolf/blog-spring-and-react-1-setup/tree/master/src/main/webapp/javascript
+	* https://andrew-flower.com/blog/Spring-Boot-and-React-1

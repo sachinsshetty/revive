@@ -1,3 +1,2 @@
 rootProject.name = 'revive'
 include 'backend'
-

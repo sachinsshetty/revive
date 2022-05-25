@@ -1,6 +1,7 @@
 plugins {
 	id 'org.springframework.boot' version '2.7.0'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id "com.github.node-gradle.node" version "3.0.1"
 	id 'java'
 	id 'eclipse'
 }
@@ -14,9 +15,6 @@ repositories {
 	mavenCentral()
 }
 
-//tasks.named('test') {
-//	useJUnitPlatform()
-//}
 
 springBoot {
 	mainClass = 'slabs.tech.avti.Application'
@@ -48,8 +46,21 @@ dependencies {
 	runtimeOnly 'org.postgresql:postgresql'
 
 }
+node {
+    version = '16.15.0'
+    download = true
+    npmVersion = ""
+}
 
-//buildScan {
-//    termsOfServiceUrl = 'https://gradle.com/terms-of-service'
-//    termsOfServiceAgree = 'yes'
-//}
+task buildReactApp(type: NodeTask, dependsOn: 'npmInstall') {
+    script = project.file('node_modules/webpack/bin/webpack.js')
+    args = [
+            '--mode', 'development',
+            '--entry', './src/main/webapp/src/Home.js',
+            '-o', './src/main/resources/static/dist'
+    ]
+}
+
+processResources.dependsOn 'buildReactApp'
+clean.delete << file('node_modules')
+clean.delete << file('src/main/resources/static/dist')
