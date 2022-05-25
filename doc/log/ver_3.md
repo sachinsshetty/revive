@@ -40,3 +40,6 @@ Init DB ;
 * https://www.baeldung.com/hibernate-identifiers
 * https://github.com/eugenp/tutorials/tree/master/persistence-modules/spring-boot-persistence
 
+
+* Gradle split
+* https://www.petrikainulainen.net/programming/gradle/getting-started-with-gradle-creating-a-multi-project-build/
