@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import slabs.tech.avti.persistance.model.Stall;
-import slabs.tech.avti.persistance.model.Stall;
 import slabs.tech.avti.persistance.repo.StallRepository;
 
 @RestController

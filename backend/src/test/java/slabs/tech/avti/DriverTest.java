@@ -1,15 +1,12 @@
 package slabs.tech.avti;
 
-import static org.apache.commons.lang3.RandomStringUtils.randomAlphabetic;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import slabs.tech.avti.persistance.model.Driver;
 
 public class DriverTest {
 
@@ -111,7 +108,7 @@ public class DriverTest {
         response = RestAssured.get(location);
         assertEquals(HttpStatus.NOT_FOUND.value(), response.getStatusCode());
     }
-*/
+
     // ===============================
 
     private Driver createRandomDriver() {
@@ -128,5 +125,7 @@ public class DriverTest {
         return API_ROOT + "/" + response.jsonPath()
             .get("id");
     }
+    
+    */
 
 }

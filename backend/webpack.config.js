@@ -1,7 +1,7 @@
 module.exports = {
     devtool: 'source-map',
     output: {
-        filename: 'react-app.js'
+        filename: 'Home.js'
     },
     module: {
         rules: [{
