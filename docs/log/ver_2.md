@@ -33,6 +33,7 @@ Source for steps
 * postgres
 
 	* ubuntu - https://www.tecmint.com/install-postgresql-and-pgadmin-in-ubuntu/
+
 	* create database avti;
 	* grant all privileges on database avti to postgres;
 	* https://www.postgresqltutorial.com/postgresql-jdbc/connecting-to-postgresql-database/
@@ -41,6 +42,8 @@ Source for steps
 	* https://thorben-janssen.com/hibernate-postgresql-5-things-need-know/
 	* https://stackabuse.com/implementing-hibernate-with-spring-boot-and-postgresql/
 	* ubuntu - https://www.pgadmin.org/download/pgadmin-4-apt/
+ create database avti_db;
+	* grant all privileges on database avti_db to avti_db;
 
 * Docker
 	* https://www.baeldung.com/spring-boot-postgresql-docker
