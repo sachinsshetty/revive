@@ -61,6 +61,32 @@ task buildReactApp(type: NodeTask, dependsOn: 'npmInstall') {
     ]
 }
 
+task copyDependencies(type: Copy) {
+    from configurations.runtimeClasspath
+    into "$buildDir/lib"
+}
+
+// creates your manifest file within the JAR
+jar {
+    manifest {
+        attributes["Main-Class"] = "slabs.tech.avti.Application"
+        attributes["Class-Path"] = configurations.runtimeClasspath.collect { 'lib/' + it.getName() }.join(' ')
+    }
+}
+
+
+task buildDocker(type: Exec) {
+    dependsOn copyDependencies, build, buildReactApp
+    workingDir "$projectDir"
+    commandLine 'docker', 'build', '--rm', '.', '-t', "$project.group/$project.name:$project.version", "-f", "$projectDir/src/main/docker/Dockerfile"
+}
+
+task runDocker(type: Exec) {
+    dependsOn buildDocker
+    workingDir "$projectDir"
+    commandLine 'docker', 'run', "$project.group/$project.name:$project.version"
+}
+
 processResources.dependsOn 'buildReactApp'
 clean.delete << file('node_modules')
 clean.delete << file('src/main/resources/static/dist')
