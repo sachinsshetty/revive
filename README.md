@@ -2,42 +2,7 @@
 
 ![Build](https://github.com/sachinsshetty/revive/actions/workflows/main.yml/badge.svg) ![CodeQL](https://github.com/sachinsshetty/revive/actions/workflows/codeql-analysis.yml/badge.svg)
 
-* Micro-service library for Autonomous Vehicle Tech Infrastructure (AVTI)
-
-#### Important Links
-
-| Description | Document |
-|---|---|
-|Learnings from the project available at [wiki.md](https://github.com/sachinsshetty/revive/blob/main/doc/wiki.md)|[wiki.md](https://github.com/sachinsshetty/revive/blob/main/doc/wiki.md)|
-|Implement the MVP in the design document [system_design.md](https://github.com/sachinsshetty/revive/blob/main/doc/system_design.md)|[system_design.md](https://github.com/sachinsshetty/revive/blob/main/doc/system_design.md)|
-|Build steps maintained at the document [build.md](https://github.com/sachinsshetty/revive/blob/main/doc/build.md)|[build.md](https://github.com/sachinsshetty/revive/blob/main/doc/build.md)|
-|Release notes for versions available at [release.md](https://github.com/sachinsshetty/revive/blob/main/doc/release.md)|[release.md](https://github.com/sachinsshetty/revive/blob/main/doc/release.md)|
-
-#### Releases
-
-| Version | Function | Status |
-|---|---|---|
-| 1.0 | App / DB Microservice, ReactJS Dashboard | WIP |
-| 2.0 | DB, App-Microservice split into 4 entities, OAuth |  TBD |
-| 3.0 | Kafka processing| TBD |
-
-#### Deployment
-
-| Environment | Status | Release Version |
-|---|---|---|
-| Local Machine - Windows 10 | Done | 1.0 |
-| Local Machine - Ubuntu | Done | 1.0 |
-| Docker - alpine-linux | Done | 1.0 |
-
-##### Build Status - Java version
-
-| JDK | 11 | 17 | 18 |
-|---|---|---|---|
-| ubuntu-latest | Pass | Pass | Pass |
-| windows-latest | Pass | Pass | Pass |
-| macOS-latest | Pass | Pass | Pass |
-
-* Source - [Github Actions](https://github.com/sachinsshetty/revive/actions/workflows/main.yml)
+* Technology Demonstrator based on Micro-services architecture built using ReactJS + SpringBoot for Autonomous Vehicle Tech Infrastructure (AVTI)
 
 ###### Docker Images
 
@@ -68,6 +33,43 @@
   | Message Bus| -- |-- |-- |-- |
   | OAuth | -- | -- |-- |-- |
   | Apache Kafka | -- | -- |-- |-- |
-  
+
+#### Releases
+
+  | Version | Function | Status |
+  |---|---|---|
+  | 1.0 | App / DB Microservice, ReactJS Dashboard | WIP |
+  | 2.0 | DB, App-Microservice split into 4 entities, OAuth |  TBD |
+  | 3.0 | Kafka processing| TBD |
+
+
+#### Important Links
+
+| Description | Document |
+|---|---|
+|Learnings from the project available at [wiki.md](https://github.com/sachinsshetty/revive/blob/main/doc/wiki.md)|[wiki.md](https://github.com/sachinsshetty/revive/blob/main/doc/wiki.md)|
+|Implement the MVP in the design document [system_design.md](https://github.com/sachinsshetty/revive/blob/main/doc/system_design.md)|[system_design.md](https://github.com/sachinsshetty/revive/blob/main/doc/system_design.md)|
+|Build steps maintained at the document [build.md](https://github.com/sachinsshetty/revive/blob/main/doc/build.md)|[build.md](https://github.com/sachinsshetty/revive/blob/main/doc/build.md)|
+|Release notes for versions available at [release.md](https://github.com/sachinsshetty/revive/blob/main/doc/release.md)|[release.md](https://github.com/sachinsshetty/revive/blob/main/doc/release.md)|
+
+
+#### Deployment
+
+| Environment | Status | Release Version |
+|---|---|---|
+| Local Machine - Windows 10 | Done | 1.0 |
+| Local Machine - Ubuntu | Done | 1.0 |
+| Docker - alpine-linux | Done | 1.0 |
+
+##### Build Status - Java version
+
+| JDK | 11 | 17 | 18 |
+|---|---|---|---|
+| ubuntu-latest | Pass | Pass | Pass |
+| windows-latest | Pass | Pass | Pass |
+| macOS-latest | Pass | Pass | Pass |
+
+* Source - [Github Actions](https://github.com/sachinsshetty/revive/actions/workflows/main.yml)
+
 * Services
   * Vehicle , Driver , Stall, Payment
