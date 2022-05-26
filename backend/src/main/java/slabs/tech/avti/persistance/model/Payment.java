@@ -25,38 +25,7 @@ public class Payment {
 	@Column(name = "user_name", nullable = false, unique = true)
 	private String user_name;
 
-	public long getId() {
-		return id;
-	}
-
-	public void setId(long id) {
-		this.id = id;
-	}
-
-	public String getUser_name() {
-		return user_name;
-	}
-
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
-	}
-
-	public String getGateway() {
-		return gateway;
-	}
-
-	public void setGateway(String gateway) {
-		this.gateway = gateway;
-	}
-
-	public double getBalance() {
-		return balance;
-	}
-
-	public void setBalance(double balance) {
-		this.balance = balance;
-	}
-
+	
 	@Column(name = "gateway", nullable = false)
 	private String gateway;
 

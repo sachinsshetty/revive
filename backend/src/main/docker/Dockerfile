@@ -14,7 +14,7 @@ WORKDIR /app
 COPY build/lib/* build/lib/
 
 # copy the executable jar into the docker image
-COPY build/libs/app-*.jar build/app.jar
+COPY build/libs/app-0.0.1-SNAPSHOT.jar build/app.jar
 
 # tempoarily test our JAR works when we run the image
 WORKDIR /app/build
