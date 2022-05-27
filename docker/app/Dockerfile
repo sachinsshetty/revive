@@ -1,5 +1,3 @@
-FROM openjdk:17-alpine
+FROM slabstech/app
 
-ARG JAR_FILE=*.jar
-COPY ${JAR_FILE} application.jar
-ENTRYPOINT ["java", "-jar", "application.jar"]
+ENTRYPOINT ["java", "-jar", "app.jar"]

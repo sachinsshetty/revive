@@ -1,6 +1,6 @@
 services:
   app:
-    image: 'docker-avti-java'
+    image: 'slabstech/avti-app'
     build:
       context: .
     container_name: app
@@ -13,7 +13,7 @@ services:
       - SPRING_JPA_HIBERNATE_DDL_AUTO=update
 
   db:
-    image: 'docker-avti-db'
+    image: 'slabstech/avti-db'
     container_name: db
     environment:
       - POSTGRES_USER=avti_db

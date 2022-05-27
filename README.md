@@ -47,10 +47,10 @@ Current Sprint Task
 
 ###### Docker Images
 
-| Docker Image | Tagname | Size(Mb) | Version |
+| Docker Image | Tagname | Size(Mb) | Version | 
 |---|---|---|---|
-| App | [slabstech/avti-app](https://hub.docker.com/r/slabstech/avti-app) | 229 | 1 |
-| DB | [slabstech/avti-db](https://hub.docker.com/r/slabstech/avti-db) | 80.7 | 1 |
+| App | [slabstech/avti-app](https://hub.docker.com/r/slabstech/avti-app) | 160 | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) |
+| DB | [slabstech/avti-db](https://hub.docker.com/r/slabstech/avti-db) | 80.7 | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) |
 
 Execution Steps : For Ver 1
 * cd docker
@@ -70,15 +70,16 @@ Execution Steps : For Ver 1
 
   |Tech | Version | Status | Use Case | App Version |
   |---|---|---|---|---|
-  | Java | 17 JPA | WIP |-- | 1.0 |
-  | Hibernate | -- | Done |-- | 1.0 |
-  | PostgreSQL | 14 | Done |-- | 1.0 |
-  | Gradle | 7.4.2 | Done | Compile code build tool | 1.0 |
-  | SpringBoot, MVC | 2.7.0 | Design Pattern |-- | 1.0 |
-  | JUnit | 5 | Done | Unit/Integration Test | 1.0 |
-  | git , Github Action | -- | Done | Version Control, CI/CD | 1.0|
-  | Docker | 20 | Done | micro services deployment | 1.0 |
-  | React JS | -- | Done | Front end Dashboards | 1.0 |
+  | Java | 17  | WIP |-- | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) |
+  | Hibernate | -- | Done |-- | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) |
+  | PostgreSQL | 14 | Done |-- | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) |
+  | Gradle | 7.4.2 | Done | Compile code build tool | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) |
+  | SpringBoot + Thymeleaf | 2.7.0 | Design Pattern |-- | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) |
+  | JUnit | 5 | Done | Unit/Integration Test | 2.0 |
+  | git , Github Action | -- | Done | Version Control, CI/CD | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0)|
+  | Docker | 20 | Done | micro services deployment | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) |
+  | Custom JRE 17 | 20 | Done | micro services deployment | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) | 
+  | React JS | -- | Done | Front end Dashboards | 2.0 |
   | REST | -- | -- |-- | 1.0 |
   | Maven | -- | -- |-- |-- |
   | Kubernetes | -- | -- | -- |-- |

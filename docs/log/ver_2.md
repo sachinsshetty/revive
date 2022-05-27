@@ -67,3 +67,17 @@ Source for steps
 	* https://docs.spring.io/spring-framework/docs/3.2.x/spring-framework-reference/html/mvc.html
 	* Spring MVC - https://www.baeldung.com/spring-mvc-tutorial
 	
+
+* Docker
+
+
+* References
+Official postgres with alpine
+* https://github.com/docker-library/postgres/blob/4e56664f1797ba4cc0f5917b6d794792a5571b45/14/alpine/Dockerfile
+* https://github.com/docker-library/docs/blob/master/postgres/README.md
+* https://hub.docker.com/_/postgres
+* https://snapshooter.com/learn/postgresql/deploy-postgres-with-docker
+* https://hub.docker.com/r/cafapi/java-postgres
+* https://www.baeldung.com/spring-boot-postgresql-docker
+* https://hub.docker.com/_/openjdk
+
