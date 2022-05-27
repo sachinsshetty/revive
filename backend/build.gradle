@@ -9,7 +9,9 @@ plugins {
 archivesBaseName = 'app'
 
 group = 'slabs.tech.avti'
-version = '0.0.1-SNAPSHOT'
+version = '0.0.2-SNAPSHOT'
+
+dockerRepo = 'slabstech'
 
 repositories {
 	mavenCentral()
@@ -78,13 +80,13 @@ jar {
 task buildDocker(type: Exec) {
     dependsOn copyDependencies, build, buildReactApp
     workingDir "$projectDir"
-    commandLine 'docker', 'build', '--rm', '.', '-t', "$project.group/$project.name:$project.version", "-f", "$projectDir/src/main/docker/Dockerfile"
+    commandLine 'docker', 'build', '--rm', '.', '-t', "$dockerRepo/$archivesBaseName:$project.version", "-f", "$projectDir/src/main/docker/Dockerfile"
 }
 
 task runDocker(type: Exec) {
     dependsOn buildDocker
     workingDir "$projectDir"
-    commandLine 'docker', 'run', "$project.group/$project.name:$project.version"
+    commandLine 'docker', 'run', "$dockerRepo/$archivesBaseName:$project.version"
 }
 
 processResources.dependsOn 'buildReactApp'
