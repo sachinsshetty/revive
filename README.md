@@ -4,8 +4,33 @@
 
 * Technology Demonstrator based on Micro-services architecture built using ReactJS + SpringBoot for Autonomous Vehicle Tech Infrastructure (AVTI)
 
-Current Task
-* Solve jlink error related to embed tomcat to create small docker images- use alpline-linux + custom-jre instead of large sized alpine-linux + openjdk-17 
+Sprint
+1. Create CI/CD Pipeline
+  1. Code Commit (SpringBoot + Thymeleaf)
+    1. Github Actions Gradle build
+    2. Local Gradle Build
+    3. Docker image push to Docker Hub for App and DB
+    4. Verify project with docker-compose
+  2. Code Commit (SpringBoot + React)
+    1. Github Actions Gradle build
+    2. Local Gradle Build (SpringBoot + React JS)
+    3. Docker image push to Docker Hub for App and DB
+    4. Verify project with docker-compose
+2. Reduce container build for AWS deploy
+  1. Custom JRE build for Application
+  2. Use docker compose to build container
+  3. Deploy to AWS
+3. Algorithm Implementation
+  1. Search Algorithm - A*
+    1. Find the shortest route
+  2. Dynamic Programming
+    1. Find the best time to charge economically
+
+
+Current Sprint Task
+
+2.1 :
+  * Solve jlink error related to embed tomcat to create small docker images- use alpline-linux + custom-jre instead of large sized alpine-linux + openjdk-17
 
 * [Blog- WIP - How to migrate project from Monolith to Microservice](https://slabstech.github.io/blog/monolith-microservice/)
 
@@ -16,7 +41,7 @@ Current Task
 | App | [slabstech/avti-app](https://hub.docker.com/r/slabstech/avti-app) | 229 | 1 |
 | DB | [slabstech/avti-db](https://hub.docker.com/r/slabstech/avti-db) | 80.7 | 1 |
 
-Execution Steps : For Ver 1 
+Execution Steps : For Ver 1
 * cd docker
 * docker-compose up
 * to find ipadress of webapp, execute below command in terminal(WIP to convert to shell script)
