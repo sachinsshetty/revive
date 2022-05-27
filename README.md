@@ -6,26 +6,37 @@
 
 Sprint
 1. Create CI/CD Pipeline
-  1. Code Commit (SpringBoot + Thymeleaf)
-    1. Github Actions Gradle build
-    2. Local Gradle Build
-    3. Docker image push to Docker Hub for App and DB
-    4. Verify project with docker-compose
-  2. Code Commit (SpringBoot + React)
-    1. Github Actions Gradle build
-    2. Local Gradle Build (SpringBoot + React JS)
-    3. Docker image push to Docker Hub for App and DB
-    4. Verify project with docker-compose
 2. Reduce container build for AWS deploy
-  1. Custom JRE build for Application
-  2. Use docker compose to build container
-  3. Deploy to AWS
-3. Algorithm Implementation
-  1. Search Algorithm - A*
-    1. Find the shortest route
-  2. Dynamic Programming
-    1. Find the best time to charge economically
-
+3. Automated Testing
+4. Algorithm Implementation
+   
+Sprint Tasks   
+1. Code Commit (SpringBoot + Thymeleaf)
+  * Github Actions Gradle build
+  * Local Gradle Build
+  * Docker image push to Docker Hub for App and DB
+  * Verify project with docker-compose
+2. Code Commit (SpringBoot + React)
+  * Github Actions Gradle build + Local Gradle Build (SpringBoot + React JS)
+  * Docker image push to Docker Hub for App and DB
+  * Docker Split for 3 microservices 
+    * ReactJS FrontEnd
+    * Spring Boot Backend
+    * PostgreSQL DB 
+    * Verify project with docker-compose
+3. Custom JRE build for Application
+  * Upgrade all prior releases to reduce size
+  * Use docker compose to build container for AWS
+  * Deploy to AWS
+4. Automated Testing
+  * Junit for SpringBoot
+  * Jasmine for ReactJS
+  * Verification for PostgreSQL
+5. Service Algorithm Implementation
+  * Search Algorithm - A*
+    * Find the shortest route
+  * Dynamic Programming
+    * Find the best time to charge economically
 
 Current Sprint Task
 
