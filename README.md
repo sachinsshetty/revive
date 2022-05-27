@@ -4,6 +4,11 @@
 
 * Technology Demonstrator based on Micro-services architecture built using ReactJS + SpringBoot for Autonomous Vehicle Tech Infrastructure (AVTI)
 
+Current Task
+* Solve jlink error related to embed tomcat to create small docker images- use alpline-linux + custom-jre instead of large sized alpine-linux + openjdk-17 
+
+* [Blog- WIP - How to migrate project from Monolith to Microservice](https://slabstech.github.io/blog/monolith-microservice/)
+
 ###### Docker Images
 
 | Docker Image | Tagname | Size(Mb) | Version |
