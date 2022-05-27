@@ -16,6 +16,20 @@ Current Task
 | App | [slabstech/avti-app](https://hub.docker.com/r/slabstech/avti-app) | 229 | 1 |
 | DB | [slabstech/avti-db](https://hub.docker.com/r/slabstech/avti-db) | 80.7 | 1 |
 
+Execution Steps : For Ver 1 
+* cd docker
+* docker-compose up
+* to find ipadress of webapp, execute below command in terminal(WIP to convert to shell script)
+  * docker ps > ps.out
+  * grep -i "avti-app:latest" ps.out | cut -d " " -f 1
+  * ipaddress=$(cat container.out)
+  * docker inspect $ipaddress > inspect.out
+  * grep -i "ipaddress" inspect.out
+ * In browser :
+    * for homepage : http://IpAddress:8080
+    * for droiver info : http://IpAddress:8080/api/drivers
+
+
 #### Tech Stack
 
   |Tech | Version | Status | Use Case | App Version |
