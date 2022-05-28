@@ -44,7 +44,35 @@
 
 
 
-  * TODO :  
-* Reduce java docker by using jre instead of jdk, it will save spaces. Create script which generates required customer jre.
+Custom JRE 
+* jdeps to find dependency of app.jar 
+  * RUN jdeps --ignore-missing-deps --module-path modules --add-modules=ALL-MODULE-PATH --generate-module-info out build/app.jar
+* jlink to generate jre with all module dependencies
+  * RUN jlink --add-modules ALL-MODULE-PATH --no-man-pages --no-header-files --compress=2 --output jre 
+
 * Use the docker-compose.yml directly to run the Application, required base images are available at https://hub.docker.com
 
+
+
+
+
+* React Build
+  * npx create-react-app frontend    
+  * cd frontend     
+  * npm install --save bootstrap@5.1 react-cookie@4.1.1 react-router-dom@5.3.0 reactstrap@8.10.0
+  * npm start
+  * npm run build
+  * Use the github gradle runner to execute the build task only currently
+    * TODO - Use the trigger to create docker images and push to docker hub + AWS deploy on commit
+
+
+    * Build tool - Gradle for SpringBoot
+        * ReactJS build is triggered by calleding npm install and npm run build.
+    TODO - Using Github actions Gradle Runner to build jars currently by targering build task in main.yml +
+        * Target it trigger buildDocker task in current form as it compliments Continous Integration, runDocker task can be tested for verification in target Cloud deployment,
+
+    Current build does the following step
+        * Build springboot application uber jar
+        * In a docker container, it creates module-info.java for mapping dependencies on appication.jar & using jlink it creates a customer JRE as the ouput of the first interstitial docker container. 
+        * On bare metal alpine-linux image, customer jre with module dependencies and the application jar are copied to the image.
+        * The build is tagged frm gradle based on dockerHubRepoName:tagversiom

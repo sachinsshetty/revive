@@ -12,29 +12,26 @@
 
 
 Source for steps
-* Github Actions - https://tomgregory.com/build-gradle-projects-with-github-actions/
+* Github Actions - 
+  * https://tomgregory.com/build-gradle-projects-with-github-actions/
 
-* Micro Service -  https://dzone.com/articles/build-and-package-a-microservices-architecture-wit
+* Micro Service -  
+  * https://dzone.com/articles/build-and-package-a-microservices-architecture-wit
 
 * ReactJS -
- * https://spring.io/guides/tutorials/react-and-spring-data-rest/
- * https://github.com/eugenp/tutorials/tree/master/spring-boot-modules/spring-boot-react
+  * https://spring.io/guides/tutorials/react-and-spring-data-rest/
+  * https://github.com/eugenp/tutorials/tree/master/spring-boot-modules/spring-boot-react
 
-* MongoDB - Spring - https://spring.io/guides/gs/accessing-mongodb-data-rest/
+* MongoDB - 
+  * Spring - https://spring.io/guides/gs/accessing-mongodb-data-rest/
 
 * Oauth - Oktta -
-* https://developer.okta.com/docs/guides/sign-into-web-app-redirect/spring-boot/main/#redirect-to-the-sign-in-page
-* https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login
+  * https://developer.okta.com/docs/guides/sign-into-web-app-redirect/spring-boot/main/#redirect-to-the-sign-in-page
+  * https://github.com/okta/samples-java-spring/tree/master/okta-hosted-login
+  * oauth .- https://www.baeldung.com/spring-security-oauth
 
-* React Build
-  * npx create-react-app frontend    
-  * cd frontend     
-  * npm install --save bootstrap@5.1 react-cookie@4.1.1 react-router-dom@5.3.0 reactstrap@8.10.0
-  * npm start
-  * npm run build
-
-* oauth .- https://www.baeldung.com/spring-security-oauth
-* Spring Live reloaf - https://www.codejava.net/frameworks/spring-boot/spring-boot-auto-reload-changes-using-livereload-and-devtools
+* Spring Live reload - 
+  * https://www.codejava.net/frameworks/spring-boot/spring-boot-auto-reload-changes-using-livereload-and-devtools
 
 Init DB ;
 * custom sequence

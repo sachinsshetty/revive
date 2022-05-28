@@ -10,7 +10,7 @@
 
 
 Source for steps
-*  https://www.jetbrains.com/help/space/publish-artifacts-from-a-gradle-project.html
+* https://www.jetbrains.com/help/space/publish-artifacts-from-a-gradle-project.html
 * https://www.vogella.com/tutorials/EclipseGradle/article.html
 * createing fat jar or uber-jar :  https://www.baeldung.com/gradle-fat-jar
 * shadowJar - https://imperceptiblethoughts.com/shadow/publishing/#publishing-with-maven-publish-plugin
