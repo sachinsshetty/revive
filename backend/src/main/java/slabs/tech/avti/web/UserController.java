@@ -18,16 +18,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import slabs.tech.avti.persistance.model.Driver;
-import slabs.tech.avti.persistance.repo.DriverRepository;
+import slabs.tech.avti.persistance.model.User;
+import slabs.tech.avti.persistance.repo.UserRepository;
 import org.springframework.http.HttpStatus;
 
 @RestController
 @RequestMapping("/drivers")
-public class DriverController {
+public class UserController {
 
 	@Autowired
-	private DriverRepository driverRepository;
+	private UserRepository driverRepository;
 
 
 	/**
@@ -36,7 +36,7 @@ public class DriverController {
 	 * @return the list
 	 */
 	@GetMapping // GET Method for reading operation
-	public List<Driver> getAllDrivers() {
+	public List<User> getAllDrivers() {
 		return driverRepository.findAll();
 	}
 
@@ -48,9 +48,9 @@ public class DriverController {
 	 * @throws Exception
 	 */
 	@GetMapping("/{id}") // GET Method for Read operation
-	public ResponseEntity<Driver> getDriverById(@PathVariable(value = "id") Long driverId) throws Exception {
+	public ResponseEntity<User> getDriverById(@PathVariable(value = "id") Long driverId) throws Exception {
 
-		Driver driver = driverRepository.findById(driverId)
+		User driver = driverRepository.findById(driverId)
 				.orElseThrow(() -> new Exception("Driver " + driverId + " not found"));
 		return ResponseEntity.ok().body(driver);
 	}
@@ -63,7 +63,7 @@ public class DriverController {
 	 */
 	@PostMapping // POST Method for Create operation
 	@ResponseStatus(HttpStatus.CREATED)
-	public Driver createDriver(@Valid @RequestBody Driver driver) {
+	public User createDriver(@Valid @RequestBody User driver) {
 		return driverRepository.save(driver);
 	}
 
@@ -76,16 +76,16 @@ public class DriverController {
 	 * @throws Exception
 	 */
 	@PutMapping("/{id}") // PUT Method for Update operation
-	public ResponseEntity<Driver> updateDriver(@PathVariable(value = "id") Long driverId,
-			@Valid @RequestBody Driver driverDetails) throws Exception {
+	public ResponseEntity<User> updateDriver(@PathVariable(value = "id") Long driverId,
+			@Valid @RequestBody User driverDetails) throws Exception {
 
-		Driver driver = driverRepository.findById(driverId)
+		User driver = driverRepository.findById(driverId)
 				.orElseThrow(() -> new Exception("Driver " + driverId + " not found"));
 
 		// driver.setCarName(driverDetails.getDriverName());
 		// driver.setDoors(driverDetails.getOs());
 
-		final Driver updatedDriver = driverRepository.save(driver);
+		final User updatedDriver = driverRepository.save(driver);
 		return ResponseEntity.ok(updatedDriver);
 	}
 
@@ -98,7 +98,7 @@ public class DriverController {
 	 */
 	@DeleteMapping("/{id}") // DELETE Method for Delete operation
 	public Map<String, Boolean> deleteDriver(@PathVariable(value = "id") Long driverId) throws Exception {
-		Driver driver = driverRepository.findById(driverId)
+		User driver = driverRepository.findById(driverId)
 				.orElseThrow(() -> new Exception("Driver " + driverId + " not found"));
 
 		driverRepository.delete(driver);

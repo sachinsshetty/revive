@@ -12,25 +12,24 @@ import javax.persistence.Table;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name = "payment")
+@Table(name = "vehicle")
 @EntityListeners(AuditingEntityListener.class)
-public class Payment {
+public class Device {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "payment_generator")
-	@SequenceGenerator(name = "payment_generator", sequenceName = "payment_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "vehicle_generator")
+	@SequenceGenerator(name = "vehicle_generator", sequenceName = "vehicle_id_seq", allocationSize = 1)
 	@Column(name = "id", updatable = false, nullable = false)
 	private long id;
 
 	@Column(name = "user_name", nullable = false, unique = true)
 	private String user_name;
 
-	
-	@Column(name = "gateway", nullable = false)
-	private String gateway;
+	@Column(name = "reg_no", nullable = false)
+	private String reg_no;
 
-	@Column(name = "balance", nullable = false)
-	private double balance;
+	@Column(name = "status", nullable = false)
+	private Boolean status;
 
 	public long getId() {
 		return id;
@@ -48,21 +47,20 @@ public class Payment {
 		this.user_name = user_name;
 	}
 
-	public String getGateway() {
-		return gateway;
+	public String getReg_no() {
+		return reg_no;
 	}
 
-	public void setGateway(String gateway) {
-		this.gateway = gateway;
+	public void setReg_no(String reg_no) {
+		this.reg_no = reg_no;
 	}
 
-	public double getBalance() {
-		return balance;
+	public Boolean getStatus() {
+		return status;
 	}
 
-	public void setBalance(double balance) {
-		this.balance = balance;
+	public void setStatus(Boolean status) {
+		this.status = status;
 	}
-
 
 }

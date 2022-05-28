@@ -2,7 +2,7 @@
 
 ![Build](https://github.com/sachinsshetty/revive/actions/workflows/main.yml/badge.svg) ![CodeQL](https://github.com/sachinsshetty/revive/actions/workflows/codeql-analysis.yml/badge.svg)
 
-* Technology Demonstrator based on Micro-services architecture built using ReactJS + SpringBoot for Autonomous Vehicle Tech Infrastructure (AVTI)
+* Device Management Starter Library based on Multi-service architecture using ReactJS + SpringBoot + Postgres 
 
 
 ###### Sprint
@@ -57,15 +57,6 @@ Execution Steps : For Ver 1
   | Message Bus| -- |-- |-- |-- |
   | OAuth | -- | -- |-- |-- |
   | Apache Kafka | -- | -- |-- |-- |
-
-#### Releases
-
-  | Version | Function | Status |
-  |---|---|---|
-  | 1.0 | App / DB Microservice, ReactJS Dashboard | WIP |
-  | 2.0 | DB, App-Microservice split into 4 entities, OAuth |  TBD |
-  | 3.0 | Kafka processing| TBD |
-
 
 #### Important Links
 

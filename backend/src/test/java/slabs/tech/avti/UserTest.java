@@ -8,7 +8,7 @@ import org.springframework.http.HttpStatus;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 
-public class DriverTest {
+public class UserTest {
 
     private static final String API_ROOT = "http://localhost:8080/api/drivers";
 

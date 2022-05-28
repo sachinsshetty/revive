@@ -14,7 +14,7 @@ import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 @Entity
 @Table(name = "driver")
 @EntityListeners(AuditingEntityListener.class)
-public class Driver {
+public class User {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "driver_generator")
