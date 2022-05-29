@@ -1,3 +1,3 @@
-FROM slabstech/app
+FROM slabstech/app:0.0.2-SNAPSHOT
 
-ENTRYPOINT ["java", "-jar", "app.jar"]
+ENTRYPOINT ["jre/bin/java", "-jar", "app.jar"]

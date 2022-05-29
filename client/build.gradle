@@ -30,10 +30,11 @@ task buildReactApp(type: NodeTask, dependsOn: 'npmInstall') {
     ]
 }
 
+
+task buildClientDocker(type: Exec) {
+    dependsOn buildReactApp
+    commandLine 'docker', 'build', '--rm', '.', '-t', "build-revive-client", "--network" ,"host","-f", "Dockerfile"
+}
 processResources.dependsOn 'buildReactApp'
 clean.delete << file('node_modules')
 clean.delete << file('static/dist')
-
-task buildClientDocker(type: Exec) {
-    commandLine 'docker', 'build', '--rm', '.', '-t', "$dockerRepo/$archivesBaseName:$project.version", "-f", "Dockerfile"
-}
