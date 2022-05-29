@@ -28,3 +28,10 @@
     * material UI - https://medium.com/geekculture/a-reactjs-web-application-with-a-spring-boot-backend-and-containerizing-it-using-docker-3eeaed8cb45a
     * multi-stage docker - https://blog.obeosoft.com/multi-stage-docker-build-for-react-and-spring
 
+* nodejs docker
+    * https://github.com/nodejs/docker-node/blob/main/README.md#how-to-use-this-image
+    * https://hub.docker.com/_/node
+    * http://nginx.org/
+    * https://tiangolo.medium.com/react-in-docker-with-nginx-built-with-multi-stage-docker-builds-including-testing-8cc49d6ec305
+    * https://medium.com/bb-tutorials-and-thoughts/how-to-serve-react-application-with-nginx-and-docker-9c51ac2c50ba
+    * https://dev.to/bahachammakhi/dockerizing-a-react-app-with-nginx-using-multi-stage-builds-1nfm
