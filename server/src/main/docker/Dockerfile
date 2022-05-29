@@ -25,8 +25,3 @@ COPY --from=jre-build /app/build/app.jar app.jar
 
 # run the app on startup
 ENTRYPOINT jre/bin/java -jar app.jar
-
-
-# tempoarily test our JAR works when we run the image
-#WORKDIR /app/build
-#ENTRYPOINT java -jar app.jar

@@ -47,6 +47,7 @@ Execution Steps : For Ver 1
   | git , Github Action | -- | Done | Version Control, CI/CD | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0)|
   | Docker | 20 | Done | micro services deployment | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) |
   | Custom JRE 17 | 20 | Done | micro services deployment | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) | 
+  | NodeJs | 16 | Done |-- | 2.0 |
   | React JS | -- | Done | Front end Dashboards | 2.0 |
   | REST | -- | -- |-- | 1.0 |
   | Maven | -- | -- |-- |-- |

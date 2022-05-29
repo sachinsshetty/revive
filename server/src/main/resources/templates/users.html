@@ -1,7 +1,7 @@
 <meta charset="ISO-8859-1">
 <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
 
-<title>Drivers</title>
+<title>Users</title>
 
 
 <style>
@@ -19,7 +19,7 @@ div.mytable {
 	<nav aria-label="breadcrumb">
 		<ol class="breadcrumb">
 			<li class="breadcrumb-item"><a href="/">Home</a></li>
-			<li class="breadcrumb-item active" aria-current="page">Drivers</li>
+			<li class="breadcrumb-item active" aria-current="page">Users</li>
 		</ol>
 	</nav>
 </div>
@@ -34,11 +34,11 @@ div.mytable {
 		</tr>
 	</thead>
 	<tbody>
-		<tr th:each="driver, iStat : ${driver}"
+		<tr th:each="user, iStat : ${user}"
 			th:style="${iStat.odd}? 'font-weight: normal;'">
 
-			<td th:text="${driver.id}" width="20px"></td>
-			<td th:text="${driver.user_name}"></td>
+			<td th:text="${user.id}" width="20px"></td>
+			<td th:text="${user.user_name}"></td>
 		</tr>
 	</tbody>
 </table>

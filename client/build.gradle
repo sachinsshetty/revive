@@ -4,7 +4,7 @@ plugins {
 	id 'eclipse'
 }
 
-archivesBaseName = 'app'
+archivesBaseName = 'revive-client'
 
 group = 'slabs.tech.avti'
 version = '0.0.2-SNAPSHOT'
@@ -34,3 +34,7 @@ task buildReactApp(type: NodeTask, dependsOn: 'npmInstall') {
 processResources.dependsOn 'buildReactApp'
 clean.delete << file('node_modules')
 clean.delete << file('src/main/resources/static/dist')
+
+task builClientDocker(type: Exec) {
+    commandLine 'docker', 'build', '--rm', '.', '-t', "$dockerRepo/$archivesBaseName:$project.version", "-f", "Dockerfile"
+}

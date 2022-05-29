@@ -17,46 +17,46 @@ import slabs.tech.avti.persistance.model.Device;
 import slabs.tech.avti.persistance.repo.DeviceRepository;
 
 @RestController
-@RequestMapping("/vehicles")
+@RequestMapping("/devices")
 public class DeviceController {
 
 	@Autowired
-	private DeviceRepository vehicleRepository;
+	private DeviceRepository deviceRepository;
 
 	/**
-	 * Get all Vehicles list.
+	 * Get all Devices list.
 	 *
 	 * @return the list
 	 */
 	@GetMapping // GET Method for reading operation
-	public List<Device> getAllVehicles() {
-		return vehicleRepository.findAll();
+	public List<Device> getAllDevices() {
+		return deviceRepository.findAll();
 	}
 
 	/**
-	 * Gets vehicles by id.
+	 * Gets devices by id.
 	 *
-	 * @param vehicleId the vehicle id
-	 * @return the vehicles by id
+	 * @param deviceId the device id
+	 * @return the devices by id
 	 * @throws Exception
 	 */
 	@GetMapping("/{id}") // GET Method for Read operation
-	public ResponseEntity<Device> getVehicleById(@PathVariable(value = "id") Long vehicleId) throws Exception {
+	public ResponseEntity<Device> getDeviceById(@PathVariable(value = "id") Long deviceId) throws Exception {
 
-		Device vehicle = vehicleRepository.findById(vehicleId)
-				.orElseThrow(() -> new Exception("Vehicle " + vehicleId + " not found"));
-		return ResponseEntity.ok().body(vehicle);
+		Device device = deviceRepository.findById(deviceId)
+				.orElseThrow(() -> new Exception("Device " + deviceId + " not found"));
+		return ResponseEntity.ok().body(device);
 	}
 
 	/**
-	 * Create vehicle.
+	 * Create device.
 	 *
-	 * @param vehicle the vehicle
-	 * @return the vehicle
+	 * @param device the device
+	 * @return the device
 	 */
 	@PostMapping // POST Method for Create operation
-	public Device createVehicle(@Valid @RequestBody Device vehicle) {
-		return vehicleRepository.save(vehicle);
+	public Device createDevice(@Valid @RequestBody Device device) {
+		return deviceRepository.save(device);
 	}
 
 }
