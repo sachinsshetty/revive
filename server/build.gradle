@@ -16,7 +16,6 @@ repositories {
 	mavenCentral()
 }
 
-
 springBoot {
 	mainClass = 'slabs.tech.avti.Application'
 }
@@ -24,7 +23,6 @@ springBoot {
 tasks.named("bootRun") {
 	mainClass = 'slabs.tech.avti.Application'
 }
-
 
 dependencies {
 
@@ -57,7 +55,7 @@ jar {
 }
 
 
-task builServerDocker(type: Exec) {
+task buildServerDocker(type: Exec) {
     dependsOn copyDependencies, build
     workingDir "$projectDir"
     commandLine 'docker', 'build', '--rm', '.', '-t', "$dockerRepo/$archivesBaseName:$project.version", "-f", "$projectDir/src/main/docker/Dockerfile"

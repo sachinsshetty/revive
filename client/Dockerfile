@@ -11,7 +11,7 @@ WORKDIR /app
 # will be cached unless changes to one of those two files 
 # are made.
 COPY package.json package-lock.json ./
-RUN npm ci --prod
+RUN npm install
 # Copy the main application
 COPY . ./app
 

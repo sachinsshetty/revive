@@ -26,15 +26,15 @@ task buildReactApp(type: NodeTask, dependsOn: 'npmInstall') {
     script = project.file('node_modules/webpack/bin/webpack.js')
     args = [
             '--mode', 'development',
-            '--entry', './webapp/src/Home.js',
+            '--entry', './src/Home.js',
             '-o', './static/dist'
     ]
 }
 
 processResources.dependsOn 'buildReactApp'
 clean.delete << file('node_modules')
-clean.delete << file('src/main/resources/static/dist')
+clean.delete << file('static/dist')
 
-task builClientDocker(type: Exec) {
+task buildClientDocker(type: Exec) {
     commandLine 'docker', 'build', '--rm', '.', '-t', "$dockerRepo/$archivesBaseName:$project.version", "-f", "Dockerfile"
 }
