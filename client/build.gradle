@@ -30,7 +30,6 @@ task buildReactApp(type: NodeTask, dependsOn: 'npmInstall') {
     ]
 }
 
-
 task buildClientDocker(type: Exec) {
     dependsOn buildReactApp
     commandLine 'docker', 'build', '--rm', '.', '-t', "build-revive-client", "--network" ,"host","-f", "Dockerfile"

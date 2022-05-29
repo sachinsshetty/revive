@@ -8,17 +8,17 @@
     * See [test.md](https://github.com/sachinsshetty/revive/blob/main/docs/test.md)
 
 * How CI/CD accomplished with Github Actions
-    * See [build.md](https://github.com/sachinsshetty/revive/blob/main/docs/build.md)
+    * See [ci_cd.md](https://github.com/sachinsshetty/revive/blob/main/docs/ci_cd.md)
 
 * Minimalistic frontend
     * See [UI Design](https://github.com/sachinsshetty/revive/blob/main/docs/ui_design.md)
 
 * Automated deployment into any cloud provider
     * See [Release](https://github.com/sachinsshetty/revive/blob/main/docs/release.md)
-    * TODO : Build using Docker compose to load into AWS
-
+   
 * How to Present the Problem
-    * Why i started the project - inside joke : why the name : revive  : Easter Egg.
-
+   
 * What were the problems , challenges and tricks
     * See [wiki](https://github.com/sachinsshetty/revive/blob/main/docs/wiki.md)
+    * All issues faced, close it in github issues for tracking.
+    

@@ -37,12 +37,12 @@
 
 
 * Challenges
-        * Build Custom JRE
-            * Building the module-info.java using jdeps command, was throwing a missing module error for tomcat-embed.jar, There was no solution found only on how to add the missing dependency.
-            * Tried by chekcing if any IDE has an automatic module info generator - Eclipse JEE, VSCode and IntelliJ Idea i could not find the configuration. 
-            * One link had used a different set of parameters, it looked like it was using all the modules. The command worked and the docker image is running, Size still can be reduced by tweaking few parameters
-            * Container image size reduced by 78 MB from 228 MB to 160 MB
-        * Combined FrontEnd in ReactJS and Backend in SpringBoot Image for deployment was a mistake, As we need two servers to deploy them if have to scale  independently. The final targer was a split of FrontEnd and Backend, But i was trying actual migration strategy that companies follow.
-        * Dev Coding Environment -
-            On wednesday got access to VSCode codespaces beta, it reduces the time between writing java code in Windows and testing the docker implementation on the Ubuntu. Verifying if the entire current cycle can be done completely on the browser.
+    * Build Custom JRE
+        * Building the module-info.java using jdeps command, was throwing a missing module error for tomcat-embed.jar, There was no solution found only on how to add the missing dependency.
+        * Tried by chekcing if any IDE has an automatic module info generator - Eclipse JEE, VSCode and IntelliJ Idea i could not find the configuration. 
+        * One link had used a different set of parameters, it looked like it was using all the modules. The command worked and the docker image is running, Size still can be reduced by tweaking few parameters
+        * Container image size reduced by 78 MB from 228 MB to 160 MB
+    * Combined FrontEnd in ReactJS and Backend in SpringBoot Image for deployment was a mistake, As we need two servers to deploy them if have to scale  independently. The final targer was a split of FrontEnd and Backend, But i was trying actual migration strategy that companies follow.
+    * Dev Coding Environment -
+        On wednesday got access to VSCode codespaces beta, it reduces the time between writing java code in Windows and testing the docker implementation on the Ubuntu. Verifying if the entire current cycle can be done completely on the browser.
 

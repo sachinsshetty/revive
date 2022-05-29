@@ -23,3 +23,5 @@
 	* Tech Stack
     	* Core Java
     	* Postgre + JDBC
+Sp3
+ * TODO : Build using Docker compose to load into AWS
