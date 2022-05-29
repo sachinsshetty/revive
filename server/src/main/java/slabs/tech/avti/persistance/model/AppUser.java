@@ -12,13 +12,13 @@ import javax.persistence.Table;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name = "user")
+@Table(name = "app_user")
 @EntityListeners(AuditingEntityListener.class)
-public class User {
+public class AppUser {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_generator")
-	@SequenceGenerator(name = "user_generator", sequenceName = "user_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "app_user_generator")
+	@SequenceGenerator(name = "app_user_generator", sequenceName = "app_user_id_seq", allocationSize = 1)
 	@Column(name = "id", updatable = false, nullable = false)
 	private long id;
 

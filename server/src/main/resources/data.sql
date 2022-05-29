@@ -1,8 +1,8 @@
-insert into user(id, user_name, first_name,last_name,status) values(nextval('user_id_seq'),'max', 'max', 'verstappen',true);
+insert into app_user(id, user_name, first_name,last_name,status) values(nextval('app_user_id_seq'),'max', 'max', 'verstappen',true);
 
-insert into user(id, user_name, first_name,last_name,status) values(nextval('user_id_seq'),'charles', 'charles', 'leclerc',true);
+insert into app_user(id, user_name, first_name,last_name,status) values(nextval('app_user_id_seq'),'charles', 'charles', 'leclerc',true);
 
-insert into user(id, user_name, first_name,last_name,status) values(nextval('user_id_seq'),'kimi', 'kimi', 'raikonnen',true);
+insert into app_user(id, user_name, first_name,last_name,status) values(nextval('app_user_id_seq'),'kimi', 'kimi', 'raikonnen',true);
 
 
 

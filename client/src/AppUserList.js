@@ -3,44 +3,44 @@ import { Button, ButtonGroup, Container, Table } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 import { Link } from 'react-router-dom';
 
-class UserList extends Component {
+class AppUserList extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {users: []};
+        this.state = {app_users: []};
         this.remove = this.remove.bind(this);
     }
 
     componentDidMount() {
-        fetch('/users')
+        fetch('/app_users')
             .then(response => response.json())
-            .then(data => this.setState({users: data}));
+            .then(data => this.setState({app_users: data}));
     }
 
     async remove(id) {
-        await fetch(`/users/${id}`, {
+        await fetch(`/app_users/${id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             }
         }).then(() => {
-            let updatedUsers = [...this.state.users].filter(i => i.id !== id);
-            this.setState({users: updatedUsers});
+            let updatedAppUsers = [...this.state.app_users].filter(i => i.id !== id);
+            this.setState({app_users: updatedAppUsers});
         });
     }
 
     render() {
-        const {users} = this.state;
+        const {app_users} = this.state;
 
-        const userList = users.map(user => {
-            return <tr key={user.id}>
-                <td style={{whiteSpace: 'nowrap'}}>{user.user_name}</td>
-                <td>{user.first_name}</td>
+        const app_userList = app_users.map(app_user => {
+            return <tr key={app_user.id}>
+                <td style={{whiteSpace: 'nowrap'}}>{app_user.user_name}</td>
+                <td>{app_user.first_name}</td>
                 <td>
                     <ButtonGroup>
-                        <Button size="sm" color="primary" tag={Link} to={"/users/" + user.id}>Edit</Button>
-                        <Button size="sm" color="danger" onClick={() => this.remove(user.id)}>Delete</Button>
+                        <Button size="sm" color="primary" tag={Link} to={"/app_users/" + app_user.id}>Edit</Button>
+                        <Button size="sm" color="danger" onClick={() => this.remove(app_user.id)}>Delete</Button>
                     </ButtonGroup>
                 </td>
             </tr>
@@ -51,9 +51,9 @@ class UserList extends Component {
                 <AppNavbar/>
                 <Container fluid>
                     <div className="float-right">
-                        <Button color="success" tag={Link} to="/users/new">Add Users</Button>
+                        <Button color="success" tag={Link} to="/app_users/new">Add AppUsers</Button>
                     </div>
-                    <h3>Users</h3>
+                    <h3>AppUsers</h3>
                     <Table className="mt-4">
                         <thead>
                         <tr>
@@ -63,7 +63,7 @@ class UserList extends Component {
                         </tr>
                         </thead>
                         <tbody>
-                        {userList}
+                        {app_userList}
                         </tbody>
                     </Table>
                 </Container>
@@ -72,4 +72,4 @@ class UserList extends Component {
     }
 }
 
-export default UserList;
+export default AppUserList;

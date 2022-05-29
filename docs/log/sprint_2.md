@@ -44,7 +44,9 @@ Source for steps
 	* ubuntu - https://www.pgadmin.org/download/pgadmin-4-apt/
  create database avti_db;
 	* grant all privileges on database avti_db to avti_db;
-
+	* Access PSQL
+		* psql -d postgres -U postgres 
+	* https://www.enterprisedb.com/postgres-tutorials/connecting-postgresql-using-psql-and-pgadmin
 * Docker
 	* https://www.baeldung.com/spring-boot-postgresql-docker
 	* docker reduce . https://medium.com/@ievgen.degtiarenko/reduce-size-of-docker-image-with-spring-boot-application-2b3632263350
