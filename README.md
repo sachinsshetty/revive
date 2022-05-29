@@ -27,9 +27,9 @@
 | DB | [slabstech/revive-db](https://hub.docker.com/r/slabstech/revive-db) | 80.7 | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
 
 
-Execution Steps : For Ver 1
-* cd docker
-* docker-compose up
+Execution Steps :
+* In base folder ,
+  * ./gradlew runDocker
 * Execute scripts/findIPAddress.sh to locate IP webserver
 
 * In browser :

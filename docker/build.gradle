@@ -1,0 +1,24 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.0'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'eclipse'
+}
+
+archivesBaseName = 'app'
+
+group = 'slabs.tech.avti'
+version = '0.0.2-SNAPSHOT'
+
+dockerRepo = 'slabstech'
+
+repositories {
+	mavenCentral()
+}
+
+
+task runDocker(type: Exec) {
+    dependsOn ":server:buildServerDocker", ":client:buildClientDocker"
+    commandLine 'docker-compose', 'up'
+}    
+
