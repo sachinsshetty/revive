@@ -15,7 +15,7 @@
   See [sprint.md](https://github.com/sachinsshetty/revive/blob/main/docs/sprint.md) for detailed tasks
 
   * Current Sprint Task
-     * Deploy container to AWS
+     * Create Docker Image for ReactApp - Build failure due to connection issue
 
 ###### Docker Images
 

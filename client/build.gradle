@@ -6,7 +6,6 @@ plugins {
 
 archivesBaseName = 'revive-client'
 
-group = 'slabs.tech.avti'
 version = '0.0.2-SNAPSHOT'
 
 dockerRepo = 'slabstech'

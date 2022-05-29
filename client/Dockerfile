@@ -10,8 +10,10 @@ WORKDIR /app
 # the dependencies. This is a separate step so the dependencies 
 # will be cached unless changes to one of those two files 
 # are made.
+#TODO remove below line- docker build failing
 COPY package.json package-lock.json ./
-RUN npm install
+#COPY package.json ./
+RUN npm ci
 # Copy the main application
 COPY . ./app
 
