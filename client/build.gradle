@@ -1,0 +1,39 @@
+plugins {
+	id "com.github.node-gradle.node" version "3.0.1"
+	id 'java'
+	id 'eclipse'
+}
+
+archivesBaseName = 'revive-client'
+
+version = '0.0.2-SNAPSHOT'
+
+dockerRepo = 'slabstech'
+
+repositories {
+	mavenCentral()
+}
+
+
+node {
+    version = '16.15.0'
+    download = true
+    npmVersion = ""
+}
+
+task buildReactApp(type: NodeTask, dependsOn: 'npmInstall') {
+    script = project.file('node_modules/webpack/bin/webpack.js')
+    args = [
+            '--mode', 'development',
+            '--entry', './src/Home.js',
+            '-o', './static/dist'
+    ]
+}
+
+processResources.dependsOn 'buildReactApp'
+clean.delete << file('node_modules')
+clean.delete << file('static/dist')
+
+task buildClientDocker(type: Exec) {
+    commandLine 'docker', 'build', '--rm', '.', '-t', "$dockerRepo/$archivesBaseName:$project.version", "-f", "Dockerfile"
+}

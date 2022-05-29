@@ -1,0 +1,68 @@
+plugins {
+	id 'org.springframework.boot' version '2.7.0'
+	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'java'
+	id 'eclipse'
+}
+
+archivesBaseName = 'app'
+
+group = 'slabs.tech.avti'
+version = '0.0.2-SNAPSHOT'
+
+dockerRepo = 'slabstech'
+
+repositories {
+	mavenCentral()
+}
+
+springBoot {
+	mainClass = 'slabs.tech.avti.Application'
+}
+
+tasks.named("bootRun") {
+	mainClass = 'slabs.tech.avti.Application'
+}
+
+dependencies {
+
+	implementation 'org.springframework.boot:spring-boot-starter'
+	implementation "org.springframework.boot:spring-boot-starter-web"
+	implementation "org.springframework.boot:spring-boot-starter-data-jpa"
+	implementation "org.springframework.boot:spring-boot-starter-cache"
+	implementation "org.springframework.boot:spring-boot-starter-validation"
+	implementation "io.rest-assured:rest-assured"
+	implementation "javax.servlet:javax.servlet-api:4.0.0"
+
+	testImplementation "org.junit.jupiter:junit-jupiter-api"
+	testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	runtimeOnly 'org.postgresql:postgresql'
+
+}
+
+task copyDependencies(type: Copy) {
+    from configurations.runtimeClasspath
+    into "$buildDir/lib"
+}
+
+// creates your manifest file within the JAR
+jar {
+    manifest {
+        attributes["Main-Class"] = "slabs.tech.avti.Application"
+        attributes["Class-Path"] = configurations.runtimeClasspath.collect { 'lib/' + it.getName() }.join(' ')
+    }
+}
+
+
+task buildServerDocker(type: Exec) {
+    dependsOn copyDependencies, build
+    workingDir "$projectDir"
+    commandLine 'docker', 'build', '--rm', '.', '-t', "$dockerRepo/$archivesBaseName:$project.version", "-f", "$projectDir/src/main/docker/Dockerfile"
+}
+
+task runServerDocker(type: Exec) {
+    dependsOn buildServerDocker
+    workingDir "$projectDir"
+    commandLine 'docker', 'run', "$dockerRepo/$archivesBaseName:$project.version"
+}

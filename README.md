@@ -2,7 +2,7 @@
 
 ![Build](https://github.com/sachinsshetty/revive/actions/workflows/main.yml/badge.svg) ![CodeQL](https://github.com/sachinsshetty/revive/actions/workflows/codeql-analysis.yml/badge.svg)
 
-* Technology Demonstrator based on Micro-services architecture built using ReactJS + SpringBoot for Autonomous Vehicle Tech Infrastructure (AVTI)
+* Device Management Starter Library based on Multi-service architecture using ReactJS + SpringBoot + Postgres 
 
 
 ###### Sprint
@@ -15,14 +15,16 @@
   See [sprint.md](https://github.com/sachinsshetty/revive/blob/main/docs/sprint.md) for detailed tasks
 
   * Current Sprint Task
-     * Deploy container to AWS
+     * Create Docker Image for ReactApp - Build failure due to connection issue
 
 ###### Docker Images
 
 | Docker Image | Tagname | Size(Mb) | Version | 
 |---|---|---|---|
-| App | [slabstech/avti-app](https://hub.docker.com/r/slabstech/avti-app) | 160 | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) |
-| DB | [slabstech/avti-db](https://hub.docker.com/r/slabstech/avti-db) | 80.7 | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) |
+| Server | [slabstech/revive-server](https://hub.docker.com/r/slabstech/revive-server) | 160 | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
+| Client | [slabstech/revive-client](https://hub.docker.com/r/slabstech/revive-client) | 160 | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
+| DB | [slabstech/revive-db](https://hub.docker.com/r/slabstech/revive-db) | 80.7 | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
+
 
 Execution Steps : For Ver 1
 * cd docker
@@ -47,7 +49,9 @@ Execution Steps : For Ver 1
   | git , Github Action | -- | Done | Version Control, CI/CD | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0)|
   | Docker | 20 | Done | micro services deployment | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) |
   | Custom JRE 17 | 20 | Done | micro services deployment | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) | 
+  | NodeJs | 16 | Done |-- | 2.0 |
   | React JS | -- | Done | Front end Dashboards | 2.0 |
+  | Nginx | -- | Done | Client Server | 2.0 |
   | REST | -- | -- |-- | 1.0 |
   | Maven | -- | -- |-- |-- |
   | Kubernetes | -- | -- | -- |-- |
@@ -57,15 +61,6 @@ Execution Steps : For Ver 1
   | Message Bus| -- |-- |-- |-- |
   | OAuth | -- | -- |-- |-- |
   | Apache Kafka | -- | -- |-- |-- |
-
-#### Releases
-
-  | Version | Function | Status |
-  |---|---|---|
-  | 1.0 | App / DB Microservice, ReactJS Dashboard | WIP |
-  | 2.0 | DB, App-Microservice split into 4 entities, OAuth |  TBD |
-  | 3.0 | Kafka processing| TBD |
-
 
 #### Important Links
 

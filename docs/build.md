@@ -1,5 +1,38 @@
 ### Build
 
+* Pre-Requisites - 
+
+* Required Software to Install
+  * Node
+    * curl -fsSL https://deb.nodesource.com/setup_16.x | sudo -E bash -
+
+    * sudo apt-get install -y nodejs
+
+
+  * PostgreSQL
+    * PostgreSQL status check
+
+    * sudo systemctl is-active postgresql
+
+    * sudo systemctl is-enabled postgresql
+
+    * sudo systemctl status postgresql
+
+    * sudo pg_isready
+    * Creating database
+        * sudo su - postgres
+        * psql
+          * CREATE USER db_user WITH PASSWORD 'db_pswd';
+          * CREATE DATABASE user_db;
+          * GRANT ALL PRIVILEGES ON DATABASE user_db to db_user;
+
+      * sudo /usr/pgadmin4/bin/setup-web.sh
+
+    * Docker 
+
+    * Java 
+
+
 * Steps
   * Docker
     * Build Steps
@@ -39,10 +72,6 @@
 	    Body : raw :  : { "name" : "driverName" }
 
 
-* Prerequisites :
-* Install PostgreSQL
-
-
 
 Custom JRE 
 * jdeps to find dependency of app.jar 
@@ -51,10 +80,6 @@ Custom JRE
   * RUN jlink --add-modules ALL-MODULE-PATH --no-man-pages --no-header-files --compress=2 --output jre 
 
 * Use the docker-compose.yml directly to run the Application, required base images are available at https://hub.docker.com
-
-
-
-
 
 * React Build
   * npx create-react-app frontend    
