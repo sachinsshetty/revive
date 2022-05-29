@@ -27,4 +27,4 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
       with:
-        arguments: runDockerBuild --scan -x test
+        arguments: createReviveDockerImages -x test

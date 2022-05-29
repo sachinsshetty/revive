@@ -1,3 +1,3 @@
-FROM slabstech/app:0.0.2-SNAPSHOT
+FROM build-revive-server
 
 ENTRYPOINT ["jre/bin/java", "-jar", "app.jar"]

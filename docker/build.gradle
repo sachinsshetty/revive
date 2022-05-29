@@ -14,7 +14,7 @@ task createDBDockerImage(type: Exec) {
 }
 
 task createReviveDockerImages(type: Exec) {
-    dependsOn "createDBDockerImage", "createServerDockerImage", "createServerDockerImage"
+    dependsOn "createDBDockerImage", "createServerDockerImage", "createClientDockerImage"
     commandLine 'echo', 'success create images'
 }    
 

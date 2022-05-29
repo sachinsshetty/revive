@@ -1,27 +1,26 @@
 # Release Notes
 
-* Ver 2 - May 2022
+* Ver 2 - May 30 :2022
 	* Runtime
-   		* CLI based result interaction
- 	* Code
-    	* Eclipse IDE of Windows 10
-	* Deployment
-    	* Github actions runner / Auto trigger of Jenkins in Ubuntu to deploy code to apache-tomcat server
+   		* SpringBoot Backend Server + Thymeleaf Templates for UI + PostgreSQL for Database
+ 	* Deployment
+    	* Github actions runner for build
+		* nginx for serving reactjs front
+		* tomcat for serving backend 
  	* Tech Stack
-    	* Core Java
-    	* Postgre 
-		* SpringBoot + SpringMVC
-		* Hibernate JPA
+    	* Core Java * SpringBoot + SpringMVC +Hibernate JPA 
+    	* PostgreSQL
+		* ReactJS + CSS 
+		* Deployed to docker Hub 
+			* revive-db:2.0
+			* revive-client:2.0
+			* revive-server:2.0
 	
-* Ver 1 - May 2022
+* Ver 1 - May 25 - 2022
 	* Runtime
-    	* CLI based result interaction
- 	* Code
-    	* Eclipse IDE of Windows 10
+    	* SpringBoot Backend Server + Thymeleaf Templates for UI + PostgreSQL for Database
  	* Deployment
     	* Github actions runner / Auto trigger of Jenkins in Ubuntu to deploy code to apache-tomcat server
 	* Tech Stack
-    	* Core Java
-    	* Postgre + JDBC
-Sp3
- * TODO : Build using Docker compose to load into AWS
+    	* PostgreSQL + SpringBoot + SpringMVC +Hibernate JPA 
+		* Thymeleaf templates
