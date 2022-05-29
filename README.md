@@ -6,12 +6,15 @@
 
 
 ###### Sprint
+| Version | Task | 
+|---|---|
+|0.1|Spring Boot + Postgres|
+|0.2|Spring Boot + PostgreSQL + Thymeleaf Template|
+|1.0|Spring Boot + PostgreSQL + Thymeleaf Template + Docker|
+|1.1|Spring Boot + PostgreSQL + ReactJS |
+|1.2|Spring Boot + PostgreSQL + ReactJS + Docker|
+|2.0|Spring Boot + PostgreSQL + ReactJS + Docker +  AWS|
 
-1. Create CI/CD Pipeline + ver1 - SpringBoot + Thymeleaf
-2. ver2- SpringBoot + ReactJS
-3. Cloud Deploy
-4. Automation Testing
-5. Algorithm Implementation
 
   See [sprint.md](https://github.com/sachinsshetty/revive/blob/main/docs/sprint.md) for detailed tasks
 
@@ -22,19 +25,24 @@
 
 | Docker Image | Tagname | Size(Mb) | Version |
 |---|---|---|---|
-| Server | [slabstech/revive-server](https://hub.docker.com/r/slabstech/revive-server) | 160 | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
-| Client | [slabstech/revive-client](https://hub.docker.com/r/slabstech/revive-client) | 160 | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
-| DB | [slabstech/revive-db](https://hub.docker.com/r/slabstech/revive-db) | 80.7 | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
+| Server | [slabstech/revive-server](https://hub.docker.com/r/slabstech/revive-server) | 157.3 | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
+| Client | [slabstech/revive-client](https://hub.docker.com/r/slabstech/revive-client) | 54.13 | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
+| DB | [slabstech/revive-db](https://hub.docker.com/r/slabstech/revive-db) | 80.07 | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
 
 
-Execution Steps : For Ver 1
-* cd docker
-* docker-compose up
+Execution Steps :
+  * To compile code and build docker images
+    * ./gradlew createReviveDockerImages
+
+  * To run the with docker-compose 
+    * ./gradlew runReviveDocker
+
+
 * Execute scripts/findIPAddress.sh to locate IP webserver
 
 * In browser :
-  * for homepage : http://IpAddress:8080
-  * for droiver info : http://IpAddress:8080/api/drivers
+  * for Homepage : http://IpAddress:8080
+  * for Users info : http://IpAddress:8080/app_users
 
 
 #### Tech Stack
@@ -53,11 +61,7 @@ Execution Steps : For Ver 1
   | NodeJs | 16 | Done |-- | 2.0 |
   | React JS | -- | Done | Front end Dashboards | 2.0 |
   | Nginx | -- | Done | Client Server | 2.0 |
-  | REST | -- | -- |-- | 1.0 |
-  | Maven | -- | -- |-- |-- |
   | Kubernetes | -- | -- | -- |-- |
-  | Jenkins | -- | -- |-- |-- |
-  | Micro Services | -- | -- |-- |-- |
   | AWS | -- | -- |-- |-- |
   | Message Bus| -- |-- |-- |-- |
   | OAuth | -- | -- |-- |-- |
@@ -77,21 +81,13 @@ Execution Steps : For Ver 1
 
 | Environment | Status | Release Version |
 |---|---|---|
-| Local Machine - Ubuntu | Done | 1.0 |
-| Docker - alpine-linux | Done | 1.0 |
+| Local Machine - Ubuntu | Done | 2.0 |
+| Docker - alpine-linux | Done | 2.0 |
 
 ##### Build Status - Java version - GithubRunner
 
-| JDK | 11 | 17 | 18 |
-|---|---|---|---|
-| ubuntu-latest | Pass | Pass | Pass |
-| windows-latest | Pass | Pass | Pass |
-| macOS-latest | Pass | Pass | Pass |
-
-* Source - [Github Actions](https://github.com/sachinsshetty/revive/actions/workflows/main.yml)
-
 * Services
-  * User, Device
+  * AppUser, Device
 
 * Outcome
   * [Blog- WIP - How to migrate project from Monolith to Microservice](https://slabstech.github.io/blog/monolith-microservice/)

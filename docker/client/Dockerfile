@@ -2,7 +2,7 @@
 FROM nginx:stable
 
 # Copy the react build from Stage 1
-COPY --from=build-revive-client /build /usr/share/nginx/html
+COPY --from=build-revive-client /app/public /usr/share/nginx/html
 
 # Copy our custom nginx config
 COPY nginx.conf /etc/nginx/nginx.conf

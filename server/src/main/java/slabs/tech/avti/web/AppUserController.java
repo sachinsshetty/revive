@@ -18,16 +18,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import slabs.tech.avti.persistance.model.User;
-import slabs.tech.avti.persistance.repo.UserRepository;
+import slabs.tech.avti.persistance.model.AppUser;
+import slabs.tech.avti.persistance.repo.AppUserRepository;
 import org.springframework.http.HttpStatus;
 
 @RestController
-@RequestMapping("/users")
-public class UserController {
+@RequestMapping("/app_users")
+public class AppUserController {
 
 	@Autowired
-	private UserRepository userRepository;
+	private AppUserRepository appUserRepository;
 
 
 	/**
@@ -36,8 +36,8 @@ public class UserController {
 	 * @return the list
 	 */
 	@GetMapping // GET Method for reading operation
-	public List<User> getAllUsers() {
-		return userRepository.findAll();
+	public List<AppUser> getAllUsers() {
+		return appUserRepository.findAll();
 	}
 
 	/**
@@ -48,9 +48,9 @@ public class UserController {
 	 * @throws Exception
 	 */
 	@GetMapping("/{id}") // GET Method for Read operation
-	public ResponseEntity<User> getUserById(@PathVariable(value = "id") Long userId) throws Exception {
+	public ResponseEntity<AppUser> getUserById(@PathVariable(value = "id") Long userId) throws Exception {
 
-		User user = userRepository.findById(userId)
+		AppUser user = appUserRepository.findById(userId)
 				.orElseThrow(() -> new Exception("User " + userId + " not found"));
 		return ResponseEntity.ok().body(user);
 	}
@@ -63,8 +63,8 @@ public class UserController {
 	 */
 	@PostMapping // POST Method for Create operation
 	@ResponseStatus(HttpStatus.CREATED)
-	public User createUser(@Valid @RequestBody User user) {
-		return userRepository.save(user);
+	public AppUser createUser(@Valid @RequestBody AppUser user) {
+		return appUserRepository.save(user);
 	}
 
 	/**
@@ -76,16 +76,16 @@ public class UserController {
 	 * @throws Exception
 	 */
 	@PutMapping("/{id}") // PUT Method for Update operation
-	public ResponseEntity<User> updateUser(@PathVariable(value = "id") Long userId,
-			@Valid @RequestBody User userDetails) throws Exception {
+	public ResponseEntity<AppUser> updateUser(@PathVariable(value = "id") Long userId,
+			@Valid @RequestBody AppUser userDetails) throws Exception {
 
-		User user = userRepository.findById(userId)
+		AppUser user = appUserRepository.findById(userId)
 				.orElseThrow(() -> new Exception("User " + userId + " not found"));
 
 		// user.setCarName(userDetails.getUserName());
 		// user.setDoors(userDetails.getOs());
 
-		final User updatedUser = userRepository.save(user);
+		final AppUser updatedUser = appUserRepository.save(user);
 		return ResponseEntity.ok(updatedUser);
 	}
 
@@ -98,10 +98,10 @@ public class UserController {
 	 */
 	@DeleteMapping("/{id}") // DELETE Method for Delete operation
 	public Map<String, Boolean> deleteUser(@PathVariable(value = "id") Long userId) throws Exception {
-		User user = userRepository.findById(userId)
+		AppUser user = appUserRepository.findById(userId)
 				.orElseThrow(() -> new Exception("User " + userId + " not found"));
 
-		userRepository.delete(user);
+		appUserRepository.delete(user);
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;

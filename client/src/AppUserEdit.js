@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 
-class UserEdit extends Component {
+class AppUserEdit extends Component {
 
     emptyItem = {
         name: '',
@@ -21,8 +21,8 @@ class UserEdit extends Component {
 
     async componentDidMount() {
         if (this.props.match.params.id !== 'new') {
-            const user = await (await fetch(`/users/${this.props.match.params.id}`)).json();
-            this.setState({item: user});
+            const app_user = await (await fetch(`/app_users/${this.props.match.params.id}`)).json();
+            this.setState({item: app_user});
         }
     }
 
@@ -39,7 +39,7 @@ async handleSubmit(event) {
     event.preventDefault();
     const {item} = this.state;
 
-    await fetch('/users' + (item.id ? '/' + item.id : ''), {
+    await fetch('/app_users' + (item.id ? '/' + item.id : ''), {
         method: (item.id) ? 'PUT' : 'POST',
         headers: {
             'Accept': 'application/json',
@@ -47,7 +47,7 @@ async handleSubmit(event) {
         },
         body: JSON.stringify(item),
     });
-    this.props.history.push('/users');
+    this.props.history.push('/app_users');
 }
 
     render() {
@@ -71,7 +71,7 @@ async handleSubmit(event) {
                     </FormGroup>
                     <FormGroup>
                         <Button color="primary" type="submit">Save</Button>{' '}
-                        <Button color="secondary" tag={Link} to="/users">Cancel</Button>
+                        <Button color="secondary" tag={Link} to="/app_users">Cancel</Button>
                     </FormGroup>
                 </Form>
             </Container>
@@ -79,4 +79,4 @@ async handleSubmit(event) {
     }
 }
 
-export default withRouter(UserEdit);
+export default withRouter(AppUserEdit);

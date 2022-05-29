@@ -1,9 +1,9 @@
 services:
-  server::
-    image: 'slabstech/revive-server'
-    #build:
-    #  context: server 
-    #  dockerfile: Dockerfile
+  server:
+    image: 'slabstech/revive-server:2.0'
+    build:
+      context: server 
+      dockerfile: Dockerfile
     container_name: app
     restart: always
     ports:
@@ -21,20 +21,23 @@ services:
 
   # Frontend Service 
   client:
-    image: 'slabstech/revive-client'
-    #build:
-    #  context: client # Use an image built from the specified dockerfile in the `polling-app-client` directory.
-    #  dockerfile: Dockerfile
+    image: 'slabstech/revive-client:2.0'
+    build:
+      context: client # Use an image built from the specified dockerfile in the `polling-app-client` directory.
+      dockerfile: Dockerfile
     ports:
       - "9090:80" # Map the exposed port 80 on the container to port 9090 on the host machine
     restart: always
     depends_on:
-      - app-server
+      - server
     networks:
       - frontend  
 
   db:
-    image: 'slabstech/revive-db'
+    image: 'slabstech/revive-db:2.0'
+    build:
+      context: db # Use an image built from the specified dockerfile in the `polling-app-client` directory.
+      dockerfile: Dockerfile    
     container_name: db
     environment:
       - POSTGRES_USER=revive_db

@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import Home from './Home';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import UserList from './UserList';
-import UserEdit from "./UserEdit";
+import AppUserList from './AppUserList';
+import AppUserEdit from "./AppUserEdit";
 import ConfigurationList from './ConfigurationList';
 import ConfigurationEdit from "./ConfigurationEdit";
 
@@ -18,8 +18,8 @@ class App extends Component {
         <Router>
           <Switch>
             <Route path='/' exact={true} component={Home}/>
-            <Route path='/users' exact={true} component={UserList}/>
-            <Route path='/users/:id' component={UserEdit}/>
+            <Route path='/app_users' exact={true} component={AppUserList}/>
+            <Route path='/app_users/:id' component={AppUserEdit}/>
             <Route path='/configurations' exact={true} component={ConfigurationList}/>
             <Route path='/configurations/:id' component={ConfigurationEdit}/>
             

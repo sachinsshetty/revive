@@ -1,6 +1,12 @@
 subprojects {
     apply plugin: 'java'
 
+    group = 'com.slabstech.revive'
+
+    version = '0.0.2-SNAPSHOT'
+
+    dockerRepo = 'slabstech'
+
     repositories {
         mavenCentral()
     }
