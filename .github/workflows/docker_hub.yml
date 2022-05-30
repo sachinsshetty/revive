@@ -19,15 +19,15 @@ jobs:
   build:
     runs-on: ubuntu-latest
       strategy:
-      fail-fast: false
-      matrix:
-        include:
-          - dockerfile: ./docker/client/Dockerfile
-            image: revive-client
-          - dockerfile: ./docker/server/Dockerfile
-            image: revive-server
-          - dockerfile: ./docker/db/Dockerfile
-            image: revive-db
+        fail-fast: false
+        matrix:
+          include:
+            - dockerfile: ./docker/client/Dockerfile
+              image: revive-client
+            - dockerfile: ./docker/server/Dockerfile
+              image: revive-server
+            - dockerfile: ./docker/db/Dockerfile
+              image: revive-db
     steps:
       -
         name: Checkout
@@ -51,5 +51,5 @@ jobs:
           builder: ${{ steps.buildx.outputs.name }}
           push: true
           tags: ${{ secrets.DOCKER_HUB_USERNAME }}/{{image}}:2.0.0
-          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/reviveHubTest:buildcache
-          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/reviveHubTest:buildcache,mode=max
+          cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/{{image}}:buildcache
+          cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/{{image}}:buildcache,mode=max
