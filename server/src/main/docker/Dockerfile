@@ -14,7 +14,7 @@ WORKDIR /app
 COPY build/lib/* build/lib/
 
 # copy the executable jar into the docker image
-COPY build/libs/app-0.0.2-SNAPSHOT.jar build/app.jar
+COPY build/libs/app-2.0.0.jar build/app.jar
 
 RUN jdeps --ignore-missing-deps --module-path modules --add-modules=ALL-MODULE-PATH --generate-module-info out build/app.jar
 RUN jlink --add-modules ALL-MODULE-PATH --no-man-pages --no-header-files --compress=2 --output jre 

@@ -1,12 +1,13 @@
-subprojects {
-    apply plugin: 'java'
-
+ext {
     group = 'com.slabstech.revive'
 
     version = '2.0.0'
 
     dockerRepo = 'slabstech'
+}
 
+subprojects {
+    apply plugin: 'java'
     repositories {
         mavenCentral()
     }
