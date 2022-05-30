@@ -39,6 +39,7 @@ public class UserTest {
             .size() > 0);
     }
     */
+    /*
     @Test
     public void whenGetCreatedAppUserById_thenOK() {
         final AppUser appUser = createRandomAppUser();
@@ -68,6 +69,8 @@ public class UserTest {
         assertEquals(HttpStatus.CREATED.value(), response.getStatusCode());
     }
 
+    */
+
     @Test
     public void whenInvalidAppUser_thenError() {
         final AppUser appUser = createRandomAppUser();
@@ -79,7 +82,7 @@ public class UserTest {
             .post(API_ROOT);
         assertEquals(HttpStatus.BAD_REQUEST.value(), response.getStatusCode());
     }
-
+/*
     @Test
     public void whenUpdateCreatedAppUser_thenUpdated() {
         final AppUser appUser = createRandomAppUser();
@@ -99,6 +102,8 @@ public class UserTest {
             .get("name"));
 
     }
+/*
+    /*
 
     @Test
     public void whenDeleteCreatedAppUser_thenOk() {
@@ -111,7 +116,7 @@ public class UserTest {
         response = RestAssured.get(location);
         assertEquals(HttpStatus.NOT_FOUND.value(), response.getStatusCode());
     }
-
+*/
     // ===============================
 
     private AppUser createRandomAppUser() {
