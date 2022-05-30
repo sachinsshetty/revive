@@ -8,7 +8,9 @@
 * Device Management Starter Library based on Multi-service architecture using Docker + ReactJS + SpringBoot + Postgres
 
 
+
 ###### Sprint
+
 | Version | Task | Status |
 |---|---|---|
 |0.1|Spring Boot + Postgres|Done|
@@ -18,11 +20,12 @@
 |1.2|Spring Boot + PostgreSQL + ReactJS + Docker|Done|
 |2.0|Spring Boot + PostgreSQL + ReactJS + Docker +  AWS|WIP|
 
-
   See [sprint.md](https://github.com/sachinsshetty/revive/blob/main/docs/sprint.md) for detailed tasks
 
   * Current Sprint Task
      * 2.4 Nginx start issue due to misconfigured nginx.conf
+
+
 
 ###### Docker Images
 
@@ -33,19 +36,19 @@
 | DB | [slabstech/revive-db](https://hub.docker.com/r/slabstech/revive-db) | 80.07 | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
 
 
-Execution Steps :
+
+##### Execution Steps :
   * To compile code and build docker images
     * ./gradlew createReviveDockerImages
 
   * To run the with docker-compose 
     * ./gradlew runReviveDocker
+  * Execute scripts/findIPAddress.sh to locate IP webserver
 
+  * In browser :
+    * for Homepage : http://IpAddress:8080
+    * for Users info : http://IpAddress:8080/app_users
 
-* Execute scripts/findIPAddress.sh to locate IP webserver
-
-* In browser :
-  * for Homepage : http://IpAddress:8080
-  * for Users info : http://IpAddress:8080/app_users
 
 
 #### Tech Stack
@@ -70,6 +73,8 @@ Execution Steps :
   | OAuth | -- | -- |-- |-- |
   | Apache Kafka | -- | -- |-- |-- |
 
+
+
 #### Important Links
 
 | Description | Document |
@@ -80,12 +85,16 @@ Execution Steps :
 |Release notes for versions available at [release.md](https://github.com/sachinsshetty/revive/blob/main/docs/release.md)|[release.md](https://github.com/sachinsshetty/revive/blob/main/doc/release.md)|
 |FAQ at [answers.md](https://github.com/sachinsshetty/revive/blob/main/docs/answers.md)|[answer.md](https://github.com/sachinsshetty/revive/blob/main/docs/answers.md)|
 
+
+
 #### Deployment
 
 | Environment | Status | Release Version |
 |---|---|---|
 | Local Machine - Ubuntu | Done | 2.0 |
 | Docker - alpine-linux | Done | 2.0 |
+
+
 
 ##### Build Status - Java version - GithubRunner
 

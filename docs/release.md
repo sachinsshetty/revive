@@ -3,6 +3,7 @@
 * Ver 2 - May - 30 - 2022
 	* Runtime
    		* SpringBoot Backend Server + ReactJS FrontEnd Client + PostgreSQL for Database
+
  	* Deployment
     	* Github actions runner for build
 		* nginx for serving reactjs front
