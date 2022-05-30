@@ -40,9 +40,9 @@ services:
       dockerfile: Dockerfile    
     container_name: db
     environment:
-      - POSTGRES_USER:revive_db
-      - POSTGRES_PASSWORD:revive_db
-      - POSTGRES_DB:revive_db
+      - POSTGRES_USER=revive_db
+      - POSTGRES_PASSWORD=revive_db
+      - POSTGRES_DB=revive_db
     networks:
       - backend  
     # volumes:
