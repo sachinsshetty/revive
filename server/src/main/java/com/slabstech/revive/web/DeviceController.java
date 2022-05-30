@@ -1,4 +1,4 @@
-package slabs.tech.avti.web;
+package com.slabstech.revive.web;
 
 import java.util.List;
 
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import slabs.tech.avti.persistance.model.Device;
-import slabs.tech.avti.persistance.repo.DeviceRepository;
+import com.slabstech.revive.persistence.model.Device;
+import com.slabstech.revive.persistence.repo.DeviceRepository;
 
 @RestController
 @RequestMapping("/api/devices")

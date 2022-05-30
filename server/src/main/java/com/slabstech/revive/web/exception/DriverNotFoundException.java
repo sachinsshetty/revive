@@ -1,4 +1,4 @@
-package slabs.tech.avti.web.exception;
+package com.slabstech.revive.web.exception;
 
 public class DriverNotFoundException extends RuntimeException {
 

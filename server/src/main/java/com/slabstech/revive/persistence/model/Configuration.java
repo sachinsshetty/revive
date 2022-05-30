@@ -1,4 +1,4 @@
-package slabs.tech.avti.persistance.model;
+package com.slabstech.revive.persistence.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

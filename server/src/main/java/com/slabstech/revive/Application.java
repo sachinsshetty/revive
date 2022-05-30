@@ -1,4 +1,4 @@
-package slabs.tech.avti;
+package com.slabstech.revive;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

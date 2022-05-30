@@ -1,4 +1,4 @@
-package slabs.tech.avti;
+package com.slabstech.revive;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -6,9 +6,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 
+import com.slabstech.revive.persistence.model.AppUser;
+
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
-import slabs.tech.avti.persistance.model.AppUser;
 
 public class UserTest {
 

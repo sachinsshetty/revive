@@ -1,8 +1,8 @@
-package slabs.tech.avti.persistance.repo;
+package com.slabstech.revive.persistence.repo;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-import slabs.tech.avti.persistance.model.Device;
+import com.slabstech.revive.persistence.model.Device;
 
 public interface DeviceRepository extends JpaRepository<Device, Long> {
 	  

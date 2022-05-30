@@ -79,9 +79,9 @@
     * Creating database
         * sudo su - postgres
         * psql
-          * CREATE USER db_user WITH PASSWORD 'db_pswd';
-          * CREATE DATABASE user_db;
-          * GRANT ALL PRIVILEGES ON DATABASE user_db to db_user;
+          * CREATE USER revive_db WITH PASSWORD 'revive_db';
+          * CREATE DATABASE revive_db;
+          * GRANT ALL PRIVILEGES ON DATABASE revive_db to revive_db;
 
       * sudo /usr/pgadmin4/bin/setup-web.sh
 

@@ -1,4 +1,4 @@
-package slabs.tech.avti.web;
+package com.slabstech.revive.web;
 
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import slabs.tech.avti.web.exception.DriverIdMismatchException;
-import slabs.tech.avti.web.exception.DriverNotFoundException;
+import com.slabstech.revive.web.exception.DriverIdMismatchException;
+import com.slabstech.revive.web.exception.DriverNotFoundException;
 
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
