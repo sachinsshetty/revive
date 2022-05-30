@@ -64,7 +64,10 @@ task buildServerDocker(type: Exec) {
 tasks.named('test') {
 	useJUnitPlatform()
 }
-
+buildScan {
+    termsOfServiceUrl = 'https://gradle.com/terms-of-service'
+    termsOfServiceAgree = 'yes'
+}
 //For testing 
 //task runServerDocker(type: Exec) {
 //    dependsOn buildServerDocker
