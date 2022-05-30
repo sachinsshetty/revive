@@ -29,7 +29,7 @@ public class Device {
 	private String reg_no;
 
 	@Column(name = "status", nullable = false)
-	private Boolean status;
+	private Boolean status = true;
 
 	public long getId() {
 		return id;

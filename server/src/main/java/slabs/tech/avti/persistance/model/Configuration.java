@@ -32,10 +32,10 @@ public class Configuration {
 	private String value;
 
 	@Column(name = "status", nullable = false)
-	private Boolean status;
+	private Boolean status= true;
 
 	@Column(name = "version", nullable = false)
-	private int version;
+	private int version= 1;
 
 	public long getId() {
 		return id;

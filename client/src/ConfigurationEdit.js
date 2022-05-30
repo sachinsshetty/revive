@@ -21,7 +21,7 @@ class ConfigurationEdit extends Component {
 
     async componentDidMount() {
         if (this.props.match.params.id !== 'new') {
-            const configuration = await (await fetch(`/configurations/${this.props.match.params.id}`)).json();
+            const configuration = await (await fetch(`/api/configurations/${this.props.match.params.id}`)).json();
             this.setState({item: configuration});
         }
     }
@@ -39,7 +39,7 @@ async handleSubmit(event) {
     event.preventDefault();
     const {item} = this.state;
 
-    await fetch('/configurations' + (item.id ? '/' + item.id : ''), {
+    await fetch('/api/configurations' + (item.id ? '/' + item.id : ''), {
         method: (item.id) ? 'PUT' : 'POST',
         headers: {
             'Accept': 'application/json',
@@ -47,7 +47,7 @@ async handleSubmit(event) {
         },
         body: JSON.stringify(item),
     });
-    this.props.history.push('/configurations');
+    this.props.history.push('/api/configurations');
 }
 
     render() {
@@ -71,7 +71,7 @@ async handleSubmit(event) {
                     </FormGroup>
                     <FormGroup>
                         <Button color="primary" type="submit">Save</Button>{' '}
-                        <Button color="secondary" tag={Link} to="/configurations">Cancel</Button>
+                        <Button color="secondary" tag={Link} to="/api/configurations">Cancel</Button>
                     </FormGroup>
                 </Form>
             </Container>

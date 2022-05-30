@@ -56,18 +56,20 @@
 
   |Tech | Version | Status | Use Case | App Version |
   |---|---|---|---|---|
-  | Java | 17  | WIP |-- | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) |
-  | Hibernate | -- | Done |-- | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) |
-  | PostgreSQL | 14 | Done |-- | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) |
-  | Gradle | 7.4.2 | Done | Compile code build tool | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) |
-  | SpringBoot + Thymeleaf | 2.7.0 | Design Pattern |-- | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) |
-  | JUnit | 5 | Done | Unit/Integration Test | 2.0 |
-  | git , Github Action | -- | Done | Version Control, CI/CD | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0)|
-  | Docker | 20 | Done | micro services deployment | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) |
-  | Custom JRE 17 | 20 | Done | micro services deployment | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) |
-  | NodeJs | 16 | Done |-- | 2.0 |
-  | React JS | -- | Done | Front end Dashboards | 2.0 |
-  | Nginx | -- | Done | Client Server | 2.0 |
+  | Java | 17  | WIP |-- | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
+  | Hibernate | -- | Done |-- | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
+  | PostgreSQL | 14 | Done |-- | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
+  | Gradle | 7.4.2 | Done | Compile code build tool | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
+  | SpringBoot  | 2.7.0 | Done | Design Pattern | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
+  | Thymeleaf | 2.7.0 | Deprecated | Design Pattern | [v1.0.0](https://github.com/sachinsshetty/revive/releases/tag/v1.0.0) |
+  | JUnit | 5 | Done | Unit/Integration Test | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
+  | git | 2.34.1 | Done | Version Control, CI/CD | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0)|
+  | Docker | 20 | Done | micro services deployment | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
+  | Custom JRE 17 | 20 | Done | micro services deployment | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
+  | NodeJs | 16 | Done |-- | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
+  | React JS | -- | Done | Front end Dashboards | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0)|
+  | Nginx | -- | Done | Client Server | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
+  | Github Actions Workflow | -- | Done | CI/CD | [v2.0.0](https://github.com/sachinsshetty/revive/releases/tag/v2.0.0) |
   | Kubernetes | -- | -- | -- |-- |
   | AWS | -- | -- |-- |-- |
   | Message Bus| -- |-- |-- |-- |
@@ -95,9 +97,6 @@
 | Local Machine - Ubuntu | Done | 2.0 |
 | Docker - alpine-linux | Done | 2.0 |
 
-
-
-##### Build Status - Java version - GithubRunner
 
 * Services
   * AppUser, Device

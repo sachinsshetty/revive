@@ -32,7 +32,7 @@ public class AppUser {
 	private String last_name;
 
 	@Column(name = "status", nullable = false)
-	private Boolean status;
+	private Boolean status = true;
 
 	public String getUser_name() {
 		return user_name;

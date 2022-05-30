@@ -18,10 +18,10 @@ class App extends Component {
         <Router>
           <Switch>
             <Route path='/' exact={true} component={Home}/>
-            <Route path='/app_users' exact={true} component={AppUserList}/>
-            <Route path='/app_users/:id' component={AppUserEdit}/>
-            <Route path='/configurations' exact={true} component={ConfigurationList}/>
-            <Route path='/configurations/:id' component={ConfigurationEdit}/>
+            <Route path='/api/app_users' exact={true} component={AppUserList}/>
+            <Route path='/api/app_users/:id' component={AppUserEdit}/>
+            <Route path='/api/configurations' exact={true} component={ConfigurationList}/>
+            <Route path='/api/configurations/:id' component={ConfigurationEdit}/>
             
           </Switch>
         </Router>
