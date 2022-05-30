@@ -17,5 +17,7 @@ RUN npm ci
 # Copy the main application
 COPY . ./
 
+COPY nginx.conf ./
+
 # Build the application
 RUN npm run build
