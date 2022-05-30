@@ -1,4 +1,4 @@
-package slabs.tech.avti;
+package com.slabstech.revive;
 
 import org.springframework.context.annotation.Configuration;
 

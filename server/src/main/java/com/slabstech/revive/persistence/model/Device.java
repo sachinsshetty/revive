@@ -1,4 +1,4 @@
-package slabs.tech.avti.persistance.model;
+package com.slabstech.revive.persistence.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,36 +12,24 @@ import javax.persistence.Table;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @Entity
-@Table(name = "app_user")
+@Table(name = "device")
 @EntityListeners(AuditingEntityListener.class)
-public class AppUser {
+public class Device {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "app_user_generator")
-	@SequenceGenerator(name = "app_user_generator", sequenceName = "app_user_id_seq", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "device_generator")
+	@SequenceGenerator(name = "device_generator", sequenceName = "device_id_seq", allocationSize = 1)
 	@Column(name = "id", updatable = false, nullable = false)
 	private long id;
 
 	@Column(name = "user_name", nullable = false, unique = true)
 	private String user_name;
 
-	@Column(name = "first_name", nullable = false)
-	private String first_name;
-
-	@Column(name = "last_name")
-	private String last_name;
+	@Column(name = "reg_no", nullable = false)
+	private String reg_no;
 
 	@Column(name = "status", nullable = false)
-	private Boolean status;
-
-	public String getUser_name() {
-		return user_name;
-	}
-
-	public void setUser_name(String user_name) {
-		this.user_name = user_name;
-
-	}
+	private Boolean status = true;
 
 	public long getId() {
 		return id;
@@ -51,20 +39,20 @@ public class AppUser {
 		this.id = id;
 	}
 
-	public String getFirst_name() {
-		return first_name;
+	public String getUser_name() {
+		return user_name;
 	}
 
-	public void setFirst_name(String first_name) {
-		this.first_name = first_name;
+	public void setUser_name(String user_name) {
+		this.user_name = user_name;
 	}
 
-	public String getLast_name() {
-		return last_name;
+	public String getReg_no() {
+		return reg_no;
 	}
 
-	public void setLast_name(String last_name) {
-		this.last_name = last_name;
+	public void setReg_no(String reg_no) {
+		this.reg_no = reg_no;
 	}
 
 	public Boolean getStatus() {
@@ -74,6 +62,5 @@ public class AppUser {
 	public void setStatus(Boolean status) {
 		this.status = status;
 	}
-
 
 }

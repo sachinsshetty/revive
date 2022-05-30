@@ -1,8 +1,9 @@
 # Release Notes
 
-* Ver 2 - May 30 :2022
+* Ver 2 - May - 30 - 2022
 	* Runtime
-   		* SpringBoot Backend Server + Thymeleaf Templates for UI + PostgreSQL for Database
+   		* SpringBoot Backend Server + ReactJS FrontEnd Client + PostgreSQL for Database
+
  	* Deployment
     	* Github actions runner for build
 		* nginx for serving reactjs front
@@ -16,11 +17,12 @@
 			* revive-client:2.0
 			* revive-server:2.0
 	
-* Ver 1 - May 25 - 2022
+* Ver 1 - May - 25 - 2022
 	* Runtime
     	* SpringBoot Backend Server + Thymeleaf Templates for UI + PostgreSQL for Database
  	* Deployment
-    	* Github actions runner / Auto trigger of Jenkins in Ubuntu to deploy code to apache-tomcat server
+    	* Github actions runner for build
+		* Application runs on embedded tomcat server
 	* Tech Stack
     	* PostgreSQL + SpringBoot + SpringMVC +Hibernate JPA 
 		* Thymeleaf templates

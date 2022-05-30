@@ -12,6 +12,11 @@
 name: "CodeQL"
 
 on:
+  workflow_run:
+    workflows: ["BuildSetup"]
+    types:
+      - completed
+
   push:
     branches: [ main ]
   pull_request:

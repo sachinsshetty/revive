@@ -1,4 +1,4 @@
-package slabs.tech.avti;
+package com.slabstech.revive;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,9 +9,9 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @ServletComponentScan
 @SpringBootApplication
-@ComponentScan("slabs.tech.avti")
-@EnableJpaRepositories("slabs.tech.avti.persistance.repo")
-@EntityScan("slabs.tech.avti.persistance.model")
+@ComponentScan("com.slabstech.revive")
+@EnableJpaRepositories("com.slabstech.revive.persistence.repo")
+@EntityScan("com.slabstech.revive.persistence.model")
 public class Application {
 
 	public static void main(String[] args) {

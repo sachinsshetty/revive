@@ -7,8 +7,8 @@ plugins {
 
 archivesBaseName = 'app'
 
-group = 'slabs.tech.avti'
-version = '0.0.2-SNAPSHOT'
+group = 'com.slabstech.revive'
+version = '2.0.0'
 
 dockerRepo = 'slabstech'
 
@@ -17,11 +17,11 @@ repositories {
 }
 
 springBoot {
-	mainClass = 'slabs.tech.avti.Application'
+	mainClass = 'com.slabstech.revive.Application'
 }
 
 tasks.named("bootRun") {
-	mainClass = 'slabs.tech.avti.Application'
+	mainClass = 'com.slabstech.revive.Application'
 }
 
 dependencies {
@@ -49,7 +49,7 @@ task copyDependencies(type: Copy) {
 // creates your manifest file within the JAR
 jar {
     manifest {
-        attributes["Main-Class"] = "slabs.tech.avti.Application"
+        attributes["Main-Class"] = "com.slabstech.revive.Application"
         attributes["Class-Path"] = configurations.runtimeClasspath.collect { 'lib/' + it.getName() }.join(' ')
     }
 }
@@ -61,6 +61,9 @@ task buildServerDocker(type: Exec) {
     commandLine 'docker', 'build', '--rm', '.', '-t', "build-revive-server", "-f", "$projectDir/src/main/docker/Dockerfile"
 }
 
+tasks.named('test') {
+	useJUnitPlatform()
+}
 //For testing 
 //task runServerDocker(type: Exec) {
 //    dependsOn buildServerDocker

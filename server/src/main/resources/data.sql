@@ -7,11 +7,11 @@ insert into app_user(id, user_name, first_name,last_name,status) values(nextval(
 
 
 
-insert into configuration(id, key, value, version, status)values(nextval('configuration_id_seq'), 'SERVICE.NUMBER', '2', 1, true);
+insert into configuration(id, key, value, version, status)values(nextval('configuration_id_seq'), 'SYSTEM.SERVICE.NUMBER', '2', 1, true);
 
-insert into configuration(id, key, value, version, status)values(nextval('configuration_id_seq'), 'SERVICE.NAMES', 'APP,DB', 1, true);
+insert into configuration(id, key, value, version, status)values(nextval('configuration_id_seq'), 'SYSTEM.SERVICE.NAMES', 'APP,DB', 1, true);
 
-insert into configuration(id, key, value, version, status)values(nextval('configuration_id_seq'), 'STARTUP.DB.INSERT', 'TRUE', 1, true);
+insert into configuration(id, key, value, version, status)values(nextval('configuration_id_seq'), 'SYSTEM.STARTUP.DB.INSERT', 'TRUE', 1, true);
 
 
 

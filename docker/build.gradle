@@ -1,16 +1,16 @@
 task createClientDockerImage(type: Exec) {
     dependsOn ":client:buildClientDocker"
-    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-client:2.0", "-f", "client/Dockerfile"
+    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-client:2.0.0", "-f", "client/Dockerfile"
 }    
 
 task createServerDockerImage(type: Exec) {
     dependsOn ":server:buildServerDocker"
-    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-server:2.0", "-f", "server/Dockerfile"
+    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-server:2.0.0", "-f", "server/Dockerfile"
 }
 
 
 task createDBDockerImage(type: Exec) {
-    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-db:2.0", "-f", "db/Dockerfile"
+    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-db:2.0.0", "-f", "db/Dockerfile"
 }
 
 task createReviveDockerImages(type: Exec) {

@@ -12,13 +12,13 @@ class ConfigurationList extends Component {
     }
 
     componentDidMount() {
-        fetch('/configurations')
+        fetch('/api/configurations')
             .then(response => response.json())
             .then(data => this.setState({configurations: data}));
     }
 
     async remove(id) {
-        await fetch(`/configurations/${id}`, {
+        await fetch(`/api/configurations/${id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
@@ -39,7 +39,7 @@ class ConfigurationList extends Component {
                 <td>{configuration.value}</td>
                 <td>
                     <ButtonGroup>
-                        <Button size="sm" color="primary" tag={Link} to={"/configurations/" + configuration.id}>Edit</Button>
+                        <Button size="sm" color="primary" tag={Link} to={"/api/configurations/" + configuration.id}>Edit</Button>
                         <Button size="sm" color="danger" onClick={() => this.remove(configuration.id)}>Delete</Button>
                     </ButtonGroup>
                 </td>
@@ -51,7 +51,7 @@ class ConfigurationList extends Component {
                 <AppNavbar/>
                 <Container fluid>
                     <div className="float-right">
-                        <Button color="success" tag={Link} to="/configurations/new">Add Configurations</Button>
+                        <Button color="success" tag={Link} to="/api/configurations/new">Add Configurations</Button>
                     </div>
                     <h3>Configurations</h3>
                     <Table className="mt-4">

@@ -21,7 +21,7 @@ class AppUserEdit extends Component {
 
     async componentDidMount() {
         if (this.props.match.params.id !== 'new') {
-            const app_user = await (await fetch(`/app_users/${this.props.match.params.id}`)).json();
+            const app_user = await (await fetch(`/api/app_users/${this.props.match.params.id}`)).json();
             this.setState({item: app_user});
         }
     }
@@ -39,7 +39,7 @@ async handleSubmit(event) {
     event.preventDefault();
     const {item} = this.state;
 
-    await fetch('/app_users' + (item.id ? '/' + item.id : ''), {
+    await fetch('/api/app_users' + (item.id ? '/' + item.id : ''), {
         method: (item.id) ? 'PUT' : 'POST',
         headers: {
             'Accept': 'application/json',
@@ -47,7 +47,7 @@ async handleSubmit(event) {
         },
         body: JSON.stringify(item),
     });
-    this.props.history.push('/app_users');
+    this.props.history.push('/api/app_users');
 }
 
     render() {
@@ -71,7 +71,7 @@ async handleSubmit(event) {
                     </FormGroup>
                     <FormGroup>
                         <Button color="primary" type="submit">Save</Button>{' '}
-                        <Button color="secondary" tag={Link} to="/app_users">Cancel</Button>
+                        <Button color="secondary" tag={Link} to="/api/app_users">Cancel</Button>
                     </FormGroup>
                 </Form>
             </Container>

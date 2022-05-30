@@ -1,4 +1,4 @@
-package slabs.tech.avti.persistance.model;
+package com.slabstech.revive.persistence.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,10 +32,10 @@ public class Configuration {
 	private String value;
 
 	@Column(name = "status", nullable = false)
-	private Boolean status;
+	private Boolean status= true;
 
 	@Column(name = "version", nullable = false)
-	private int version;
+	private int version= 1;
 
 	public long getId() {
 		return id;

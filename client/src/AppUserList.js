@@ -12,13 +12,13 @@ class AppUserList extends Component {
     }
 
     componentDidMount() {
-        fetch('/app_users')
+        fetch('/api/app_users')
             .then(response => response.json())
             .then(data => this.setState({app_users: data}));
     }
 
     async remove(id) {
-        await fetch(`/app_users/${id}`, {
+        await fetch(`/api/app_users/${id}`, {
             method: 'DELETE',
             headers: {
                 'Accept': 'application/json',
@@ -39,7 +39,7 @@ class AppUserList extends Component {
                 <td>{app_user.first_name}</td>
                 <td>
                     <ButtonGroup>
-                        <Button size="sm" color="primary" tag={Link} to={"/app_users/" + app_user.id}>Edit</Button>
+                        <Button size="sm" color="primary" tag={Link} to={"/api/app_users/" + app_user.id}>Edit</Button>
                         <Button size="sm" color="danger" onClick={() => this.remove(app_user.id)}>Delete</Button>
                     </ButtonGroup>
                 </td>
@@ -51,7 +51,7 @@ class AppUserList extends Component {
                 <AppNavbar/>
                 <Container fluid>
                     <div className="float-right">
-                        <Button color="success" tag={Link} to="/app_users/new">Add AppUsers</Button>
+                        <Button color="success" tag={Link} to="/api/app_users/new">Add AppUsers</Button>
                     </div>
                     <h3>AppUsers</h3>
                     <Table className="mt-4">

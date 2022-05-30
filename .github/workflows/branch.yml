@@ -1,5 +1,5 @@
 
-name: buildSetup
+name: "BuildSetup"
 on: [push]
 jobs:
   gradle:
@@ -23,5 +23,13 @@ jobs:
       uses: gradle/gradle-build-action@v2
       with:
         arguments: build --scan -x test
+
+    - name: Archive test report
+      uses: actions/upload-artifact@v2
+      with:
+        name: Test report
+        path: build/reports/tests/test
+
+  
 
 
