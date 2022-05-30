@@ -17,7 +17,7 @@ import slabs.tech.avti.persistance.model.Device;
 import slabs.tech.avti.persistance.repo.DeviceRepository;
 
 @RestController
-@RequestMapping("/devices")
+@RequestMapping("/api/devices")
 public class DeviceController {
 
 	@Autowired

@@ -23,7 +23,7 @@ import slabs.tech.avti.persistance.repo.AppUserRepository;
 import org.springframework.http.HttpStatus;
 
 @RestController
-@RequestMapping("/app_users")
+@RequestMapping("/api/app_users")
 public class AppUserController {
 
 	@Autowired

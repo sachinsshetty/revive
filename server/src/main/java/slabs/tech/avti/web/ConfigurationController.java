@@ -23,7 +23,7 @@ import slabs.tech.avti.persistance.repo.ConfigurationRepository;
 import org.springframework.http.HttpStatus;
 
 @RestController
-@RequestMapping("/configurations")
+@RequestMapping("/api/configurations")
 public class ConfigurationController {
 
   @Autowired

@@ -61,6 +61,10 @@ task buildServerDocker(type: Exec) {
     commandLine 'docker', 'build', '--rm', '.', '-t', "build-revive-server", "-f", "$projectDir/src/main/docker/Dockerfile"
 }
 
+tasks.named('test') {
+	useJUnitPlatform()
+}
+
 //For testing 
 //task runServerDocker(type: Exec) {
 //    dependsOn buildServerDocker
