@@ -1,25 +1,28 @@
 # revive
-
-![Build](https://github.com/sachinsshetty/revive/actions/workflows/main.yml/badge.svg) ![CodeQL](https://github.com/sachinsshetty/revive/actions/workflows/codeql-analysis.yml/badge.svg)
+ 
+![Build](https://github.com/sachinsshetty/revive/actions/workflows/branch.yml/badge.svg)
+![DockerBuild](https://github.com/sachinsshetty/revive/actions/workflows/main.yml/badge.svg)
+![DockerHub](https://github.com/sachinsshetty/revive/actions/workflows/docker_hub.yml/badge.svg)  
+![CodeQL](https://github.com/sachinsshetty/revive/actions/workflows/codeql-analysis.yml/badge.svg)
 
 * Device Management Starter Library based on Multi-service architecture using Docker + ReactJS + SpringBoot + Postgres
 
 
 ###### Sprint
-| Version | Task | 
-|---|---|
-|0.1|Spring Boot + Postgres|
-|0.2|Spring Boot + PostgreSQL + Thymeleaf Template|
-|1.0|Spring Boot + PostgreSQL + Thymeleaf Template + Docker|
-|1.1|Spring Boot + PostgreSQL + ReactJS |
-|1.2|Spring Boot + PostgreSQL + ReactJS + Docker|
-|2.0|Spring Boot + PostgreSQL + ReactJS + Docker +  AWS|
+| Version | Task | Status |
+|---|---|---|
+|0.1|Spring Boot + Postgres|Done|
+|0.2|Spring Boot + PostgreSQL + Thymeleaf Template|Done|
+|1.0|Spring Boot + PostgreSQL + Thymeleaf Template + Docker|Done|
+|1.1|Spring Boot + PostgreSQL + ReactJS |Done|
+|1.2|Spring Boot + PostgreSQL + ReactJS + Docker|Done|
+|2.0|Spring Boot + PostgreSQL + ReactJS + Docker +  AWS|WIP|
 
 
   See [sprint.md](https://github.com/sachinsshetty/revive/blob/main/docs/sprint.md) for detailed tasks
 
   * Current Sprint Task
-     * 2.2 Create Docker Image for ReactApp - Build failure due to connection issue
+     * 2.4 Nginx start issue due to misconfigured nginx.conf
 
 ###### Docker Images
 
