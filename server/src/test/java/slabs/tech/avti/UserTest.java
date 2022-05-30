@@ -4,89 +4,91 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import slabs.tech.avti.persistance.model.AppUser;
 
 public class UserTest {
 
-    private static final String API_ROOT = "http://localhost:8080/api/drivers";
+    private static final String API_ROOT = "http://localhost:8080/api/app_users";
 
     @Test
-    public void whenGetAllDrivers_thenOK() {
+    public void whenGetAllAppUsers_thenOK() {
         final Response response = RestAssured.get(API_ROOT);
         assertEquals(HttpStatus.OK.value(), response.getStatusCode());
     }
 
     
     @Test
-    public void whenGetExistDriverById_thenFound() {
+    public void whenGetExistAppUserById_thenFound() {
         final Response response = RestAssured.get(API_ROOT + "/1");
         assertEquals(HttpStatus.OK.value(), response.getStatusCode());
     }
     /*
     @Test
-    public void whenGetDriversByName_thenOK() {
-        final Driver driver = createRandomDriver();
-        createDriverAsUri(driver);
+    public void whenGetAppUsersByName_thenOK() {
+        final AppUser appUser = createRandomAppUser();
+        createAppUserAsUri(appUser);
 
-        final Response response = RestAssured.get(API_ROOT + "/name/" + driver.getName());
+        final Response response = RestAssured.get(API_ROOT + "/name/" + appUser.getUser_name());
         assertEquals(HttpStatus.OK.value(), response.getStatusCode());
         assertTrue(response.as(List.class)
             .size() > 0);
     }
-    
+    */
     @Test
-    public void whenGetCreatedDriverById_thenOK() {
-        final Driver driver = createRandomDriver();
-        final String location = createDriverAsUri(driver);
+    public void whenGetCreatedAppUserById_thenOK() {
+        final AppUser appUser = createRandomAppUser();
+        final String location = createAppUserAsUri(appUser);
 
         final Response response = RestAssured.get(location);
         assertEquals(HttpStatus.OK.value(), response.getStatusCode());
-        assertEquals(driver.getName(), response.jsonPath()
-            .get("name"));
+        assertEquals(appUser.getUser_name(), response.jsonPath()
+            .get("user_name"));
     }
 
     @Test
-    public void whenGetNotExistDriverById_thenNotFound() {
+    public void whenGetNotExistAppUserById_thenNotFound() {
         final Response response = RestAssured.get(API_ROOT + "/" + randomNumeric(4));
         assertEquals(HttpStatus.NOT_FOUND.value(), response.getStatusCode());
     }
 
-    // POST
+      // POST
     @Test
-    public void whenCreateNewDriver_thenCreated() {
-        final Driver driver = createRandomDriver();
+    public void whenCreateNewAppUser_thenCreated() {
+        final AppUser appUser = createRandomAppUser();
 
         final Response response = RestAssured.given()
             .contentType(MediaType.APPLICATION_JSON_VALUE)
-            .body(driver)
+            .body(appUser)
             .post(API_ROOT);
         assertEquals(HttpStatus.CREATED.value(), response.getStatusCode());
     }
 
     @Test
-    public void whenInvalidDriver_thenError() {
-        final Driver driver = createRandomDriver();
-        driver.setName(null);
+    public void whenInvalidAppUser_thenError() {
+        final AppUser appUser = createRandomAppUser();
+        appUser.setUser_name(null);
 
         final Response response = RestAssured.given()
             .contentType(MediaType.APPLICATION_JSON_VALUE)
-            .body(driver)
+            .body(appUser)
             .post(API_ROOT);
         assertEquals(HttpStatus.BAD_REQUEST.value(), response.getStatusCode());
     }
 
     @Test
-    public void whenUpdateCreatedDriver_thenUpdated() {
-        final Driver driver = createRandomDriver();
-        final String location = createDriverAsUri(driver);
+    public void whenUpdateCreatedAppUser_thenUpdated() {
+        final AppUser appUser = createRandomAppUser();
+        final String location = createAppUserAsUri(appUser);
 
-        driver.setId(Long.parseLong(location.split("api/drivers/")[1]));
-        driver.setName("newName");
+        appUser.setId(Long.parseLong(location.split("api/appUsers/")[1]));
+        appUser.setUser_name("newName");
         Response response = RestAssured.given()
             .contentType(MediaType.APPLICATION_JSON_VALUE)
-            .body(driver)
+            .body(appUser)
             .put(location);
         assertEquals(HttpStatus.OK.value(), response.getStatusCode());
 
@@ -98,9 +100,9 @@ public class UserTest {
     }
 
     @Test
-    public void whenDeleteCreatedDriver_thenOk() {
-        final Driver driver = createRandomDriver();
-        final String location = createDriverAsUri(driver);
+    public void whenDeleteCreatedAppUser_thenOk() {
+        final AppUser appUser = createRandomAppUser();
+        final String location = createAppUserAsUri(appUser);
 
         Response response = RestAssured.delete(location);
         assertEquals(HttpStatus.OK.value(), response.getStatusCode());
@@ -111,21 +113,31 @@ public class UserTest {
 
     // ===============================
 
-    private Driver createRandomDriver() {
-        final Driver driver = new Driver();
-        driver.setFirst_name(randomAlphabetic(10));
-        return driver;
+    private AppUser createRandomAppUser() {
+        final AppUser appUser = new AppUser();
+        appUser.setFirst_name(randomAlphabetic(10));
+        return appUser;
     }
 
-    private String createDriverAsUri(Driver driver) {
+    private String randomAlphabetic(int i) {
+        return "thisISCool";
+    }
+
+    private String randomNumeric(int i) {
+        return "007";
+    }
+
+
+
+    private String createAppUserAsUri(AppUser appUser) {
         final Response response = RestAssured.given()
             .contentType(MediaType.APPLICATION_JSON_VALUE)
-            .body(driver)
+            .body(appUser)
             .post(API_ROOT);
         return API_ROOT + "/" + response.jsonPath()
             .get("id");
     }
     
-    */
+    
 
 }

@@ -1,5 +1,5 @@
 
-name: buildSetup
+name: "BuildSetup"
 on: [push]
 jobs:
   gradle:
@@ -22,6 +22,6 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
       with:
-        arguments: build --scan
+        arguments: build --scan -x test
 
 

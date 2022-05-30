@@ -1,6 +1,10 @@
-name: ci_docker_hub
+name: "ci_docker_hub"
 
 on:
+  workflow_run:
+    workflows: ["JUnitTest"]
+    types:
+      - completed
   push:
     branches:
       - 'main'

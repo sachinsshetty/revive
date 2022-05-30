@@ -1,6 +1,7 @@
 # revive
  
 ![Build](https://github.com/sachinsshetty/revive/actions/workflows/branch.yml/badge.svg)
+![Junit](https://github.com/sachinsshetty/revive/actions/workflows/test_unit_integration.yml/badge.svg)  
 ![DockerBuild](https://github.com/sachinsshetty/revive/actions/workflows/main.yml/badge.svg)
 ![DockerHub](https://github.com/sachinsshetty/revive/actions/workflows/docker_hub.yml/badge.svg)  
 ![CodeQL](https://github.com/sachinsshetty/revive/actions/workflows/codeql-analysis.yml/badge.svg)

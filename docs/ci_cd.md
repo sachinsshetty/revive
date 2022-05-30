@@ -1,19 +1,8 @@
 
-* Add your Docker ID as a secret to GitHub. Navigate to your GitHub repository and click Settings > Secrets > New secret.
-* Create a new secret with the name DOCKER_HUB_USERNAME and your Docker ID as value.
-* Create a new Personal Access Token (PAT). To create a new token, go to Docker Hub Settings and then click New Access Token.
-* Enter value as project-name **** 
+Used workflow triggers to run the following tasks in order of execution
 
-* setup secrets : https://docs.docker.com/ci-cd/github-actions/
-* Docker CI/CD Best Practice : https://www.docker.com/blog/best-practices-for-using-docker-hub-for-ci-cd/
-* https://tutorials.releaseworksacademy.com/learn/building-your-first-docker-image-with-jenkins-2-guide-for-developers
-* https://github.com/marketplace/actions/build-and-push-docker-images
-* https://docs.docker.com/ci-cd/github-actions/
-* https://www.prestonlamb.com/blog/creating-a-docker-image-with-github-actions
-
-* READ These
-    * https://docs.github.com/en/actions/security-guides/automatic-token-authentication
-    * https://github.com/docker/build-push-action/tree/master/docs/advanced
-    * https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-container-registry
-    * 
+* BuildSetup (branch.yml) : run's on each commit and compile codes and generates jar for Server and Html+JS for Client
+* JUnitTest (test_unit_integration.yml): run's on each commit and is used for Unit Testing and will be upgraded for Integration testing later
+* BuildDocker (main.yml) : run's if JUnitTest workflow is successful and when pull request and tag releases are made. 
+* ci_docker_hub (docker_hub.yml) : run's if BuildDocker workflow is successful and when pull request and tag releases are made. 
 
