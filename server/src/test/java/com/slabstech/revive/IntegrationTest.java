@@ -2,7 +2,7 @@ package com.slabstech.revive;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-import com.slabstech.revive.persistence.model.AppUser;
+import com.slabstech.revive.persistence.model.Setup;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.http.HttpStatus;
@@ -22,16 +22,14 @@ public class IntegrationTest {
 
 
         // act
-        ResponseEntity<AppUser> responseEntity = restTemplate.getForEntity("/api/app_users/1", AppUser.class);
+        ResponseEntity<Setup> responseEntity = restTemplate.getForEntity("/api/setup/1", Setup.class);
 
 
 
         // assert
         assertEquals(responseEntity.getStatusCode() , HttpStatus.OK.value());
         
-        assertEquals(responseEntity.getBody().getUser_name() , "Max");
-
-        assertEquals(responseEntity.getBody().getStatus() , true);
+        assertEquals(responseEntity.getBody().getType_name() , "Max");
 
         
         

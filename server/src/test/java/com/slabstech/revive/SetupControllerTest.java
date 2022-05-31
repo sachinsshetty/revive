@@ -13,14 +13,14 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest
-public class AppUserControllerTest {
+public class SetupControllerTest {
 
     @Autowired
     private MockMvc mockMvc;
 
     @Test
     public void getAppUser_ShoudldReturnAppUser()throws Exception{
-        mockMvc.perform(MockMvcRequestBuilders.get("/api/app_users/1"));
+        mockMvc.perform(MockMvcRequestBuilders.get("/api/setup/1"));
        
     }
     

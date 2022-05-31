@@ -3,7 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { Button, Container, Form, FormGroup, Input, Label } from 'reactstrap';
 import AppNavbar from './AppNavbar';
 
-class AppUserEdit extends Component {
+class SetupEdit extends Component {
 
     emptyItem = {
         name: '',
@@ -21,7 +21,7 @@ class AppUserEdit extends Component {
 
     async componentDidMount() {
         if (this.props.match.params.id !== 'new') {
-            const app_user = await (await fetch(`/api/app_users/${this.props.match.params.id}`)).json();
+            const app_user = await (await fetch(`/api/setup/${this.props.match.params.id}`)).json();
             this.setState({item: app_user});
         }
     }
@@ -39,7 +39,7 @@ async handleSubmit(event) {
     event.preventDefault();
     const {item} = this.state;
 
-    await fetch('/api/app_users' + (item.id ? '/' + item.id : ''), {
+    await fetch('/api/setup' + (item.id ? '/' + item.id : ''), {
         method: (item.id) ? 'PUT' : 'POST',
         headers: {
             'Accept': 'application/json',
@@ -47,12 +47,12 @@ async handleSubmit(event) {
         },
         body: JSON.stringify(item),
     });
-    this.props.history.push('/api/app_users');
+    this.props.history.push('/api/setup');
 }
 
     render() {
         const {item} = this.state;
-        const title = <h2>{item.id ? 'Edit User' : 'Add User'}</h2>;
+        const title = <h2>{item.id ? 'Edit Setup' : 'Add Setup'}</h2>;
 
         return <div>
             <AppNavbar/>
@@ -60,18 +60,18 @@ async handleSubmit(event) {
                 {title}
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup>
-                        <Label for="username">User Name</Label>
-                        <Input type="text" name="user_name" id="user_name" value={item.user_name || ''}
-                               onChange={this.handleChange} autoComplete="user_name"/>
+                        <Label for="username">Type Name</Label>
+                        <Input type="text" name="type_name" id="type_name" value={item.type_name || ''}
+                               onChange={this.handleChange} autoComplete="type_name"/>
                     </FormGroup>
                     <FormGroup>
-                        <Label for="first_name">First Name</Label>
-                        <Input type="text" name="first_name" id="first_name" value={item.first_name || ''}
-                               onChange={this.handleChange} autoComplete="first_name"/>
+                        <Label for="option_value">Value</Label>
+                        <Input type="text" name="option_value" id="option_value" value={item.option_value || ''}
+                               onChange={this.handleChange} autoComplete="option_value"/>
                     </FormGroup>
                     <FormGroup>
                         <Button color="primary" type="submit">Save</Button>{' '}
-                        <Button color="secondary" tag={Link} to="/api/app_users">Cancel</Button>
+                        <Button color="secondary" tag={Link} to="/api/setup">Cancel</Button>
                     </FormGroup>
                 </Form>
             </Container>
@@ -79,4 +79,4 @@ async handleSubmit(event) {
     }
 }
 
-export default withRouter(AppUserEdit);
+export default withRouter(SetupEdit);

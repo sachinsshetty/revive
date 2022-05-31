@@ -1,57 +1,59 @@
 import React, { Component } from 'react';
 import './App.css';
 import AppNavbar from './AppNavbar';
-import { Button, ButtonGroup, Container, Table } from 'reactstrap';
+import { Button, ButtonGroup, FormGroup, Form,Container, Table ,Input, Label} from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 class Home extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {app_users: []};
+        this.state = {setup: []};
         
     }
 
     componentDidMount() {
-        fetch('/api/app_users')
+        fetch('/api/setup')
             .then(response => response.json())
-            .then(data => this.setState({app_users: data}));
+            .then(data => this.setState({setup: data}));
     }
 
 
     render() {
 
-        const {app_users} = this.state;
+        const {setup} = this.state;
 
-        const app_userList = app_users.map(app_user => {
-            return <tr key={app_user.id}>
-                <td style={{whiteSpace: 'nowrap'}}>{app_user.user_name}</td>
-                <td>{app_user.first_name}</td>
+        const setupList = setup.map(setup => {
+            return <tr key={setup.id}>
+                <td style={{whiteSpace: 'nowrap'}}>{setup.type_name}</td>
+                <td>{setup.first_name}</td>
                         
             </tr>
         });
-
+    
         return (
             <div>
                 <AppNavbar/>
                 <Container fluid>
-                            
-    
+                <br></br>    
+                
+                <center> <h5>Initializor library for Web App with Micro-Services</h5>
+                </center>
+                
+                <br></br>
+                <br></br>
 
 
-                    <h5>AppUsers</h5>
-                    <Table className="mt-4">
-                        <thead>
-                        <tr>
-                            <th width="30%">User Name</th>
-                            <th width="30%">First Name</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {app_userList}
-                        </tbody>
-                    </Table>
+                
+                <FormGroup>
+                        <Button color="primary" type="submit">Configure</Button>{' '}
+                        <Button color="secondary" tag={Link} to="/">Cancel</Button>
+                    </FormGroup>
                 </Container>
+
+                <br></br>
+                <br></br>
+                <center><Button color="link"><Link to="/api/setup">Available Configs</Link></Button> </center>
 
             </div>
         );
