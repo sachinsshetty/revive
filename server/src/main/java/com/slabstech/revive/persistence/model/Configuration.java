@@ -22,19 +22,19 @@ public class Configuration {
   @Id
   @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "configuration_generator")
   @SequenceGenerator(name="configuration_generator", sequenceName = "configuration_id_seq", allocationSize = 1)
-  @Column(name = "id", updatable = false, nullable = false)
+  @Column(name = "id")
 	private long id;
 
-	@Column(name = "key", nullable = false, unique = true)
+	@Column(name = "key")
 	private String key;
 
-	@Column(name = "value", nullable = false)
+	@Column(name = "value")
 	private String value;
 
-	@Column(name = "status", nullable = false)
+	@Column(name = "status")
 	private Boolean status= true;
 
-	@Column(name = "version", nullable = false)
+	@Column(name = "version")
 	private int version= 1;
 
 	public long getId() {

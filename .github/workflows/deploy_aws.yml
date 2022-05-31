@@ -1,0 +1,28 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: "AWSDeploy"
+
+on: 
+  workflow_run:
+    workflows: ["DockerPush"]
+    types:
+      - completed
+  push:
+    branches:
+      - main
+    tags:
+      - 'v*'
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+
+jobs:
+  push_to_registry:
+    name: Push Image to AWS
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repo
+        uses: actions/checkout@v3
+      
