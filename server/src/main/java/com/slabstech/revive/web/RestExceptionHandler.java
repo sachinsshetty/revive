@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.slabstech.revive.web.exception.DriverIdMismatchException;
-import com.slabstech.revive.web.exception.DriverNotFoundException;
+import com.slabstech.revive.web.exception.AppUserIdMismatchException;
+import com.slabstech.revive.web.exception.AppUserNotFoundException;
 
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {
@@ -20,13 +20,13 @@ public class RestExceptionHandler extends ResponseEntityExceptionHandler {
         super();
     }
 
-    @ExceptionHandler(DriverNotFoundException.class)
+    @ExceptionHandler(AppUserNotFoundException.class)
     protected ResponseEntity<Object> handleNotFound(Exception ex, WebRequest request) {
         return handleExceptionInternal(ex, "Driver not found", new HttpHeaders(), HttpStatus.NOT_FOUND, request);
     }
 
     @ExceptionHandler({
-      DriverIdMismatchException.class,
+      AppUserIdMismatchException.class,
       ConstraintViolationException.class,
       DataIntegrityViolationException.class
     })

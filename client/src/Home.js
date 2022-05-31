@@ -27,8 +27,7 @@ class Home extends Component {
             return <tr key={app_user.id}>
                 <td style={{whiteSpace: 'nowrap'}}>{app_user.user_name}</td>
                 <td>{app_user.first_name}</td>
-                <td>{app_user.last_name}</td>
-                <td>{app_user.status}</td>                            
+                        
             </tr>
         });
 
@@ -36,9 +35,8 @@ class Home extends Component {
             <div>
                 <AppNavbar/>
                 <Container fluid>
-                    <Button color="link"><Link to="/api/app_users">Users</Link></Button>
-            
-                    <Button color="link"><Link to="/api/configurations">Configurations</Link></Button>
+                            
+    
 
 
                     <h5>AppUsers</h5>
@@ -47,8 +45,6 @@ class Home extends Component {
                         <tr>
                             <th width="30%">User Name</th>
                             <th width="30%">First Name</th>
-                            <th width="30%">Last Name</th>
-                            <th width="30%">Status</th>
                         </tr>
                         </thead>
                         <tbody>
