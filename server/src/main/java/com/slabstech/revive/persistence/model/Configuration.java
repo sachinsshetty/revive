@@ -32,7 +32,7 @@ public class Configuration {
 	private String value;
 
 	@Column(name = "status")
-	private Boolean status= true;
+	private int status= 1;
 
 	@Column(name = "version")
 	private int version= 1;
@@ -62,11 +62,11 @@ public class Configuration {
 		this.value = value;
 	}
 
-	public Boolean getStatus() {
+	public int getStatus() {
 		return status;
 	}
 
-	public void setStatus(Boolean status) {
+	public void setStatus(int status) {
 		this.status = status;
 	}
 

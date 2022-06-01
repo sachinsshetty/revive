@@ -26,7 +26,7 @@ class Home extends Component {
         const setupList = setup.map(setup => {
             return <tr key={setup.id}>
                 <td style={{whiteSpace: 'nowrap'}}>{setup.type_name}</td>
-                <td>{setup.first_name}</td>
+                <td>{setup.option_value}</td>
                         
             </tr>
         });

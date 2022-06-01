@@ -32,7 +32,7 @@ public class Setup {
 	private String use_case;
 
 	@Column(name = "status")
-	private Boolean status = true;
+	private int status = 1;
 
 	@Column(name = "version")
 	private long version=1;
@@ -43,6 +43,46 @@ public class Setup {
 
 	public void setType_name(String type_name) {
 		this.type_name = type_name;
+	}
+
+	public long getId() {
+		return id;
+	}
+
+	public void setId(long id) {
+		this.id = id;
+	}
+
+	public String getOption_value() {
+		return option_value;
+	}
+
+	public void setOption_value(String option_value) {
+		this.option_value = option_value;
+	}
+
+	public String getUse_case() {
+		return use_case;
+	}
+
+	public void setUse_case(String use_case) {
+		this.use_case = use_case;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
+	}
+
+	public long getVersion() {
+		return version;
+	}
+
+	public void setVersion(long version) {
+		this.version = version;
 	}
 
 
