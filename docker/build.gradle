@@ -25,7 +25,7 @@ task createAppDockerImages(type: Exec) {
 
 
 task runAppDocker(type: Exec) {
-    dependsOn "createReviveDockerImages"
+    dependsOn "createAppDockerImages"
     commandLine 'docker-compose', 'up'
 }
 
