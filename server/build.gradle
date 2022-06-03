@@ -32,10 +32,11 @@ dependencies {
 	implementation "org.springframework.boot:spring-boot-starter-cache"
 	implementation "org.springframework.boot:spring-boot-starter-validation"
 	implementation "io.rest-assured:rest-assured"
-	implementation "javax.servlet:javax.servlet-api:4.0.0"
+	implementation 'javax.servlet:javax.servlet-api:4.0.1'
 
-	testImplementation "org.junit.jupiter:junit-jupiter-api"
-	testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine"
+
+	implementation 'junit:junit:4.13.2'
+	testImplementation 'junit:junit:4.13.2'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	runtimeOnly 'org.postgresql:postgresql'
 
