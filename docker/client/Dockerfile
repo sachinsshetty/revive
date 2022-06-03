@@ -1,14 +1,14 @@
 #### Stage 2: Serve the React application from Nginx 
 FROM nginx:stable
 
-# Copy the react build from Stage 1
-COPY --from=build-revive-client /app/public /usr/share/nginx/html
+WORKDIR /usr/share/nginx/html
 
-RUN rm /etc/nginx/conf.d/default.conf 
+
+RUN rm -rf ./*
 
 # Copy our custom nginx config
-COPY --from=build-revive-client /app/nginx.conf /etc/nginx/
-
+COPY nginx.conf .
+COPY --from=build-revive-client /app/build .
 # Expose port 80 to the Docker host, so we can access it 
 # from the outside.
 EXPOSE 80

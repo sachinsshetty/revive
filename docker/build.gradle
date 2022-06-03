@@ -1,3 +1,8 @@
+task buildAll(type: Exec) {
+    dependsOn ":server:build, :client:buildReactApp"
+    commandLine( 'echo', ' BuildSuccessful' )
+}
+
 task createClientDockerImage(type: Exec) {
     dependsOn ":client:buildClientDocker"
     commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-client:2.0.0", "-f", "client/Dockerfile"
@@ -13,13 +18,17 @@ task createDBDockerImage(type: Exec) {
     commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-db:2.0.0", "-f", "db/Dockerfile"
 }
 
-task createReviveDockerImages(type: Exec) {
+task createAppDockerImages(type: Exec) {
     dependsOn "createDBDockerImage", "createServerDockerImage", "createClientDockerImage"
     commandLine 'echo', 'success create images'
 }    
 
 
-task runReviveDocker(type: Exec) {
+task runAppDocker(type: Exec) {
     dependsOn "createReviveDockerImages"
     commandLine 'docker-compose', 'up'
-}  
+}
+
+task stopAppDocker(type: Exec) {
+    commandLine 'docker-compose', 'down'
+}

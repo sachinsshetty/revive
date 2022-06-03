@@ -11,10 +11,10 @@
 
 ##### Execution Steps :
   * To compile code and build docker images
-    * ./gradlew createReviveDockerImages
+    * ./gradlew createAppDockerImages
 
   * To run the with docker-compose 
-    * ./gradlew runReviveDocker
+    * ./gradlew runAppDocker
   * To Run Client and Server separately
     * First build project
       * ./gradlew buildAll
@@ -22,6 +22,11 @@
       * ./gradlew bootRun
     * Client
       * npm start
+
+  * To Stop Application
+    * ./gradlew stopAppDocker
+
+  * Access the application at localhost:3000
 
       
 #### Important Links
