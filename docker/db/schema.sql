@@ -2,7 +2,7 @@ create table setup(
 id  serial  primary key,
 type_name varchar(255),
 option_value varchar(255),
-user_case varchar(255),
+use_case varchar(255),
 status int,
 version int);
 
