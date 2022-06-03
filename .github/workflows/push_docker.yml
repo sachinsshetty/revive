@@ -48,7 +48,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
-          images: slabstech/revive-db|
+          images: | slabstech/revive-db 
             ghcr.io/${{ github.repository }}
 
       - name: Build and push Docker image
