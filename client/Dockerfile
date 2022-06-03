@@ -17,7 +17,7 @@ RUN npm ci
 # Copy the main application
 COPY . ./
 
-
+COPY package.json package-lock.json ./
 
 # Build the application
 RUN npm run build

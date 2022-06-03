@@ -26,12 +26,14 @@ services:
       context: client # Use an image built from the specified dockerfile in the `polling-app-client` directory.
       dockerfile: Dockerfile
     ports:
-      - "3000:80" # Map the exposed port 80 on the container to port 9090 on the host machine
+      - "3000:80" # Map the exposed port 80 on the container to port 3000 on the host machine
     restart: always
+    links :
+      - server
     depends_on:
       - server
     networks:
-      - frontend  
+      - frontend
 
   db:
     image: 'slabstech/revive-db:2.0.0'

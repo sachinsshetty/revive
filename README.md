@@ -23,6 +23,11 @@
     * Client
       * npm start
 
+  * To Stop Application
+    * ./gradlew stopReviveDocker
+
+  * Access the application at localhost:3000
+
       
 #### Important Links
 

@@ -7,7 +7,7 @@ WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
 
 # Copy our custom nginx config
-
+COPY nginx.conf .
 COPY --from=build-revive-client /app/build .
 # Expose port 80 to the Docker host, so we can access it 
 # from the outside.
