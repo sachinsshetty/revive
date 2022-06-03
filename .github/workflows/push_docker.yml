@@ -50,7 +50,7 @@ jobs:
         with:
           images: |
             slabstech/revive-db 
-            ghcr.io/${{ github.repository }}
+            ghcr.io/${{ github.repository }}-db
 
       - name: Build and push Docker image - DB
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
@@ -90,7 +90,7 @@ jobs:
         with:
           images: |
             slabstech/revive-server
-            ghcr.io/${{ github.repository }}
+            ghcr.io/${{ github.repository }}-server
 
       - name: Build and push Docker image - ser
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
@@ -130,7 +130,7 @@ jobs:
         with:
           images: | 
             slabstech/revive-client
-            ghcr.io/${{ github.repository }}
+            ghcr.io/${{ github.repository }}-client
 
       - name: Build and push Docker image - client
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
