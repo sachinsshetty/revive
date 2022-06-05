@@ -27,8 +27,11 @@
 
   * Access the application at localhost:3000
 
+
   * Build DropWizard Jar
-    * ./gradlew servers:server_dropwizard:build
+    * ./gradlew servers:dropwizard:build
+  * Build DropWizard Docker
+    * ./gradlew servers:dropwizard:buildServerDocker
       
 #### Important Links
 * Documents maintained at Wiki - [https://github.com/sachinsshetty/revive/wiki](https://github.com/sachinsshetty/revive/wiki)
@@ -44,11 +47,13 @@
 
 ###### Docker Images
 
-| Docker Image | Tagname | Size(Mb) | Version                                                               |
-|---|---|---|-----------------------------------------------------------------------|
-| Server | [slabstech/revive-server](https://hub.docker.com/r/slabstech/revive-server) | 157.3 | [v0.0.1](https://github.com/sachinsshetty/revive/releases/tag/v0.0.1) |
-| Client | [slabstech/revive-client](https://hub.docker.com/r/slabstech/revive-client) | 54.13 | [v0.0.1](https://github.com/sachinsshetty/revive/releases/tag/v0.0.1) |
-| DB | [slabstech/revive-db](https://hub.docker.com/r/slabstech/revive-db) | 80.07 | [v0.0.1](https://github.com/sachinsshetty/revive/releases/tag/v0.0.1) |
+| Docker Image        | Tagname                                                    | Size(Mb) | Version                                                               |
+|---|------------------------------------------------------------|----------|---|
+| Server - SpringBoot  | [slabstech/revive-server](https://hub.docker.com/layers/227904403/slabstech/revive-server/0.0.1/images/sha256-c7f6f21df5def46a68a996e0a488491b3ba2404da7e7aa0b912afd62f1768d91?context=repo) | 157.3    | [v0.0.1](https://github.com/sachinsshetty/revive/releases/tag/v0.0.1) |
+| Server - Dropwizard | [slabstech/revive-server](https://hub.docker.com/layers/227904808/slabstech/revive-server/0.0.2/images/sha256-cac28f5ea8bc8adff453e3f94407cedf1ff9b6745ea7cfd0d59871eb865d75bc?context=repo) | 109.2    | [v0.0.2](https://github.com/sachinsshetty/revive/releases/tag/v0.0.2) |
+| Client - ReactJS    | [slabstech/revive-client](https://hub.docker.com/r/slabstech/revive-client) | 54.13    | [v0.0.1](https://github.com/sachinsshetty/revive/releases/tag/v0.0.1) |
+| DB                  | [slabstech/revive-db](https://hub.docker.com/r/slabstech/revive-db) | 80.07    | [v0.0.1](https://github.com/sachinsshetty/revive/releases/tag/v0.0.1) |
+
 
 #### Tech Stack
 

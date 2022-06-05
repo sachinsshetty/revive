@@ -65,15 +65,9 @@ jar {
 task buildServerDocker(type: Exec) {
     dependsOn copyDependencies, build
     workingDir "$projectDir"
-    commandLine 'docker', 'build', '--rm', '.', '-t', "build-revive-server", "-f", "$projectDir/src/main/docker/Dockerfile"
+    commandLine 'docker', 'build', '--rm', '.', '-t', "build-revive-server", "-f", "$projectDir/Dockerfile"
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
 }
-//For testing 
-//task runServerDocker(type: Exec) {
-//    dependsOn buildServerDocker
-//    workingDir "$projectDir"
-//    commandLine 'docker', 'run', "$dockerRepo/$archivesBaseName:$project.version"
-//}

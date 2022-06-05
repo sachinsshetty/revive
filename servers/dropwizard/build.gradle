@@ -50,3 +50,15 @@ jar {
         )
     }
 }
+
+task copyDependencies(type: Copy) {
+    from configurations.runtimeClasspath
+    into "$buildDir/lib"
+}
+
+
+task buildServerDocker(type: Exec) {
+    dependsOn copyDependencies, build
+    workingDir "$projectDir"
+    commandLine 'docker', 'build', '--rm', '.', '-t', "build-revive-server", "-f", "$projectDir/Dockerfile"
+}

@@ -1,6 +1,6 @@
 services:
   server:
-    image: 'slabstech/revive-server:2.0.0'
+    image: 'slabstech/revive-server:0.0.1'
     build:
       context: server 
       dockerfile: Dockerfile
@@ -21,7 +21,7 @@ services:
 
   # Frontend Service 
   client:
-    image: 'slabstech/revive-client:2.0.0'
+    image: 'slabstech/revive-client:0.0.1'
     build:
       context: client # Use an image built from the specified dockerfile in the `polling-app-client` directory.
       dockerfile: Dockerfile
@@ -36,7 +36,7 @@ services:
       - frontend
 
   db:
-    image: 'slabstech/revive-db:2.0.0'
+    image: 'slabstech/revive-db:0.0.1'
     build:
       context: db # Use an image built from the specified dockerfile in the `polling-app-client` directory.
       dockerfile: Dockerfile    
@@ -52,4 +52,4 @@ services:
 
 networks:
   backend:
-  frontend:   
+  frontend:
