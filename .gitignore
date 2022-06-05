@@ -31,3 +31,6 @@ replay_pid*
 .project
 client/.gradle/
 client/static/
+.idea
+docker/build
+docker/server/build
