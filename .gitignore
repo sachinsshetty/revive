@@ -31,3 +31,13 @@ replay_pid*
 .project
 client/.gradle/
 client/static/
+.idea
+docker/build
+docker/server/build
+
+# after template
+clients/reactjs/.gradle/
+clients/reactjs/static/
+servers/dropwizard/build/
+servers/dropwizard/dependency-reduced-pom.xml
+servers/dropwizard/target/

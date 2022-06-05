@@ -1,0 +1,55 @@
+services:
+  server:
+    image: 'slabstech/revive-server-spring-boot'     # SpringBoot Server
+    build:
+      context: server 
+      dockerfile: server/dropwizard/Dockerfile
+    container_name: app
+    restart: always
+    ports:
+      - "8080:8080" # Forward the exposed port 8080 on the container to port 8080 on the host machine
+    depends_on:
+      - db
+    environment:
+      - SPRING_DATASOURCE_URL=jdbc:postgresql://db:5432/revive_db
+      - SPRING_DATASOURCE_USERNAME=revive_db
+      - SPRING_DATASOURCE_PASSWORD=revive_db
+      - SPRING_JPA_HIBERNATE_DDL_AUTO=update
+    networks: # Networks to join (Services on the same network can communicate with each other using their name)
+      - backend
+      - frontend
+
+  # Frontend Service 
+  client:
+    image: 'slabstech/revive-client-reactjs'
+    build:
+      context: client # Use an image built from the specified dockerfile in the `polling-app-client` directory.
+      dockerfile: client/reactjs/Dockerfile
+    ports:
+      - "3000:80" # Map the exposed port 80 on the container to port 3000 on the host machine
+    restart: always
+    links :
+      - server
+    depends_on:
+      - server
+    networks:
+      - frontend
+
+  db:
+    image: 'slabstech/revive-db-postgresql'
+    build:
+      context: db # Use an image built from the specified dockerfile in the `polling-app-client` directory.
+      dockerfile: db/postgresql/Dockerfile
+    container_name: db
+    environment:
+      - POSTGRES_USER=revive_db
+      - POSTGRES_PASSWORD=revive_db
+      - POSTGRES_DB=revive_db
+    networks:
+      - backend  
+    # volumes:
+    #   - db-data:/var/lib/
+
+networks:
+  backend:
+  frontend:
