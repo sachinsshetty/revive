@@ -37,7 +37,11 @@ public class Setup {
 	@Column(name = "version")
 	private long version=1;
 
-	public String getType_name() {
+    public Setup(String type_name) {
+		this.type_name = type_name;
+    }
+
+    public String getType_name() {
 		return type_name;
 	}
 
