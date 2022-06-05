@@ -50,13 +50,13 @@ jobs:
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
           images: | 
-            slabstech/revive-client:0.0.1
-            ghcr.io/${{ github.repository }}-client:0.0.1
+            slabstech/revive-client:reactjs
+            ghcr.io/${{ github.repository }}-client:reactjs
 
       - name: Build and push Docker image - client
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
         with:
-          context: docker/client/
+          file : docker/client/Dockerfile
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}

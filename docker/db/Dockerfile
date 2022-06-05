@@ -4,4 +4,4 @@ ENV POSTGRES_USER revive_db
 ENV POSTGRES_PASSWORD revive_db
 ENV POSTGRES_DB revive_db
 
-COPY schema.sql /docker-entrypoint-initdb.d/
+COPY postgresql_schema.sql /docker-entrypoint-initdb.d/
