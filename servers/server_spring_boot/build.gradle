@@ -24,6 +24,12 @@ tasks.named("bootRun") {
 	mainClass = 'com.slabstech.revive.Application'
 }
 
+
+task runServer(type: Exec) {
+	dependsOn bootRun
+	commandLine 'echo', 'start server'
+}
+
 dependencies {
 
 	implementation 'org.springframework.boot:spring-boot-starter'

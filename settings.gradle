@@ -1,2 +1,2 @@
 rootProject.name = 'revive'
-include 'server','client', 'docker'
+include 'servers:server_spring_boot','servers:server_dropwizard','client', 'docker'
