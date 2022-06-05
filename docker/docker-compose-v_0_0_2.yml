@@ -24,7 +24,7 @@ services:
     image: 'slabstech/revive-client-reactjs'
     build:
       context: client # Use an image built from the specified dockerfile in the `polling-app-client` directory.
-      dockerfile: Dockerfile
+      dockerfile: client/reactjs/Dockerfile
     ports:
       - "3000:80" # Map the exposed port 80 on the container to port 3000 on the host machine
     restart: always
@@ -39,7 +39,7 @@ services:
     image: 'slabstech/revive-db-postgresql'
     build:
       context: db # Use an image built from the specified dockerfile in the `polling-app-client` directory.
-      dockerfile: Dockerfile    
+      dockerfile: db/postgresql/Dockerfile
     container_name: db
     environment:
       - POSTGRES_USER=revive_db

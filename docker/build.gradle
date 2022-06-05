@@ -1,47 +1,13 @@
-
-task createClientDockerImage(type: Exec) {
-    dependsOn ":clients:reactjs:buildClientDocker"
-    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-client-reactjs", "-f", "client/Dockerfile"
-}    
-
-task createServerDockerImageSpringBoot(type: Exec) {
-    dependsOn ":servers:spring_boot:buildServerDocker"
-    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-server-spring_boot", "-f", "server/Dockerfile"
-}
-
-
-task createServerDockerImageDropwizard(type: Exec) {
-    dependsOn ":servers:dropwizard:buildServerDocker"
-    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-server-dropwizard", "-f", "server/Dockerfile"
-}
-
-task createDBDockerImage(type: Exec) {
-    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-db-postgresql", "-f", "db/Dockerfile"
-}
-
-task createAppDockerImages_sp(type: Exec) {
-    dependsOn "createDBDockerImage", "createServerDockerImageSpringBoot", "createClientDockerImage"
-    commandLine 'echo', 'success create images'
-}
-
-
-task createAppDockerImages_dw(type: Exec) {
-    dependsOn "createDBDockerImage", "createServerDockerImageDropwizard", "createClientDockerImage"
-    commandLine 'echo', 'success create images'
-}
-
 task runAppDocker_sp(type: Exec) {
     dependsOn "createAppDockerImages_sp"
     commandLine 'docker-compose', '--file', 'docker-compose-v_0_0_1.yml', 'up'
 }
 
-
 task runAppDocker_dw(type: Exec) {
     dependsOn "createAppDockerImages_dw"
     commandLine 'docker-compose', '--file', 'docker-compose-v_0_0_2.yml', 'up'
 }
-
-
+docker
 task stopAppDocker_sp(type: Exec) {
     commandLine 'docker-compose', '--file', 'docker-compose-v_0_0_1.yml', 'down'
 }

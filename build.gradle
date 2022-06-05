@@ -12,3 +12,33 @@ subprojects {
         mavenCentral()
     }
 }
+
+
+// Create the docker images here, uses prebuild as multi-part images
+task createClientDockerImageReactJS(type: Exec) {
+    dependsOn ":clients:reactjs:buildReactApp"
+    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-client-reactjs", "--network" ,"host", "-f", "docker/client/reactjs/Dockerfile"
+}
+
+task createServerDockerImageSpringBoot(type: Exec) {
+    dependsOn ":servers:spring_boot:copyDependencies", ":servers:spring_boot:build"
+    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-server-spring-boot", "-f", "docker/server/spring_boot/Dockerfile"
+}
+
+task createServerDockerImageDropwizard(type: Exec) {
+    dependsOn ":servers:dropwizard:copyDependencies", ":servers:dropwizard:build"
+    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-server-dropwizard", "-f", "docker/server/dropwizard/Dockerfile"
+}
+
+task createDBDockerImagePostgreSQL(type: Exec) {
+    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-db-postgresql", "-f", "docker/db/postgresql/Dockerfile"
+}
+
+task createAppDockerImages_sp(type: Exec) {
+    dependsOn "createDBDockerImagePostgreSQL", "createServerDockerImageSpringBoot", "createClientDockerImageReactJS"
+    commandLine 'echo', 'success create images'
+}
+task createAppDockerImages_dw(type: Exec) {
+    dependsOn "createDBDockerImagePostgreSQL", "createServerDockerImageDropwizard", "createClientDockerImageReactJS"
+    commandLine 'echo', 'success create images'
+}
