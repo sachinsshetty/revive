@@ -27,6 +27,8 @@
 
   * Access the application at localhost:3000
 
+  * Build DropWizard Jar
+    * ./gradlew servers:server_dropwizard:build
       
 #### Important Links
 * Documents maintained at Wiki - [https://github.com/sachinsshetty/revive/wiki](https://github.com/sachinsshetty/revive/wiki)
@@ -74,3 +76,15 @@
 
 * Outcome
   * [Blog- WIP - How to migrate project from Monolith to Microservice](https://slabstech.github.io/blog/monolith-microservice/)
+
+#### Sponsors
+--------
+
+Revive is awaiting Sponsors for creating more templates
+
+
+#### Currently being develops with 
+
+* IntelliJ Idea Trial Licences
+* VMWare WorkstationPlayer 16
+* Github
