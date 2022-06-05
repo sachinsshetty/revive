@@ -1,9 +1,9 @@
 services:
   server:
-    image: 'slabstech/revive-server:dropwizard'  ## Dropwizard Server
+    image: 'slabstech/revive-server-dropwizard'  ## Dropwizard Server
     build:
       context: server 
-      dockerfile: Dockerfile
+      dockerfile: server/dropwizard/Dockerfile
     container_name: app
     restart: always
     ports:
@@ -21,7 +21,7 @@ services:
 
   # Frontend Service 
   client:
-    image: 'slabstech/revive-client:reactjs'
+    image: 'slabstech/revive-client-reactjs'
     build:
       context: client # Use an image built from the specified dockerfile in the `polling-app-client` directory.
       dockerfile: Dockerfile
@@ -36,7 +36,7 @@ services:
       - frontend
 
   db:
-    image: 'slabstech/revive-db:postgresql'
+    image: 'slabstech/revive-db-postgresql'
     build:
       context: db # Use an image built from the specified dockerfile in the `polling-app-client` directory.
       dockerfile: Dockerfile    

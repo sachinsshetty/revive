@@ -60,5 +60,5 @@ task copyDependencies(type: Copy) {
 task buildServerDocker(type: Exec) {
     dependsOn copyDependencies, build
     workingDir "$projectDir"
-    commandLine 'docker', 'build', '--rm', '.', '-t', "build-revive-server", "-f", "$projectDir/Dockerfile"
+    commandLine 'docker', 'build', '--rm', '.', '-t', "build-revive-server-dropwizard", "-f", "$projectDir/Dockerfile"
 }

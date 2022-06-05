@@ -49,8 +49,8 @@ jobs:
         uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
         with:
           images: |
-            slabstech/revive-db:postgresql
-            ghcr.io/${{ github.repository }}-db:postgresql
+            slabstech/revive-db-postgresql
+            ghcr.io/${{ github.repository }}-db-postgresql
 
       - name: Build and push Docker image - DB
         uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
