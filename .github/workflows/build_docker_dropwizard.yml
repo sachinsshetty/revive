@@ -1,4 +1,4 @@
-name: "DockerBuild"
+name: "DockerBuild DropWizard"
 
 on: 
   workflow_run:
@@ -31,4 +31,4 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
       with:
-        arguments: createAppDockerImages
+        arguments: createAppDockerImages_dw -x test

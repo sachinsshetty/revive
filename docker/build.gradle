@@ -26,22 +26,26 @@ task createAppDockerImages_sp(type: Exec) {
 
 
 task createAppDockerImages_dw(type: Exec) {
-    dependsOn "createDBDockerImage", "createServerDockerImageDropWizard", "createClientDockerImage"
+    dependsOn "createDBDockerImage", "createServerDockerImageDropwizard", "createClientDockerImage"
     commandLine 'echo', 'success create images'
 }
 
 task runAppDocker_sp(type: Exec) {
     dependsOn "createAppDockerImages_sp"
-    commandLine 'docker-compose', 'up'
+    commandLine 'docker-compose', '--file', 'docker-compose-v_0_0_1.yml', 'up'
 }
 
 
 task runAppDocker_dw(type: Exec) {
     dependsOn "createAppDockerImages_dw"
-    commandLine 'docker-compose', 'up'
+    commandLine 'docker-compose', '--file', 'docker-compose-v_0_0_2.yml', 'up'
 }
 
 
-task stopAppDocker(type: Exec) {
-    commandLine 'docker-compose', 'down'
+task stopAppDocker_sp(type: Exec) {
+    commandLine 'docker-compose', '--file', 'docker-compose-v_0_0_1.yml', 'down'
+}
+
+task stopAppDocker_dw(type: Exec) {
+    commandLine 'docker-compose', '--file', 'docker-compose-v_0_0_2.yml', 'down'
 }

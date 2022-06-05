@@ -7,7 +7,7 @@ name: "AWSDeploy"
 
 on: 
   workflow_run:
-    workflows: ["DockerPush"]
+    workflows: ["DockerPush SpringBoot"]
     types:
       - completed
   push:

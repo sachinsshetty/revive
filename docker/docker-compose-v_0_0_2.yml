@@ -1,6 +1,6 @@
 services:
   server:
-    image: 'slabstech/revive-server:0.0.1'
+    image: 'slabstech/revive-server:0.0.2'  ## Dropwizard Server
     build:
       context: server 
       dockerfile: Dockerfile

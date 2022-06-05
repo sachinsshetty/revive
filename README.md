@@ -13,36 +13,46 @@
 
 ##### Execution Steps :
   * To compile code and build docker images
-    * ./gradlew createAppDockerImages
+    * SpringBoot + PostgreSQL + ReactJS
+      * ./gradlew createAppDockerImages_sp
+    * Dropwizard + PostgreSQL + ReactJS
+        * ./gradlew createAppDockerImages_dw
 
   * To run the with docker-compose 
-    * ./gradlew runAppDocker
+     * SpringBoot + PostgreSQL + ReactJS
+       * ./gradlew runAppDocker_sp
+     * Dropwizard + PostgreSQL + ReactJS
+       * ./gradlew runAppDocker_dw
+
+  * To Stop Application
+      * ./gradlew stopAppDocker
+
   * To Run Client and Server separately
     * Server
-      * ./gradlew runServer
+      * SpringBoot
+        * ./gradlew servers:spring_boot:runServer
+      * Dropwizard
+        * ./gradlew servers:dropwizard:build
+        * java -jar target/app-0.0.2.jar
     * Client
       * /gradlew runClient
-  * To Stop Application
-    * ./gradlew stopAppDocker
 
   * Access the application at localhost:3000
 
 
-  * Build DropWizard Jar
-    * ./gradlew servers:dropwizard:build
-  * Build DropWizard Docker
-    * ./gradlew servers:dropwizard:buildServerDocker
-      
 #### Important Links
 * Documents maintained at Wiki - [https://github.com/sachinsshetty/revive/wiki](https://github.com/sachinsshetty/revive/wiki)
 
-| Description                                                                   | Document                                                             |
-|-------------------------------------------------------------------------------|----------------------------------------------------------------------|
-| For Build steps                                                               | [Build](https://github.com/sachinsshetty/revive/wiki/Build)          |
-| For Release notes                                                             | [Releases](https://github.com/sachinsshetty/revive/wiki/Release)     |
+| Description | Document                                                                |
+|---|-------------------------------------------------------------------------|
+| For Build steps                                                               | [Build](https://github.com/sachinsshetty/revive/wiki/Build)             |
+| For Release notes                                                             | [Releases](https://github.com/sachinsshetty/revive/wiki/Release)        |
 | FAQs | [FAQ](https://github.com/sachinsshetty/revive/wiki/Project-Demo-Revive) |
-| For Sprint Task                                                               | [Sprint](https://github.com/sachinsshetty/revive/wiki/Sprint)        |
+| For Sprint Task                                                               | [Sprint](https://github.com/sachinsshetty/revive/wiki/Sprint)           |
 | For Sprint Logs                                                               | [Sprint_logs](https://github.com/sachinsshetty/revive/wiki/Sprint-Logs) |
+| Project roadmap                                                               | [Roadmap](https://github.com/sachinsshetty/revive/projects/1)           |
+
+ 
 
 
 ###### Docker Images
