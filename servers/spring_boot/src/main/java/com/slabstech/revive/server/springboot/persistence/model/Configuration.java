@@ -1,4 +1,4 @@
-package com.slabstech.revive.persistence.model;
+package com.slabstech.revive.server.springboot.persistence.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;

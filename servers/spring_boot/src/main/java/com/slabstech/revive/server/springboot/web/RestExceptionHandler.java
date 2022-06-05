@@ -1,4 +1,4 @@
-package com.slabstech.revive.web;
+package com.slabstech.revive.server.springboot.web;
 
 import org.hibernate.exception.ConstraintViolationException;
 import org.springframework.dao.DataIntegrityViolationException;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.slabstech.revive.web.exception.SetupIdMismatchException;
-import com.slabstech.revive.web.exception.SetupNotFoundException;
+import com.slabstech.revive.server.springboot.web.exception.SetupIdMismatchException;
+import com.slabstech.revive.server.springboot.web.exception.SetupNotFoundException;
 
 @ControllerAdvice
 public class RestExceptionHandler extends ResponseEntityExceptionHandler {

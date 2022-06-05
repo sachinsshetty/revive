@@ -1,4 +1,4 @@
-package com.slabstech.revive.web.exception;
+package com.slabstech.revive.server.springboot.web.exception;
 
 public class SetupIdMismatchException extends RuntimeException {
 

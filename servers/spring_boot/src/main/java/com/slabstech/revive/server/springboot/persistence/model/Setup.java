@@ -1,4 +1,4 @@
-package com.slabstech.revive.persistence.model;
+package com.slabstech.revive.server.springboot.persistence.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,8 +22,8 @@ public class Setup {
 	@Column(name = "id")
 	private long id;
 
-	@Column(name = "type_name")
-	private String type_name;
+	@Column(name = "name")
+	private String name;
 
 	@Column(name = "option_value")
 	private String option_value;
@@ -37,16 +37,16 @@ public class Setup {
 	@Column(name = "version")
 	private long version=1;
 
-    public Setup(String type_name) {
-		this.type_name = type_name;
+    public Setup(String name) {
+		this.name = name;
     }
 
-    public String getType_name() {
-		return type_name;
+    public String getName() {
+		return name;
 	}
 
-	public void setType_name(String type_name) {
-		this.type_name = type_name;
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public long getId() {

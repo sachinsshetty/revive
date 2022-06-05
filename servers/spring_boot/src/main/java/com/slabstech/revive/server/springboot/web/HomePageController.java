@@ -1,4 +1,4 @@
-package com.slabstech.revive.web;
+package com.slabstech.revive.server.springboot.web;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;

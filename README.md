@@ -35,7 +35,7 @@
         * ./gradlew servers:dropwizard:build
         * java -jar target/app-0.0.2.jar
     * Client
-      * /gradlew runClient
+      * /gradlew clients:reactjs:runClient
 
   * Access the application at localhost:3000
 

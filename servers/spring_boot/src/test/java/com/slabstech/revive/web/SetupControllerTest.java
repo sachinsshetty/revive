@@ -1,8 +1,9 @@
 package com.slabstech.revive.web;
 
-import com.slabstech.revive.persistence.model.Setup;
-import com.slabstech.revive.persistence.repo.SetupRepository;
-import com.slabstech.revive.web.exception.SetupNotFoundException;
+import com.slabstech.revive.server.springboot.persistence.model.Setup;
+import com.slabstech.revive.server.springboot.persistence.repo.SetupRepository;
+import com.slabstech.revive.server.springboot.web.SetupController;
+import com.slabstech.revive.server.springboot.web.exception.SetupNotFoundException;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,6 @@ import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
-import static org.junit.Assert.*;
 import static org.mockito.ArgumentMatchers.anyString;
 
 @RunWith(SpringRunner.class)

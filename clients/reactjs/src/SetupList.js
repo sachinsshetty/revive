@@ -37,7 +37,7 @@ class SetupList extends Component {
 
         const setupList = setup.map(setup => {
             return <tr key={setup.id}>
-                <td style={{whiteSpace: 'nowrap'}}>{setup.type_name}</td>
+                <td style={{whiteSpace: 'nowrap'}}>{setup.name}</td>
                 <td>{setup.option_value}</td>
                 <td>
                     <ButtonGroup>
@@ -61,7 +61,7 @@ class SetupList extends Component {
                     <Table className="mt-4">
                         <thead>
                         <tr>
-                            <th width="30%">Type</th>
+                            <th width="30%">Name</th>
                             <th width="30%">Option</th>
                             <th width="40%">Actions</th>
                         </tr>

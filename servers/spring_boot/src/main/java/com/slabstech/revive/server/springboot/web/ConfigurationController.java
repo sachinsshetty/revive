@@ -1,4 +1,4 @@
-package com.slabstech.revive.web;
+package com.slabstech.revive.server.springboot.web;
 
 import java.util.HashMap;
 import java.util.List;
@@ -18,8 +18,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.slabstech.revive.persistence.model.Configuration;
-import com.slabstech.revive.persistence.repo.ConfigurationRepository;
+import com.slabstech.revive.server.springboot.persistence.model.Configuration;
+import com.slabstech.revive.server.springboot.persistence.repo.ConfigurationRepository;
 
 import org.springframework.http.HttpStatus;
 

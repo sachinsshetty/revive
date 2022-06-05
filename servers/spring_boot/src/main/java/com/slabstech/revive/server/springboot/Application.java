@@ -1,4 +1,4 @@
-package com.slabstech.revive;
+package com.slabstech.revive.server.springboot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -9,14 +9,14 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @ServletComponentScan
 @SpringBootApplication
-@ComponentScan("com.slabstech.revive")
-@EnableJpaRepositories("com.slabstech.revive.persistence.repo")
-@EntityScan("com.slabstech.revive.persistence.model")
+@ComponentScan("com.slabstech.revive.server.springboot")
+@EnableJpaRepositories("com.slabstech.revive.server.springboot.persistence.repo")
+@EntityScan("com.slabstech.revive.server.springboot.persistence.model")
 public class Application {
 
 	public static void main(String[] args) {
 
-		System.out.println("Simulator for Autonomous Vehicle Tech Infrasture (AVTI)");
+		System.out.println("Template Library for RESTFul Web Apps with Micro-services");
 
 		SpringApplication.run(Application.class, args);
 

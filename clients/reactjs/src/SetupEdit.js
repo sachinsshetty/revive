@@ -60,9 +60,9 @@ async handleSubmit(event) {
                 {title}
                 <Form onSubmit={this.handleSubmit}>
                     <FormGroup>
-                        <Label for="username">Type Name</Label>
-                        <Input type="text" name="type_name" id="type_name" value={item.type_name || ''}
-                               onChange={this.handleChange} autoComplete="type_name"/>
+                        <Label for="username">Name</Label>
+                        <Input type="text" name="name" id="name" value={item.name || ''}
+                               onChange={this.handleChange} autoComplete="name"/>
                     </FormGroup>
                     <FormGroup>
                         <Label for="option_value">Value</Label>

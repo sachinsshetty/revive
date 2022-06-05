@@ -1,8 +1,7 @@
-package com.slabstech.revive.persistence.repo;
+package com.slabstech.revive.server.springboot.persistence.repo;
 
+import com.slabstech.revive.server.springboot.persistence.model.Configuration;
 import org.springframework.data.jpa.repository.JpaRepository;
-
-import com.slabstech.revive.persistence.model.Configuration;
 
 public interface ConfigurationRepository extends JpaRepository<Configuration, Long> {
 	  

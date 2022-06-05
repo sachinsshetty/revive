@@ -7,7 +7,7 @@ plugins {
 
 archivesBaseName = 'app'
 
-group = 'com.slabstech.revive'
+group = 'com.slabstech.revive.server.springboot'
 version = '2.0.0'
 
 dockerRepo = 'slabstech'
@@ -17,11 +17,11 @@ repositories {
 }
 
 springBoot {
-	mainClass = 'com.slabstech.revive.Application'
+	mainClass = 'com.slabstech.revive.server.springboot.Application'
 }
 
 tasks.named("bootRun") {
-	mainClass = 'com.slabstech.revive.Application'
+	mainClass = 'com.slabstech.revive.server.springboot.Application'
 }
 
 
@@ -56,7 +56,7 @@ task copyDependencies(type: Copy) {
 // creates your manifest file within the JAR
 jar {
     manifest {
-        attributes["Main-Class"] = "com.slabstech.revive.Application"
+        attributes["Main-Class"] = "com.slabstech.revive.server.springboot.Application"
         attributes["Class-Path"] = configurations.runtimeClasspath.collect { 'lib/' + it.getName() }.join(' ')
     }
 }
