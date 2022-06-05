@@ -7,7 +7,7 @@ task runAppDocker_dw(type: Exec) {
     dependsOn "createAppDockerImages_dw"
     commandLine 'docker-compose', '--file', 'docker-compose-v_0_0_2.yml', 'up'
 }
-docker
+
 task stopAppDocker_sp(type: Exec) {
     commandLine 'docker-compose', '--file', 'docker-compose-v_0_0_1.yml', 'down'
 }
