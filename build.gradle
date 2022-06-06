@@ -26,19 +26,16 @@ task createServerBuildSpringBoot(type: Exec) {
 }
 
 task createServerDockerImageSpringBoot(type: Exec) {
-    dependsOn createServerBuildSpringBoot
-    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-server-spring-boot", "-f", "docker/server/spring_boot/Dockerfile"
+    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-server-spring-boot",  "--network" ,"host", "-f", "docker/server/spring_boot/Dockerfile"
 }
 
 task createServerBuildDropwizard(type: Exec) {
     dependsOn ":servers:dropwizard:copyDependencies", ":servers:dropwizard:build"
-    commandLine 'echo', 'DropBuild Server Build Successful'
+    commandLine 'echo', 'Dropwizard Server Build Successful'
 }
 
-
 task createServerDockerImageDropwizard(type: Exec) {
-    dependsOn createServerBuildDropwizard
-    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-server-dropwizard", "-f", "docker/server/dropwizard/Dockerfile"
+    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-server-dropwizard",  "--network" ,"host", "-f", "docker/server/dropwizard/Dockerfile"
 }
 
 task createDBDockerImagePostgreSQL(type: Exec) {

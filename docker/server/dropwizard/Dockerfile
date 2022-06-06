@@ -1,11 +1,10 @@
-FROM openjdk:17-alpine AS jre-build
+FROM gradle:7.4.2-jdk17-alpine AS jre-build
 WORKDIR /app
 
-# copy the dependencies into the docker image
-COPY servers/dropwizard/build/lib/* build/lib/
+COPY servers/dropwizard/ .
+RUN gradle build -x test
 
-# copy the executable jar into the docker image
-COPY servers/dropwizard/build/libs/app-0.0.1.jar build/app.jar
+COPY /app/build/libs/app-0.0.1.jar /app/build/app.jar
 
 RUN jdeps --ignore-missing-deps --module-path modules --add-modules=ALL-MODULE-PATH --generate-module-info out build/app.jar
 RUN jlink --add-modules ALL-MODULE-PATH --no-man-pages --no-header-files --compress=2 --output jre
