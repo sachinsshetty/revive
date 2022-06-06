@@ -22,6 +22,7 @@ jobs:
 #    outputs:
 #      build_path : {{ steps.deploy.out.build_path}}
     steps:
+      - uses: actions/checkout@v3
       - name: "Build the project"
         uses: ./.github/actions/build-configured-project
         with:

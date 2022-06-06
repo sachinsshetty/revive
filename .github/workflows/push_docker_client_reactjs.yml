@@ -22,6 +22,7 @@ jobs:
       packages: write
       contents: read
     steps:
+      - uses: actions/checkout@v3
       - name: Push to container
         uses: ./.github/actions/deploy-container-to-registry
         with:

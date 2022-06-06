@@ -11,13 +11,14 @@ jobs:
         os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
-    - name: "Build the project"
-      uses: ./.github/actions/build-configured-project
-      with:
-        build-arguments: build --scan -x test
+      - uses: actions/checkout@v3
+      - name: "Build the project"
+        uses: ./.github/actions/build-configured-project
+        with:
+          build-arguments: build --scan -x test
 
-    - name: Archive test report
-      uses: actions/upload-artifact@v2
-      with:
-        name: Test report
-        path: build/reports/tests/test
+      - name: Archive test report
+        uses: actions/upload-artifact@v2
+        with:
+          name: Test report
+          path: build/reports/tests/test
