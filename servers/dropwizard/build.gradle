@@ -8,9 +8,8 @@ archivesBaseName = 'app'
 
 group = 'com.slabstech.revive.server.dropwizard'
 version = '0.0.1'
-dropwizardVersion
 
-dockerRepo = 'slabstech'
+
 repositories {
     mavenCentral()
 }

@@ -1,12 +1,11 @@
-name: "DockerPush Server SpringBoot"
+name: "DockerPush Client"
 on:
   workflow_run:
-    workflows: ["DockerBuild SpringBoot"]
+    workflows: ["BuildSetup"]
     types:
       - completed
   push:
     branches:
-      - deploy_server_container_to_registry
       - main
     tags:
       - 'v*'
@@ -16,9 +15,9 @@ on:
     types: [ published ]
 
 jobs:
-  push_server_image :
-    name : Push Docker image to Docker Hub - server
-    runs-on : ubuntu-latest
+  push_client_image :
+    name: Push Docker image to Docker Hub Client
+    runs-on: ubuntu-latest
     permissions:
       packages: write
       contents: read
@@ -33,7 +32,6 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           github-repository: ${{ github.repository }}
           project-name: revive
-          service-type: server
-          tech-name: spring-boot
-          dockerfile-path: ./docker/server/spring_boot/Dockerfile
-
+          service-type: client
+          tech-name: reactjs
+          dockerfile-path: ./docker/client/reactjs/Dockerfile

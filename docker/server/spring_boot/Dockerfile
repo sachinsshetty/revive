@@ -1,13 +1,13 @@
-FROM openjdk:17-alpine AS jre-build
+FROM gradle:7.4.2-jdk17-alpine AS jre-build
 WORKDIR /app
 
-# copy the dependencies into the docker image
-COPY servers/spring_boot/build/lib/* build/lib/
+COPY servers/spring_boot/ server
 
-# copy the executable jar into the docker image
-COPY servers/spring_boot/build/libs/app-0.0.1.jar build/app.jar
+RUN gradle -p /app/server/ build -x test
 
-RUN jdeps --ignore-missing-deps --module-path modules --add-modules=ALL-MODULE-PATH --generate-module-info out build/app.jar
+RUN cp /app/server/build/libs/app-0.0.1.jar /app/server/build/app.jar
+
+RUN jdeps --ignore-missing-deps --module-path modules --add-modules=ALL-MODULE-PATH --generate-module-info out /app/server/build/app.jar
 RUN jlink --add-modules ALL-MODULE-PATH --no-man-pages --no-header-files --compress=2 --output jre
 
 # take a smaller runtime image for the final output
@@ -18,10 +18,10 @@ WORKDIR /deployment
 COPY --from=jre-build /app/jre jre
 
 # copy the app dependencies
-COPY --from=jre-build /app/build/lib/* lib/
+COPY --from=jre-build /app/server/build/lib/* lib/
 
 # copy the app
-COPY --from=jre-build /app/build/app.jar app.jar
+COPY --from=jre-build /app/server/build/app.jar app.jar
 
 # run the app on startup
 EXPOSE 8080

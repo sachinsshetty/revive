@@ -10,8 +10,6 @@ archivesBaseName = 'app'
 group = 'com.slabstech.revive.server.springboot'
 version = '0.0.1'
 
-dockerRepo = 'slabstech'
-
 repositories {
 	mavenCentral()
 }
