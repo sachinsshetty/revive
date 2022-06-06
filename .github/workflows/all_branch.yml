@@ -15,7 +15,7 @@ jobs:
       - name: "Build the project"
         uses: ./.github/actions/build-configured-project
         with:
-          build-arguments: build --scan -x test
+          build-deploy-args: build --scan -x test
 
       - name: Archive test report
         uses: actions/upload-artifact@v2

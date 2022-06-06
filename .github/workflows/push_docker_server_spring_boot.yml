@@ -26,7 +26,7 @@ jobs:
       - name: "Build the project"
         uses: ./.github/actions/build-configured-project
         with:
-          build-arguments: createAppDockerImages_springboot -x test
+          build-deploy-args: createAppDockerImages_springboot -x test
   push_server_image :
     name : Push Docker image to Docker Hub - server
     runs-on : ubuntu-latest
