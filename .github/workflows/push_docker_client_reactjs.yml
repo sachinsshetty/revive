@@ -1,7 +1,7 @@
 name: "DockerPush Client"
 on:
   workflow_run:
-    workflows: ["BuildSetup"]
+    workflows: [""Build ALL Setup""]
     types:
       - completed
   push:

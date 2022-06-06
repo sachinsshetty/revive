@@ -1,5 +1,5 @@
 
-name: "BuildSetup"
+name: "Build ALL Setup"
 on: [push]
 jobs:
   gradle:
@@ -20,7 +20,7 @@ jobs:
       - name: "Build the configured project"
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: build --scan -x test
+          arguments: buildAllTasks --scan -x test
 
       - name: Archive test report
         uses: actions/upload-artifact@v2

@@ -24,7 +24,11 @@
        * ./gradlew runAppDocker_dropwizard
 
   * To Stop Application
-      * ./gradlew stopAppDocker
+    * ./gradlew stopAppDocker_springboot or
+    * ./gradlew stopAppDocker_dropwizard
+
+  * To Build All Task
+    * ./gradlew buildAllTasks
 
   * To Run Client and Server separately
     * Server

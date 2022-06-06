@@ -1,7 +1,7 @@
 name: "DockerPush Server SpringBoot"
 on:
   workflow_run:
-    workflows: ["DockerBuild SpringBoot"]
+    workflows: ["Build ALL Setup"]
     types:
       - completed
   push:

@@ -1,7 +1,7 @@
 name: "DockerPush Server Dropwizard"
 on:
   workflow_run:
-    workflows: ["DockerBuild Dropwizard"]
+    workflows: ["Build ALL Setup"]
     types:
       - completed
   push:
