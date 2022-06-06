@@ -57,3 +57,18 @@ task buildAllTasks(type: Exec) {
     commandLine 'echo', 'Building all frameworks'
 
 }
+
+
+task runSpringBootServer(type: Exec){
+    dependsOn(createServerBuildSpringBoot)
+    commandLine('./gradlew', ':servers:spring_boot:bootRun')
+}
+
+task runReactJSClient(type: Exec){
+    dependsOn(":clients:reactjs:runClient")
+    commandLine('echo', 'ReactJS Clieht Started')
+}
+
+task runDropWizardServer(type: Exec){
+    commandLine('echo' , 'Running Dropwizard Server')
+}

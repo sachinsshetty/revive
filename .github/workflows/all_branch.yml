@@ -1,5 +1,5 @@
 
-name: "Build ALL Setup"
+name: "Build ALL"
 on: [push]
 jobs:
   gradle:
