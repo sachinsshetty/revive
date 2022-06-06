@@ -1,19 +1,19 @@
 name: "DockerPush Server SpringBoot"
 on:
-#  workflow_run:
-#    workflows: ["DockerBuild SpringBoot"]
-#    types:
-#      - completed
+  workflow_run:
+    workflows: ["DockerBuild SpringBoot"]
+    types:
+      - completed
   push:
     branches:
       - deploy_server_container_to_registry
-#      - main
-#    tags:
-#      - 'v*'
-#  pull_request:
-#    types: [opened, reopened, synchronize, ready_for_review]
-#  release:
-#    types: [ published ]
+      - main
+    tags:
+      - 'v*'
+  pull_request:
+    types: [opened, reopened, synchronize, ready_for_review]
+  release:
+    types: [ published ]
 
 jobs:
   push_server_image :
@@ -24,16 +24,6 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v3
-      - uses: actions/setup-java@v2
-        with:
-          distribution: adopt
-          java-version: 17
-          cache: gradle
-
-      - name: "Build the configured project"
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: createServerBuildSpringBoot -x test
       - name: Push to container
         uses: ./.github/actions/deploy-container-to-registry
         with:

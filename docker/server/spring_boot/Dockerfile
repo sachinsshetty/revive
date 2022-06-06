@@ -5,11 +5,9 @@ COPY servers/spring_boot/ server
 
 RUN gradle -p /app/server/ build -x test
 
-RUN ls /app/server/build/*
+RUN cp /app/server/build/libs/app-0.0.1.jar /app/server/build/app.jar
 
-COPY ./app/server/build/libs/app-0.0.1.jar /app/server/build/app.jar
-
-RUN jdeps --ignore-missing-deps --module-path modules --add-modules=ALL-MODULE-PATH --generate-module-info out build/app.jar
+RUN jdeps --ignore-missing-deps --module-path modules --add-modules=ALL-MODULE-PATH --generate-module-info out /app/server/build/app.jar
 RUN jlink --add-modules ALL-MODULE-PATH --no-man-pages --no-header-files --compress=2 --output jre
 
 # take a smaller runtime image for the final output

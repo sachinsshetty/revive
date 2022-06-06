@@ -1,7 +1,7 @@
 ext {
     group = 'com.slabstech.revive'
 
-    version = '2.0.0'
+    version = '0.0.1'
 
     dockerRepo = 'slabstech'
 }
@@ -49,4 +49,11 @@ task createAppDockerImages_springboot(type: Exec) {
 task createAppDockerImages_dropwizard(type: Exec) {
     dependsOn "createDBDockerImagePostgreSQL", "createServerDockerImageDropwizard", "createClientDockerImageReactJS"
     commandLine 'echo', 'success create images'
+}
+
+
+task buildAllTasks(type: Exec) {
+    dependsOn createServerBuildSpringBoot, createServerBuildDropwizard, ":clients:reactjs:buildReactApp"
+    commandLine 'echo', 'Building all frameworks'
+
 }
