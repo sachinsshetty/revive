@@ -16,17 +16,6 @@ on:
 #    types: [ published ]
 
 jobs:
-  build-configured-project:
-    name : Build the required Image
-    runs-on : ubuntu-latest
-#    outputs:
-#      build_path : {{ steps.deploy.out.build_path}}
-    steps:
-      - uses: actions/checkout@v3
-      - name: "Build the project"
-        uses: ./.github/actions/build-configured-project
-        with:
-          build-deploy-args: createAppDockerImages_springboot -x test
   push_server_image :
     name : Push Docker image to Docker Hub - server
     runs-on : ubuntu-latest
@@ -34,6 +23,17 @@ jobs:
       packages: write
       contents: read
     steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-java@v2
+        with:
+          distribution: adopt
+          java-version: 17
+          cache: gradle
+
+      - name: "Build the configured project"
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: createAppDockerImages_springboot -x test
       - name: Push to container
         uses: ./.github/actions/deploy-container-to-registry
         with:
@@ -46,4 +46,4 @@ jobs:
           service-type: server
           tech-name: spring-boot
           dockerfile-path: ./docker/server/spring_boot/Dockerfile
-#          build_path : ${{ needs.build-configured-project.outputs.build_path}}
+

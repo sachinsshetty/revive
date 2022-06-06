@@ -12,10 +12,15 @@ jobs:
     runs-on: ${{ matrix.os }}
     steps:
       - uses: actions/checkout@v3
-      - name: "Build the project"
-        uses: ./.github/actions/build-configured-project
+      - uses: actions/setup-java@v2
         with:
-          build-deploy-args: build --scan -x test
+          distribution: adopt
+          java-version: 17
+          cache: gradle
+      - name: "Build the configured project"
+        uses: gradle/gradle-build-action@v2
+        with:
+          arguments: build --scan -x test
 
       - name: Archive test report
         uses: actions/upload-artifact@v2
