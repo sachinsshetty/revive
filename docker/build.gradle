@@ -1,17 +1,17 @@
-task runAppDocker_sp(type: Exec) {
-    dependsOn "createAppDockerImages_sp"
-    commandLine 'docker-compose', '--file', 'docker-compose-v_0_0_1.yml', 'up'
+task runAppDocker_springboot(type: Exec) {
+    dependsOn "createAppDockerImages_springboot"
+    commandLine 'docker-compose', '--file', 'docker-compose-springboot-psql-reactjs.yml', 'up'
 }
 
-task runAppDocker_dw(type: Exec) {
-    dependsOn "createAppDockerImages_dw"
-    commandLine 'docker-compose', '--file', 'docker-compose-v_0_0_2.yml', 'up'
+task runAppDocker_dropwizard(type: Exec) {
+    dependsOn "createAppDockerImages_dropwizard"
+    commandLine 'docker-compose', '--file', 'docker-compose-dropwizard-psql-reactjs.yml', 'up'
 }
 
-task stopAppDocker_sp(type: Exec) {
-    commandLine 'docker-compose', '--file', 'docker-compose-v_0_0_1.yml', 'down'
+task stopAppDocker_springboot(type: Exec) {
+    commandLine 'docker-compose', '--file', 'docker-compose-springboot-psql-reactjs.yml', 'down'
 }
 
-task stopAppDocker_dw(type: Exec) {
-    commandLine 'docker-compose', '--file', 'docker-compose-v_0_0_2.yml', 'down'
+task stopAppDocker_dropwizard(type: Exec) {
+    commandLine 'docker-compose', '--file', 'docker-compose-dropwizard-psql-reactjs.yml', 'down'
 }

@@ -1,11 +1,10 @@
 # revive
  
 ![Build](https://github.com/sachinsshetty/revive/actions/workflows/all_branch.yml/badge.svg) 
-![Junit](https://github.com/sachinsshetty/revive/actions/workflows/test_unit_integration.yml/badge.svg)
-![DockerPush-DB-PostgreSQL](https://github.com/sachinsshetty/revive/actions/workflows/push_docker_db.yml/badge.svg)  
+![DockerPush-DB-PostgreSQL](https://github.com/sachinsshetty/revive/actions/workflows/push_docker_db_postgresql.yml/badge.svg)  
 ![DockerPush-server-Dropwizard](https://github.com/sachinsshetty/revive/actions/workflows/push_docker_server_dropwizard.yml/badge.svg)
 ![DockerPush-server-SpringBoot](https://github.com/sachinsshetty/revive/actions/workflows/push_docker_server_spring_boot.yml/badge.svg)
-![DockerPush-Client-ReactJS](https://github.com/sachinsshetty/revive/actions/workflows/push_docker_client.yml/badge.svg)
+![DockerPush-Client-ReactJS](https://github.com/sachinsshetty/revive/actions/workflows/push_docker_client_reactjs.yml/badge.svg)
 ![CodeQL](https://github.com/sachinsshetty/revive/actions/workflows/codeql-analysis.yml/badge.svg)
 
 
@@ -14,15 +13,15 @@
 ##### Execution Steps :
   * To compile code and build docker images
     * SpringBoot + PostgreSQL + ReactJS
-      * ./gradlew createAppDockerImages_sp
+      * ./gradlew createAppDockerImages_springboot
     * Dropwizard + PostgreSQL + ReactJS
-        * ./gradlew createAppDockerImages_dw
+        * ./gradlew createAppDockerImages_dropwizard
 
   * To run the with docker-compose 
      * SpringBoot + PostgreSQL + ReactJS
-       * ./gradlew runAppDocker_sp
+       * ./gradlew runAppDocker_springboot
      * Dropwizard + PostgreSQL + ReactJS
-       * ./gradlew runAppDocker_dw
+       * ./gradlew runAppDocker_dropwizard
 
   * To Stop Application
       * ./gradlew stopAppDocker

@@ -2,7 +2,7 @@ name: "DockerBuild SpringBoot"
 
 on: 
   workflow_run:
-    workflows: ["JUnitTest"]
+    workflows: ["BuildSetup"]
     types:
       - completed
   push:
@@ -31,4 +31,4 @@ jobs:
     - name: Setup Gradle
       uses: gradle/gradle-build-action@v2
       with:
-        arguments: createAppDockerImages_sp -x test
+        arguments: createAppDockerImages_springboot -x test

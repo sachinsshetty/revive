@@ -34,11 +34,11 @@ task createDBDockerImagePostgreSQL(type: Exec) {
     commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-db-postgresql", "-f", "docker/db/postgresql/Dockerfile"
 }
 
-task createAppDockerImages_sp(type: Exec) {
+task createAppDockerImages_springboot(type: Exec) {
     dependsOn "createDBDockerImagePostgreSQL", "createServerDockerImageSpringBoot", "createClientDockerImageReactJS"
     commandLine 'echo', 'success create images'
 }
-task createAppDockerImages_dw(type: Exec) {
+task createAppDockerImages_dropwizard(type: Exec) {
     dependsOn "createDBDockerImagePostgreSQL", "createServerDockerImageDropwizard", "createClientDockerImageReactJS"
     commandLine 'echo', 'success create images'
 }

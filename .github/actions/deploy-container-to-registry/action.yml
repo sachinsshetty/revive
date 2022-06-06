@@ -1,0 +1,53 @@
+name: "Deploy Container to Registry"
+description: "Deploys container to GithubContainer and DockerHub"
+inputs:
+  username:
+    required: true
+    description: "The secret key stored to deploy to docker hub"
+  password:
+    required: true
+    description: "The secret password to deploy to docker hub"
+  project-name:
+    required: true
+    description: "Project name to publish image"
+  service-type:
+    required: true
+    description: "Service Type used"
+  tech-name:
+    required: true
+    description: "Tech framework image that is deployed"
+  dockerfile-path:
+    required: true
+    description: "Path + Name of Dockerfile used to deploy container"
+
+runs:
+  using: "composite"
+  steps:
+    - name: "Log in to Docker Hub"
+      uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+      with:
+        username: ${{ inputs.username }}
+        password: ${{ inputs.password }}
+
+    - name: "Log in to the Container registry"
+      uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
+      with:
+        registry: ghcr.io
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: "Extract metadata (tags, labels) for Docker "
+      id: meta
+      uses: docker/metadata-action@98669ae865ea3cffbcbaa878cf57c20bbf1c6c38
+      with:
+        images: |
+          ${{ inputs.username }}/${{ inputs.project-name }}-${{ inputs.service-type }}-${{ inputs.tech-name }}
+          ghcr.io/${{ github.repository }}-${{ inputs.service-type }}-${{ inputs.tech-name }}
+
+    - name: Build and push Docker image - client
+      uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+      with:
+        file: ${{ inputs.dockerfile-path }}
+        push: true
+        tags: ${{ steps.meta.outputs.tags }}
+        labels: ${{ steps.meta.outputs.labels }}
