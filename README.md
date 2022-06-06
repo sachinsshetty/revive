@@ -1,11 +1,11 @@
 # revive
  
 ![Build](https://github.com/sachinsshetty/revive/actions/workflows/all_branch.yml/badge.svg) 
-![Junit](https://github.com/sachinsshetty/revive/actions/workflows/test_unit_integration.yml/badge.svg)   
-![DockerBuild](https://github.com/sachinsshetty/revive/actions/workflows/build_docker.yml/badge.svg)
-![DockerPush-DB](https://github.com/sachinsshetty/revive/actions/workflows/push_docker_db.yml/badge.svg)  
-![DockerPush-server](https://github.com/sachinsshetty/revive/actions/workflows/push_docker_server.yml/badge.svg)
-![DockerPush-client](https://github.com/sachinsshetty/revive/actions/workflows/push_docker_client.yml/badge.svg)
+![Junit](https://github.com/sachinsshetty/revive/actions/workflows/test_unit_integration.yml/badge.svg)
+![DockerPush-DB-PostgreSQL](https://github.com/sachinsshetty/revive/actions/workflows/push_docker_db.yml/badge.svg)  
+![DockerPush-server-Dropwizard](https://github.com/sachinsshetty/revive/actions/workflows/push_docker_server_dropwizard.yml/badge.svg)
+![DockerPush-server-SpringBoot](https://github.com/sachinsshetty/revive/actions/workflows/push_docker_server_spring_boot.yml/badge.svg)
+![DockerPush-Client-ReactJS](https://github.com/sachinsshetty/revive/actions/workflows/push_docker_client.yml/badge.svg)
 ![CodeQL](https://github.com/sachinsshetty/revive/actions/workflows/codeql-analysis.yml/badge.svg)
 
 
@@ -33,7 +33,7 @@
         * ./gradlew servers:spring_boot:runServer
       * Dropwizard
         * ./gradlew servers:dropwizard:build
-        * java -jar target/app-0.0.2.jar
+        * java -jar target/app-0.0.1.jar
     * Client
       * /gradlew clients:reactjs:runClient
 
@@ -58,11 +58,11 @@
 ###### Docker Images
 
 | Docker Image        | Tagname                                                    | Size(Mb) | Version                                                               |
-|---|------------------------------------------------------------|----------|---|
-| Server - SpringBoot  | [slabstech/revive-server](https://hub.docker.com/layers/227904403/slabstech/revive-server/0.0.1/images/sha256-c7f6f21df5def46a68a996e0a488491b3ba2404da7e7aa0b912afd62f1768d91?context=repo) | 157.3    | [v0.0.1](https://github.com/sachinsshetty/revive/releases/tag/v0.0.1) |
-| Server - Dropwizard | [slabstech/revive-server](https://hub.docker.com/layers/227904808/slabstech/revive-server/0.0.2/images/sha256-cac28f5ea8bc8adff453e3f94407cedf1ff9b6745ea7cfd0d59871eb865d75bc?context=repo) | 109.2    | [v0.0.2](https://github.com/sachinsshetty/revive/releases/tag/v0.0.2) |
-| Client - ReactJS    | [slabstech/revive-client](https://hub.docker.com/r/slabstech/revive-client) | 54.13    | [v0.0.1](https://github.com/sachinsshetty/revive/releases/tag/v0.0.1) |
-| DB                  | [slabstech/revive-db](https://hub.docker.com/r/slabstech/revive-db) | 80.07    | [v0.0.1](https://github.com/sachinsshetty/revive/releases/tag/v0.0.1) |
+|---|------------------------------------------------------------|----------|-----------------------------------------------------------------------|
+| Server - SpringBoot  | [slabstech/revive-server-spring-boot](https://hub.docker.com/r/slabstech/revive-server-spring-boot) | 157.3    | [v0.0.1](https://github.com/sachinsshetty/revive/releases/tag/v0.0.1) |
+| Server - Dropwizard | [slabstech/revive-server-dropwizard](https://hub.docker.com/r/slabstech/revive-server-dropwizard) | 109.2    | [v0.0.1](https://github.com/sachinsshetty/revive/releases/tag/v0.0.1) |
+| Client - ReactJS    | [slabstech/revive-client-reactjs](https://hub.docker.com/r/slabstech/revive-client-reactjs) | 54.13    | [v0.0.1](https://github.com/sachinsshetty/revive/releases/tag/v0.0.1) |
+| DB                  | [slabstech/revive-db-postgresql](https://hub.docker.com/r/slabstech/revive-db-postgresql) | 80.07    | [v0.0.1](https://github.com/sachinsshetty/revive/releases/tag/v0.0.1) |
 
 
 #### Tech Stack
@@ -70,7 +70,7 @@
 | Version | Client  | Server     | Database   | Cloud Deploy | 
 |---------|---------|------------|------------|--------------|
 | 0.0.1   | ReactJS | SpringBoot | PostgreSQL | AWS          |
-| 0.0.2   | -       | DropWizard | -          | MS Azure     |
+| 0.0.1   | -       | DropWizard | -          | MS Azure     |
 
 
 
