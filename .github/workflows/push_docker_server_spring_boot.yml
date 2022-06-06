@@ -33,7 +33,7 @@ jobs:
       - name: "Build the configured project"
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: createAppDockerImages_springboot -x test
+          arguments: createServerBuildSpringBoot -x test
       - name: Push to container
         uses: ./.github/actions/deploy-container-to-registry
         with:

@@ -20,13 +20,24 @@ task createClientDockerImageReactJS(type: Exec) {
     commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-client-reactjs", "--network" ,"host", "-f", "docker/client/reactjs/Dockerfile"
 }
 
-task createServerDockerImageSpringBoot(type: Exec) {
+task createServerBuildSpringBoot(type: Exec) {
     dependsOn ":servers:spring_boot:copyDependencies", ":servers:spring_boot:build"
+    commandLine 'echo', 'SpringBoot Server Build Successful'
+}
+
+task createServerDockerImageSpringBoot(type: Exec) {
+    dependsOn createServerBuildSpringBoot
     commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-server-spring-boot", "-f", "docker/server/spring_boot/Dockerfile"
 }
 
-task createServerDockerImageDropwizard(type: Exec) {
+task createServerBuildDropwizard(type: Exec) {
     dependsOn ":servers:dropwizard:copyDependencies", ":servers:dropwizard:build"
+    commandLine 'echo', 'DropBuild Server Build Successful'
+}
+
+
+task createServerDockerImageDropwizard(type: Exec) {
+    dependsOn createServerBuildDropwizard
     commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-server-dropwizard", "-f", "docker/server/dropwizard/Dockerfile"
 }
 
