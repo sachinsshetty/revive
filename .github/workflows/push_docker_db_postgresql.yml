@@ -22,9 +22,6 @@ jobs:
       packages: write
       contents: read
     steps:
-      - name: Check out the repo -db
-        uses: actions/checkout@v3
-
       - name: Push to container
           uses: ./.github/actions/deploy-container-to-registry
           with:

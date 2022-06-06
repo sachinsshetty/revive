@@ -14,6 +14,15 @@ on:
 #  release:
 #    types: [ published ]
 jobs:
+  build-configured-project:
+    name : Build the required Image
+#    outputs:
+#      build_path : {{ steps.deploy.out.build_path}}
+    steps:
+      - name: "Build the project"
+        uses: ./.github/actions/build-configured-project
+        with:
+          build-arguments: createAppDockerImages_dropwizard -x test
   push_server_image :
     name : Push Docker image to Docker Hub - server
     runs-on : ubuntu-latest
@@ -21,9 +30,6 @@ jobs:
       packages: write
       contents: read
     steps:
-      - name: Check out the repo  server
-        uses: actions/checkout@v3
-
       - name: Push to container
         uses: ./.github/actions/deploy-container-to-registry
         with:
@@ -36,3 +42,4 @@ jobs:
           service-type: server
           tech-name: dropwizard
           dockerfile-path: ./docker/server/dropwizard/Dockerfile
+#          build_path : ${{ needs.build-configured-project.outputs.build_path}}
