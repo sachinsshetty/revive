@@ -26,7 +26,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Push to container
-        uses: ./github/actions/deploy-container-to-registry
+        uses: ./.github/actions/deploy-container-to-registry
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
