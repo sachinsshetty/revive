@@ -1,0 +1,14 @@
+name: "Deploy Container to Registry"
+description: "Deploys container to GithubContainer and DockerHub"
+inputs:
+   build-arguments:
+    required: true
+    description: "Option to build configured project"
+
+runs:
+  using: "composite"
+  steps:
+    - name: "Build the configured project"
+      uses: gradle/gradle-build-action@v2
+      with:
+        arguments: {{ inputs.build-arguments }}

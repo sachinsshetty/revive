@@ -19,6 +19,15 @@ inputs:
   dockerfile-path:
     required: true
     description: "Path + Name of Dockerfile used to deploy container"
+  github-actor:
+    required: true
+    description: "Username for github container"
+  github-token:
+    required: true
+    description: "password for github container"
+  github-repository:
+    required: true
+    description: "Name of the github repository"
 
 runs:
   using: "composite"
@@ -33,8 +42,8 @@ runs:
       uses: docker/login-action@f054a8b539a109f9f41c372932f1ae047eff08c9
       with:
         registry: ghcr.io
-        username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+        username: ${{ inputs.github-actor }}
+        password: ${{ inputs.github-token }}
 
     - name: "Extract metadata (tags, labels) for Docker "
       id: meta
@@ -42,7 +51,7 @@ runs:
       with:
         images: |
           ${{ inputs.username }}/${{ inputs.project-name }}-${{ inputs.service-type }}-${{ inputs.tech-name }}
-          ghcr.io/${{ github.repository }}-${{ inputs.service-type }}-${{ inputs.tech-name }}
+          ghcr.io/${{ inputs.github-repository }}-${{ inputs.service-type }}-${{ inputs.tech-name }}
 
     - name: Build and push Docker image - client
       uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
