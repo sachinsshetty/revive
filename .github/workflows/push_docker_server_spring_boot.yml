@@ -18,6 +18,7 @@ on:
 jobs:
   build-configured-project:
     name : Build the required Image
+    runs-on : ubuntu-latest
 #    outputs:
 #      build_path : {{ steps.deploy.out.build_path}}
     steps:
