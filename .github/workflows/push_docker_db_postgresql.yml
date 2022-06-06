@@ -1,7 +1,7 @@
 name: "DockerPush DB"
 on:
   workflow_run:
-    workflows: [""Build ALL Setup""]
+    workflows: ["Build ALL Setup"]
     types:
       - completed
   push:
