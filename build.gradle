@@ -61,7 +61,7 @@ task buildAllTasks(type: Exec) {
 
 task runSpringBootServer(type: Exec){
     dependsOn(createServerBuildSpringBoot)
-    commandLine('./gradlew', ':servers:spring_boot:bootRun')
+    commandLine('gradle', ':servers:spring_boot:bootRun')
 }
 
 task runReactJSClient(type: Exec){
