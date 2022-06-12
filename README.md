@@ -7,6 +7,34 @@
 
 > **TL;DR:** Click the <kbd>Use this template</kbd> button and clone it in IntelliJ IDEA.
 
+
+### Table of contents
+
+In this README, we will highlight the following elements of template-project creation:
+
+- [Getting started](#getting-started)
+- [Gradle configuration](#gradle-configuration)
+- [Plugin template structure](#plugin-template-structure)
+- [Plugin configuration file](#plugin-configuration-file)
+- [Sample code](#sample-code):
+  - listeners – project and dynamic plugin lifecycle
+  - services – project-related and application-related services
+  - actions – basic action with shortcut binding
+- [Testing](#testing)
+  - [Functional tests](#functional-tests)
+  - [UI tests](#ui-tests)
+- [Qodana integration](#qodana-integration)
+- [Predefined Run/Debug configurations](#predefined-rundebug-configurations)
+- [Continuous integration](#continuous-integration) based on GitHub Actions
+  - [Dependencies management](#dependencies-management) with Dependabot
+  - [Changelog maintenance](#changelog-maintenance) with the Gradle Changelog Plugin
+  - [Release flow](#release-flow) using GitHub Releases
+  - [Plugin signing](#plugin-signing) with your private certificate
+  - [Publishing the plugin](#publishing-the-plugin) with the Gradle IntelliJ Plugin
+- [FAQ](#faq)
+- [Useful links](#useful-links)
+
+
 #### Options for Template
 
 | Docker Image        | Docker Hub Repo                                                                                     | Github Package Registry                                                                                       |     Size(Mb)                                       | Status                                                                        |
@@ -98,42 +126,10 @@ Revive is awaiting Sponsors for creating more templates
 * Github
 
 ---
-# IntelliJ Platform Plugin Template
 
-[![official JetBrains project](https://jb.gg/badges/official.svg)][jb:confluence-on-gh]
-[![Twitter Follow](https://img.shields.io/twitter/follow/JBPlatform?style=flat-square&logo=twitter)](https://twitter.com/JBPlatform)
-[![Build](https://github.com/JetBrains/intellij-platform-plugin-template/workflows/Build/badge.svg)][gh:build]
 [![Slack](https://img.shields.io/badge/Slack-%23intellij--platform-blue?style=flat-square&logo=Slack)](https://plugins.jetbrains.com/slack)
 
-![IntelliJ Platform Plugin Template][file:intellij-platform-plugin-template.png]
 
-
-
-### Table of contents
-
-In this README, we will highlight the following elements of template-project creation:
-
-- [Getting started](#getting-started)
-- [Gradle configuration](#gradle-configuration)
-- [Plugin template structure](#plugin-template-structure)
-- [Plugin configuration file](#plugin-configuration-file)
-- [Sample code](#sample-code):
-  - listeners – project and dynamic plugin lifecycle
-  - services – project-related and application-related services
-  - actions – basic action with shortcut binding
-- [Testing](#testing)
-  - [Functional tests](#functional-tests)
-  - [UI tests](#ui-tests)
-- [Qodana integration](#qodana-integration)
-- [Predefined Run/Debug configurations](#predefined-rundebug-configurations)
-- [Continuous integration](#continuous-integration) based on GitHub Actions
-  - [Dependencies management](#dependencies-management) with Dependabot
-  - [Changelog maintenance](#changelog-maintenance) with the Gradle Changelog Plugin
-  - [Release flow](#release-flow) using GitHub Releases
-  - [Plugin signing](#plugin-signing) with your private certificate
-  - [Publishing the plugin](#publishing-the-plugin) with the Gradle IntelliJ Plugin
-- [FAQ](#faq)
-- [Useful links](#useful-links)
 
 
 ## Getting started
