@@ -24,6 +24,10 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v3
+      - name: Disable buildkit for SpringBoot Build issue
+        run: |
+          export DOCKER_BUILDKIT=0
+          export COMPOSE_DOCKER_CLI_BUILD=0
       - name: deploy-container-to-registry
         uses: slabstech/action-deploy-container-to-registry@v0.0.1
         with:
