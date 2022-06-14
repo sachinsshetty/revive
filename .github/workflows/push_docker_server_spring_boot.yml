@@ -14,7 +14,7 @@ on:
     types: [opened, reopened, synchronize, ready_for_review]
   release:
     types: [ published ]
-
+#TODO - revert to composite actions
 jobs:
   push_server_image :
     name : Push Docker image to Docker Hub - server
