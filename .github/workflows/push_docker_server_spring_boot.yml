@@ -49,7 +49,7 @@ jobs:
             ghcr.io/${{ github.repository }}-server-spring-boot
 
       - name: Build and push Docker image - client
-        uses: docker/build-push-action@ad44023a93711e3deb337508980b4b5e9bcdc5dc
+        uses: docker/build-push-action@e551b19e49efd4e98792db7592c17c09b89db8d8
         with:
           file: ./docker/server/spring_boot/Dockerfile
           push: true
