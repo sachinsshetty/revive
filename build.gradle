@@ -17,7 +17,7 @@ subprojects {
 // Create the docker images here, uses prebuild as multi-part images
 task createClientDockerImageReactJS(type: Exec) {
     dependsOn ":clients:reactjs:buildReactApp"
-    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-client-reactjs", "--network" ,"host", "-f", "docker/client/reactjs/Dockerfile"
+    commandLine 'docker', 'build', '--rm', '.', '-t', "${dockerRepo}/${rootProject.name}-client-reactjs", "--network" ,"host", "-f", "docker/client/reactjs/Dockerfile"
 }
 
 task createServerBuildSpringBoot(type: Exec) {
@@ -26,7 +26,7 @@ task createServerBuildSpringBoot(type: Exec) {
 }
 
 task createServerDockerImageSpringBoot(type: Exec) {
-    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-server-spring-boot",  "--network" ,"host", "-f", "docker/server/spring_boot/Dockerfile"
+    commandLine 'docker', 'build', '--rm', '.', '-t', "${dockerRepo}/${rootProject.name}-server-spring-boot",  "--network" ,"host", "-f", "docker/server/spring_boot/Dockerfile"
 }
 
 task createServerBuildDropwizard(type: Exec) {
@@ -35,11 +35,11 @@ task createServerBuildDropwizard(type: Exec) {
 }
 
 task createServerDockerImageDropwizard(type: Exec) {
-    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-server-dropwizard",  "--network" ,"host", "-f", "docker/server/dropwizard/Dockerfile"
+    commandLine 'docker', 'build', '--rm', '.', '-t', "${dockerRepo}/${rootProject.name}-server-dropwizard",  "--network" ,"host", "-f", "docker/server/dropwizard/Dockerfile"
 }
 
 task createDBDockerImagePostgreSQL(type: Exec) {
-    commandLine 'docker', 'build', '--rm', '.', '-t', "slabstech/revive-db-postgresql", "-f", "docker/db/postgresql/Dockerfile"
+    commandLine 'docker', 'build', '--rm', '.', '-t', "${dockerRepo}/${rootProject.name}-db-postgresql", "-f", "docker/db/postgresql/Dockerfile"
 }
 
 task createAppDockerImages_springboot(type: Exec) {
@@ -61,7 +61,7 @@ task buildAllTasks(type: Exec) {
 
 task runSpringBootServer(type: Exec){
     dependsOn(createServerBuildSpringBoot)
-    commandLine('./gradlew', ':servers:spring_boot:bootRun')
+    commandLine('gradle', ':servers:spring_boot:bootRun')
 }
 
 task runReactJSClient(type: Exec){

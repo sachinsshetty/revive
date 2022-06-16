@@ -23,15 +23,14 @@ jobs:
       contents: read
     steps:
       - uses: actions/checkout@v3
-      - name: Push to container
-        uses: ./.github/actions/deploy-container-to-registry
+      - name: deploy-container-to-registry
+        uses: slabstech/action-deploy-container-to-registry@v0.0.1
         with:
-            username: ${{ secrets.DOCKER_USERNAME }}
-            password: ${{ secrets.DOCKER_PASSWORD }}
+            docker-username: ${{ secrets.DOCKER_USERNAME }}
+            docker-password: ${{ secrets.DOCKER_PASSWORD }}
             github-actor: ${{ github.actor }}
             github-token: ${{ secrets.GITHUB_TOKEN }}
             github-repository: ${{ github.repository }}
             project-name: revive
-            service-type: db
-            tech-name: postgresql
+            service-name: db-postgresql
             dockerfile-path: ./docker/db/postgresql/Dockerfile
