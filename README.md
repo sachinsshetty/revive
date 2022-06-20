@@ -3,37 +3,6 @@
 ![Build](https://github.com/sachinsshetty/revive/actions/workflows/all_branch.yml/badge.svg)
 ![CodeQL](https://github.com/sachinsshetty/revive/actions/workflows/codeql-analysis.yml/badge.svg)
 
-### Template library for RESTful Web Application with Micro-Services
-
-> **TL;DR:** Click the <kbd>Use this template</kbd> button and clone it in IntelliJ IDEA.
-
-
-### Table of contents
-
-In this README, we will highlight the following elements of template-project creation:
-
-- [Getting started](#getting-started)
-- [Gradle configuration](#gradle-configuration)
-- [Plugin template structure](#plugin-template-structure)
-- [Plugin configuration file](#plugin-configuration-file)
-- [Sample code](#sample-code):
-  - listeners – project and dynamic plugin lifecycle
-  - services – project-related and application-related services
-  - actions – basic action with shortcut binding
-- [Testing](#testing)
-  - [Functional tests](#functional-tests)
-  - [UI tests](#ui-tests)
-- [Qodana integration](#qodana-integration)
-- [Predefined Run/Debug configurations](#predefined-rundebug-configurations)
-- [Continuous integration](#continuous-integration) based on GitHub Actions
-  - [Dependencies management](#dependencies-management) with Dependabot
-  - [Changelog maintenance](#changelog-maintenance) with the Gradle Changelog Plugin
-  - [Release flow](#release-flow) using GitHub Releases
-  - [Plugin signing](#plugin-signing) with your private certificate
-  - [Publishing the plugin](#publishing-the-plugin) with the Gradle IntelliJ Plugin
-- [FAQ](#faq)
-- [Useful links](#useful-links)
-
 
 #### Options for Template
 
@@ -43,19 +12,6 @@ In this README, we will highlight the following elements of template-project cre
 | Server - Dropwizard | [slabstech/revive-server-dropwizard](https://hub.docker.com/r/slabstech/revive-server-dropwizard)   | [revive-server-dropwizard](https://github.com/sachinsshetty/revive/pkgs/container/revive-server-dropwizard)   |109.2    | ![Dropwizard](https://github.com/sachinsshetty/revive/actions/workflows/push_docker_server_dropwizard.yml/badge.svg)|
 | Client - ReactJS    | [slabstech/revive-client-reactjs](https://hub.docker.com/r/slabstech/revive-client-reactjs)         | [revive-client-reactjs](https://github.com/sachinsshetty/revive/pkgs/container/revive-client-reactjs)         |54.13    | ![ReactJS](https://github.com/sachinsshetty/revive/actions/workflows/push_docker_client_reactjs.yml/badge.svg) |
 | DB - PostgreSQL     | [slabstech/revive-db-postgresql](https://hub.docker.com/r/slabstech/revive-db-postgresql)           | [revive-db-postgresql](https://github.com/sachinsshetty/revive/pkgs/container/revive-db-postgresql)           |80.07    | ![PostgreSQL](https://github.com/sachinsshetty/revive/actions/workflows/push_docker_db_postgresql.yml/badge.svg) |
-
-<!-- Plugin description -->
-**IntelliJ Platform Plugin Template** is a repository that provides a pure template to make it easier to create a new plugin project (check the [Creating a repository from a template][gh:template] article).
-
-The main goal of this template is to speed up the setup phase of Micro-services development for both new and experienced developers by preconfiguring the project scaffold and CI, linking to the proper documentation pages, and keeping everything organized.
-
-[gh:template]: https://docs.github.com/en/repositories/creating-and-managing-repositories/creating-a-repository-from-a-template
-<!-- Plugin description end -->
-
-If you're still not quite sure what this is all about, read our introduction: [What is the Revive Platform?][docs:intro]
-
-> **TIP**: Click the <kbd>Watch</kbd> button on the top to be notified about releases containing new features and fixes.
-
 
 
 ##### Execution Steps :
@@ -121,10 +77,11 @@ Revive is awaiting Sponsors for creating more templates
 
 #### Currently being develops with 
 
-* IntelliJ Idea Trial Licences
+* IntelliJ Idea 
 * VMWare WorkstationPlayer 16
 * Github
 
+<!--
 ---
 
 [![Slack](https://img.shields.io/badge/Slack-%23intellij--platform-blue?style=flat-square&logo=Slack)](https://plugins.jetbrains.com/slack)
@@ -615,3 +572,4 @@ That approach gives more possibilities for testing and debugging pre-releases, f
 [gradle-lifecycle-tasks]: https://docs.gradle.org/current/userguide/java_plugin.html#lifecycle_tasks
 [kotlin-for-plugin-developers]: https://plugins.jetbrains.com/docs/intellij/kotlin.html#adding-kotlin-support
 [xpath]: https://www.w3.org/TR/xpath-21/
+-->
