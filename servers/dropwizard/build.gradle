@@ -30,7 +30,7 @@ dependencies {
     implementation group: 'io.dropwizard', name: 'dropwizard-views-freemarker', version: "$dropwizardVersion"
     implementation group: 'io.dropwizard', name: 'dropwizard-views-mustache', version: "$dropwizardVersion"
     implementation group: 'io.dropwizard', name: 'dropwizard-metrics-graphite', version: "$dropwizardVersion"
-    implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.6'
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.4.0'
 
 
     testImplementation( group: 'io.dropwizard', name: 'dropwizard-testing', version: "$dropwizardVersion") {
