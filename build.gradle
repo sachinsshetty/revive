@@ -70,5 +70,6 @@ task runReactJSClient(type: Exec){
 }
 
 task runDropWizardServer(type: Exec){
+    dependsOn(":server:dropwizard:runDropwizard")
     commandLine('echo' , 'Running Dropwizard Server')
 }
