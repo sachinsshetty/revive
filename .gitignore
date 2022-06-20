@@ -41,3 +41,5 @@ clients/reactjs/static/
 servers/dropwizard/build/
 servers/dropwizard/dependency-reduced-pom.xml
 servers/dropwizard/target/
+clients/build/
+servers/build
