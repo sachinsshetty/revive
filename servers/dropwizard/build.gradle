@@ -9,6 +9,11 @@ archivesBaseName = 'app'
 group = 'com.slabstech.revive.server.dropwizard'
 version = '0.0.1'
 
+project.ext {
+    configPath = "$projectDir/config/"
+    mainClassName = "com.slabstech.revive.server.dropwizard.ShopApplication"
+}
+
 
 repositories {
     mavenCentral()
@@ -25,27 +30,40 @@ dependencies {
     implementation group: 'io.dropwizard', name: 'dropwizard-views-freemarker', version: "$dropwizardVersion"
     implementation group: 'io.dropwizard', name: 'dropwizard-views-mustache', version: "$dropwizardVersion"
     implementation group: 'io.dropwizard', name: 'dropwizard-metrics-graphite', version: "$dropwizardVersion"
-    implementation group: 'com.h2database', name: 'h2', version: "$h2Version"
-    testImplementation group: 'io.dropwizard', name: 'dropwizard-testing', version: "$dropwizardVersion"
-    testImplementation group: 'org.mockito', name: 'mockito-core', version: "$mockitoVersion"
-    testImplementation(group: 'org.glassfish.jersey.test-framework.providers',
-            name: 'jersey-test-framework-provider-inmemory', version: "$jerseyTestFrameworkProviderVersion") {
-        exclude(module: 'javax.servlet-api')
-        exclude(module: 'junit')
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.6'
+
+
+    testImplementation( group: 'io.dropwizard', name: 'dropwizard-testing', version: "$dropwizardVersion") {
+        exclude group: 'junit', module: 'junit'
     }
-    testImplementation(group: 'org.glassfish.jersey.test-framework.providers',
-            name: 'jersey-test-framework-provider-grizzly2', version: "$jerseyTestFrameworkProviderVersion") {
-        exclude(module: 'javax.servlet-api')
-        exclude(module: 'junit')
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.1.0'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.23.0'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: "$junit5Version"
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: "$junit5Version"
+    testImplementation "org.testcontainers:testcontainers:1.17.2"
+    testImplementation group: 'org.testcontainers', name: 'postgresql', version: '1.17.2'
+    testImplementation group: 'org.testcontainers', name: 'junit-jupiter', version: '1.17.2'
+    testImplementation(group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.1.1')
+
+    testImplementation (group: 'org.glassfish.jersey.test-framework.providers', name: 'jersey-test-framework-provider-inmemory', version: '3.1.0-M3') {
+        exclude group: 'javax.servlet', module: 'javax.servlet-api'
+        exclude group: 'junit', module: 'junit'
     }
+    testImplementation (group: 'org.glassfish.jersey.test-framework.providers', name: 'jersey-test-framework-provider-grizzly2', version: '3.1.0-M3') {
+        exclude group: 'javax.servlet', module: 'javax.servlet-api'
+        exclude group: 'junit', module: 'junit'
+    }
+
 }
+
 configurations.implementation.canBeResolved = true
+
 
 jar {
     manifest {
         attributes(
                 'Class-Path': configurations.implementation.join(' '),
-                'Main-Class': 'com.slabstech.revive.server.dropwizard.Main'
+                'Main-Class': 'com.slabstech.revive.server.dropwizard.ShopApplication'
         )
     }
 }
@@ -53,4 +71,9 @@ jar {
 task copyDependencies(type: Copy) {
     from configurations.runtimeClasspath
     into "$buildDir/lib"
+}
+
+task runDropwizard(type: Exec){
+    commandLine('build')
+    commandLine( 'java', '-jar', 'build/libs/app-0.0.1.jar', 'server', 'shop_config.yml')
 }
