@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Size;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -22,18 +24,30 @@ public class Setup {
 	@Column(name = "id")
 	private long id;
 
+	@NotBlank(message = "Name must not be blank")
+	@Size(min = 2, max = 50)
 	@Column(name = "name")
 	private String name;
 
+	@NotBlank(message = "Otion_value must not be blank")
+	@Size(min = 2, max = 50)
 	@Column(name = "option_value")
 	private String option_value;
 
+
+	@NotBlank(message = "Use Case must not be blank")
+	@Size(min = 4, max = 50)
 	@Column(name = "use_case")
 	private String use_case;
 
+
+	@NotBlank(message = "Version must not be blank")
+	@Size(min = 0, max = 50)
 	@Column(name = "status")
 	private int status = 1;
 
+	@NotBlank(message = "Version must not be blank")
+	@Size(min = 0, max = 50)
 	@Column(name = "version")
 	private long version=1;
 

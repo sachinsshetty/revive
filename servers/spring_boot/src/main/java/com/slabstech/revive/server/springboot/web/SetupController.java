@@ -3,20 +3,19 @@ package com.slabstech.revive.server.springboot.web;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
 import javax.validation.Valid;
+import javax.validation.Validator;
 
+import com.slabstech.codechallenge.house.house_man.persistence.model.Home;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.*;
 
 import com.slabstech.revive.server.springboot.persistence.model.Setup;
 import com.slabstech.revive.server.springboot.persistence.repo.SetupRepository;
@@ -30,6 +29,8 @@ public class SetupController {
 	@Autowired
 	private SetupRepository setupRepository;
 
+	@Autowired
+	private Validator validator;
 
 	/**
 	 * Get all Setups list.
@@ -65,6 +66,18 @@ public class SetupController {
 	@PostMapping // POST Method for Create operation
 	@ResponseStatus(HttpStatus.CREATED)
 	public Setup createSetup(@Valid @RequestBody Setup setup) {
+
+		Set<ConstraintViolation<Setup>> violations = validator.validate(setup);
+
+		if (!violations.isEmpty()) {
+			StringBuilder sb = new StringBuilder();
+			for (ConstraintViolation<Setup> constraintViolation : violations) {
+				sb.append(constraintViolation.getMessage());
+			}
+
+			throw new ConstraintViolationException("Error occurred: " + sb.toString(), violations);
+		}
+
 		return setupRepository.save(setup);
 	}
 
@@ -86,6 +99,18 @@ public class SetupController {
 		// setup.setCarName(setupDetails.getSetupName());
 		// setup.setDoors(setupDetails.getOs());
 
+
+		Set<ConstraintViolation<Setup>> violations = validator.validate(setup);
+
+		if (!violations.isEmpty()) {
+			StringBuilder sb = new StringBuilder();
+			for (ConstraintViolation<Setup> constraintViolation : violations) {
+				sb.append(constraintViolation.getMessage());
+			}
+
+			throw new ConstraintViolationException("Error occurred: " + sb.toString(), violations);
+		}
+
 		final Setup updatedSetup = setupRepository.save(setup);
 		return ResponseEntity.ok(updatedSetup);
 	}
@@ -106,6 +131,21 @@ public class SetupController {
 		Map<String, Boolean> response = new HashMap<>();
 		response.put("deleted", Boolean.TRUE);
 		return response;
+	}
+
+
+
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+	public Map<String, String> handleValidationExceptions(
+			MethodArgumentNotValidException ex) {
+		Map<String, String> errors = new HashMap<>();
+		ex.getBindingResult().getAllErrors().forEach((error) -> {
+			String fieldName = ((FieldError) error).getField();
+			String errorMessage = error.getDefaultMessage();
+			errors.put(fieldName, errorMessage);
+		});
+		return errors;
 	}
 
 }

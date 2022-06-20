@@ -11,6 +11,7 @@ version = '0.0.1'
 
 project.ext {
     configPath = "$projectDir/config/"
+    mainClassName = "com.slabstech.revive.server.dropwizard.ShopApplication"
 }
 
 
@@ -57,7 +58,7 @@ dependencies {
 
 configurations.implementation.canBeResolved = true
 
-mainClassName = "com.slabstech.revive.server.dropwizard.ShopApplication"
+
 jar {
     manifest {
         attributes(

@@ -63,4 +63,57 @@ public class SetupControllerTest {
     @Test
     public void deleteSetup() {
     }
+
+
+
+    /*
+
+    @MockBean
+	private HomeRepository homeRepository;
+
+	@Autowired
+	HomeController homeController;
+
+	@Autowired
+	private MockMvc mockMvc;
+
+	@Test
+	public void whenHomeControllerInjected_thenNotNull() throws Exception {
+		assertThat(homeController).isNotNull();
+	}
+
+	@Test
+	public void whenGetRequestToHomes_thenCorrectResponse() throws Exception {
+		mockMvc.perform(MockMvcRequestBuilders.get("/homes")
+						.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(MockMvcResultMatchers.status().isOk())
+				.andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON));
+
+	}
+
+	@Test
+	public void whenPostRequestToHomesAndValidHome_thenCorrectResponse() throws Exception {
+		MediaType textPlainUtf8 = new MediaType(MediaType.TEXT_PLAIN, Charset.forName("UTF-8"));
+		String home = "{\"name\": \"bob\", \"email\" : \"bob@domain.com\"}";
+		mockMvc.perform(MockMvcRequestBuilders.post("/homes")
+						.content(home)
+						.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(MockMvcResultMatchers.status().isOk())
+				.andExpect(MockMvcResultMatchers.content().contentType(textPlainUtf8));
+	}
+
+	@Test
+	public void whenPostRequestToHomesAndInValidHome_thenCorrectReponse() throws Exception {
+		String home = "{\"name\": \"\", \"email\" : \"bob@domain.com\"}";
+		mockMvc.perform(MockMvcRequestBuilders.post("/homes")
+						.content(home)
+						.contentType(MediaType.APPLICATION_JSON))
+				.andExpect(MockMvcResultMatchers.status().isBadRequest())
+				.andExpect(MockMvcResultMatchers.jsonPath("$.name", Is.is("Name is mandatory")))
+				.andExpect(MockMvcResultMatchers.content().contentType(MediaType.APPLICATION_JSON));
+	}
+
+
+
+     */
 }
