@@ -95,9 +95,13 @@ public class SetupController {
 		Setup setup = setupRepository.findById(setupId)
 				.orElseThrow(() -> new Exception("Setup " + setupId + " not found"));
 
-		// setup.setCarName(setupDetails.getSetupName());
-		// setup.setDoors(setupDetails.getOs());
+		setup.setName(setupDetails.getName());
+		setup.setOption_value(setupDetails.getOption_value());
 
+		setup.setVersion(setup.getVersion() + 1) ;
+		setup.setStatus(setup.getStatus());
+
+		
 
 		Set<ConstraintViolation<Setup>> violations = validator.validate(setup);
 

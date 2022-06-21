@@ -34,26 +34,20 @@ class Home extends Component {
         return (
             <div>
                 <AppNavbar/>
-                <Container fluid>
+
                 <br></br>    
                 
-                <center> <h5>Initializor library for Web App with Micro-Services</h5>
+                <center> <h5>Template library for Web App with Micro-Services</h5>
                 </center>
-                
-                <br></br>
-                <br></br>
-
-
-                
-                <FormGroup>
-                        <Button color="primary" type="submit">Configure</Button>{' '}
-                        <Button color="secondary" tag={Link} to="/">Cancel</Button>
-                    </FormGroup>
-                </Container>
 
                 <br></br>
                 <br></br>
                 <center><Button color="link"><Link to="/api/setup">Available Configs</Link></Button> </center>
+
+
+                <br></br>
+                <br></br>
+                <center><Button color="link"><Link to="/api/homes">Available Homes</Link></Button> </center>
 
             </div>
         );

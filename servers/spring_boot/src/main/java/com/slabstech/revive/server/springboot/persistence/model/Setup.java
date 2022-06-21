@@ -10,6 +10,8 @@ import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
 
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -40,17 +42,18 @@ public class Setup {
 	@Column(name = "use_case")
 	private String use_case;
 
-
-	@NotBlank(message = "Version must not be blank")
-	@Size(min = 0, max = 50)
+	@Min(value = 0, message = "Set to 0, if disabled")
+	@Max(value = 1, message = "Set to 1, if enabled")
 	@Column(name = "status")
-	private int status = 1;
+	private long status = 1;
 
-	@NotBlank(message = "Version must not be blank")
-	@Size(min = 0, max = 50)
+	@Min(value = 1, message = "Set to 1, For initiation")
+	@Max(value = 100)
 	@Column(name = "version")
 	private long version=1;
 
+	public Setup(){
+	}
     public Setup(String name) {
 		this.name = name;
     }
@@ -87,11 +90,11 @@ public class Setup {
 		this.use_case = use_case;
 	}
 
-	public int getStatus() {
+	public long getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(long status) {
 		this.status = status;
 	}
 
@@ -103,7 +106,5 @@ public class Setup {
 		this.version = version;
 	}
 
-
-	
 
 }
