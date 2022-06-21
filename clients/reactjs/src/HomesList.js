@@ -26,7 +26,7 @@ class HomesList extends Component {
             }
         }).then(() => {
             let updatedHomes = [...this.state.homes].filter(i => i.id !== id);
-            this.setState({setup: updatedHomes});
+            this.setState({homes: updatedHomes});
         });
     }
 
@@ -35,7 +35,7 @@ class HomesList extends Component {
   
         const {homes} = this.state;
 
-        const homesList = setup.map(homes => {
+        const homesList = homes.map(homes => {
             return <tr key={homes.id}>
                 <td style={{whiteSpace: 'nowrap'}}>{homes.address}</td>
                 <td>{homes.rent_price}</td>

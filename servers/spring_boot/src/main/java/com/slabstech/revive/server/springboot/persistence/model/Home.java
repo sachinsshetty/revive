@@ -37,23 +37,23 @@ public class Home {
     @NotBlank(message = "Photos must not be blank")
     @Size(min = 6, max = 255)
     @Column(name = "photos_url")
-    String photos_url;
+    String photos_url = "";
 
-    @NotBlank(message = "Living Area Size must not be blank")
+    @Min(value = 5, message = "Minimum Living Area = 5")
     @Column(name = "living_area")
-    float living_area;
+    float living_area= 5;
 
 
     @Min(value = 250, message = "Minimum Rent Price = 250")
-    @Max(value = 5000, message = "Maximun Rent Prices = 5000")
+    @Max(value = 5000, message = "Maximun Rent Price = 5000")
     @Column(name = "rent_price")
     float rent_price;
 
 
-    @Min(value = 250, message = "Minimum Rent Price = 250")
-    @Max(value = 5000, message = "Maximun Rent Prices = 5000")
+    @Min(value = 25, message = "Minimum Add. Warm Price = 25")
+    @Max(value = 500, message = "Maximun Add. Warm Price = 500")
     @Column(name = "warm_extra_price")
-    String warmExtraPrice;
+    float warmExtraPrice =30;
 
     @Min(value = 0, message = "Set to 0, if disabled")
     @Max(value = 1, message = "Set to 1, if enabled")
@@ -87,7 +87,7 @@ public class Home {
         return rent_price;
     }
 
-    public String getWarmExtraPrice() {
+    public float getWarmExtraPrice() {
         return warmExtraPrice;
     }
     public long getStatus() {
@@ -118,7 +118,7 @@ public class Home {
         this.rent_price = rent_price;
     }
 
-    public void setWarmExtraPrice(String warmExtraPrice) {
+    public void setWarmExtraPrice(float warmExtraPrice) {
         this.warmExtraPrice = warmExtraPrice;
     }
 
