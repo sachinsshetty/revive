@@ -31,7 +31,6 @@ replay_pid*
 .project
 client/.gradle/
 client/static/
-.idea
 docker/build
 docker/server/build
 
@@ -43,3 +42,5 @@ servers/dropwizard/dependency-reduced-pom.xml
 servers/dropwizard/target/
 clients/build/
 servers/build
+
+servers/dropwizard/.idea/
