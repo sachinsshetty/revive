@@ -16,13 +16,13 @@ import java.util.Optional;
 
 @Path("/hello-world")
 @Produces(MediaType.APPLICATION_JSON)
-public class ShopResource {
+public class AppResource {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ShopResource.class);
+    private static final Logger LOGGER = LoggerFactory.getLogger(AppResource.class);
     private final Template template;
     private final AtomicLong counter;
 
-    public ShopResource(Template template) {
+    public AppResource(Template template) {
         this.template = template;
         this.counter = new AtomicLong();
     }

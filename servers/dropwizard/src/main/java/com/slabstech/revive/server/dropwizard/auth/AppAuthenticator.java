@@ -13,7 +13,7 @@ import java.util.Set;
 
 import com.slabstech.revive.server.dropwizard.core.User;
 
-public class ShopAuthenticator implements Authenticator<BasicCredentials, UserRole> {
+public class AppAuthenticator implements Authenticator<BasicCredentials, UserRole> {
     /**
      * Valid users with mapping user -> roles
      */

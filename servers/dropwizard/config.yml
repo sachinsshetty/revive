@@ -91,3 +91,9 @@ metrics:
       port: 2003
       prefix: example
       frequency: 1m
+
+oktaOAuth:
+  baseUrl: https://{yourOktaDomain}
+  issuer: "https://{yourOktaDomain}/oauth2/default"
+  clientId: "{clientId}"
+  audience: "{yourAudience}"  # defaults to 'api://default'
