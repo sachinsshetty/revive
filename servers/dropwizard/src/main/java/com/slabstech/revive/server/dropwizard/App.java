@@ -1,10 +1,9 @@
 package com.slabstech.revive.server.dropwizard;
 
 
-import com.slabstech.revive.server.dropwizard.auth.ShopAuthenticator;
-import com.slabstech.revive.server.dropwizard.auth.ShopAuthorizer;
+import com.slabstech.revive.server.dropwizard.auth.AppAuthenticator;
+import com.slabstech.revive.server.dropwizard.auth.AppAuthorizer;
 import com.slabstech.revive.server.dropwizard.cli.RenderCommand;
-import com.slabstech.revive.server.dropwizard.core.User;
 import com.slabstech.revive.server.dropwizard.core.Template;
 import com.slabstech.revive.server.dropwizard.core.User;
 import com.slabstech.revive.server.dropwizard.core.UserRole;
@@ -12,7 +11,7 @@ import com.slabstech.revive.server.dropwizard.db.UserDAO;
 import com.slabstech.revive.server.dropwizard.filter.DateRequiredFeature;
 import com.slabstech.revive.server.dropwizard.health.TemplateHealthCheck;
 import com.slabstech.revive.server.dropwizard.resources.FilteredResource;
-import com.slabstech.revive.server.dropwizard.resources.ShopResource;
+import com.slabstech.revive.server.dropwizard.resources.AppResource;
 import com.slabstech.revive.server.dropwizard.resources.UsersResource;
 import com.slabstech.revive.server.dropwizard.resources.UserResource;
 import com.slabstech.revive.server.dropwizard.resources.ProtectedResource;
@@ -35,15 +34,15 @@ import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
 
 import java.util.Map;
 
-public class ShopApplication extends Application<ShopConfiguration> {
+public class App extends Application<AppConfiguration> {
     public static void main(String[] args) throws Exception {
-        new ShopApplication().run(args);
+        new App().run(args);
     }
 
-    private final HibernateBundle<ShopConfiguration> hibernateBundle =
-            new HibernateBundle<ShopConfiguration>(User.class) {
+    private final HibernateBundle<AppConfiguration> hibernateBundle =
+            new HibernateBundle<AppConfiguration>(User.class) {
                 @Override
-                public DataSourceFactory getDataSourceFactory(ShopConfiguration configuration) {
+                public DataSourceFactory getDataSourceFactory(AppConfiguration configuration) {
                     return configuration.getDataSourceFactory();
                 }
             };
@@ -54,7 +53,7 @@ public class ShopApplication extends Application<ShopConfiguration> {
     }
 
     @Override
-    public void initialize(Bootstrap<ShopConfiguration> bootstrap) {
+    public void initialize(Bootstrap<AppConfiguration> bootstrap) {
         // Enable variable substitution with environment variables
         bootstrap.setConfigurationSourceProvider(
                 new SubstitutingSourceProvider(
@@ -65,23 +64,23 @@ public class ShopApplication extends Application<ShopConfiguration> {
 
         bootstrap.addCommand(new RenderCommand());
         bootstrap.addBundle(new AssetsBundle());
-        bootstrap.addBundle(new MigrationsBundle<ShopConfiguration>() {
+        bootstrap.addBundle(new MigrationsBundle<AppConfiguration>() {
             @Override
-            public DataSourceFactory getDataSourceFactory(ShopConfiguration configuration) {
+            public DataSourceFactory getDataSourceFactory(AppConfiguration configuration) {
                 return configuration.getDataSourceFactory();
             }
         });
         bootstrap.addBundle(hibernateBundle);
-        bootstrap.addBundle(new ViewBundle<ShopConfiguration>() {
+        bootstrap.addBundle(new ViewBundle<AppConfiguration>() {
             @Override
-            public Map<String, Map<String, String>> getViewConfiguration(ShopConfiguration configuration) {
+            public Map<String, Map<String, String>> getViewConfiguration(AppConfiguration configuration) {
                 return configuration.getViewRendererConfiguration();
             }
         });
     }
 
     @Override
-    public void run(ShopConfiguration configuration, Environment environment) {
+    public void run(AppConfiguration configuration, Environment environment) {
         final UserDAO dao = new UserDAO(hibernateBundle.getSessionFactory());
         final Template template = configuration.buildTemplate();
 
@@ -89,13 +88,13 @@ public class ShopApplication extends Application<ShopConfiguration> {
         environment.admin().addTask(new EchoTask());
         environment.jersey().register(DateRequiredFeature.class);
         environment.jersey().register(new AuthDynamicFeature(new BasicCredentialAuthFilter.Builder<UserRole>()
-                .setAuthenticator(new ShopAuthenticator())
-                .setAuthorizer(new ShopAuthorizer())
+                .setAuthenticator(new AppAuthenticator())
+                .setAuthorizer(new AppAuthorizer())
                 .setRealm("SUPER SECRET STUFF")
                 .buildAuthFilter()));
         environment.jersey().register(new AuthValueFactoryProvider.Binder<>(UserRole.class));
         environment.jersey().register(RolesAllowedDynamicFeature.class);
-        environment.jersey().register(new ShopResource(template));
+        environment.jersey().register(new AppResource(template));
         environment.jersey().register(new ViewResource());
         environment.jersey().register(new ProtectedResource());
         environment.jersey().register(new UsersResource(dao));

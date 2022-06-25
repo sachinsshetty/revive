@@ -4,14 +4,12 @@ plugins {
 
 }
 
-archivesBaseName = 'app'
-
-group = 'com.slabstech.revive.server.dropwizard'
-version = '0.0.1'
-
 project.ext {
     configPath = "$projectDir/config/"
-    mainClassName = "com.slabstech.revive.server.dropwizard.ShopApplication"
+    mainClassName = "com.slabstech.revive.server.dropwizard.App"
+    archivesBaseName = 'app'
+    group = 'com.slabstech.revive.server.dropwizard'
+    version = '0.0.1'
 }
 
 
@@ -40,16 +38,16 @@ dependencies {
     testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.23.0'
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: "$junit5Version"
     testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: "$junit5Version"
-    testImplementation "org.testcontainers:testcontainers:1.17.2"
-    testImplementation group: 'org.testcontainers', name: 'postgresql', version: '1.17.2'
-    testImplementation group: 'org.testcontainers', name: 'junit-jupiter', version: '1.17.2'
+    testImplementation group: 'org.testcontainers', name: 'testcontainers', version: "$testContainerVersion"
+    testImplementation group: 'org.testcontainers', name: 'postgresql', version: "$testContainerVersion"
+    testImplementation group: 'org.testcontainers', name: 'junit-jupiter', version: "$testContainerVersion"
     testImplementation(group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.1.1')
 
-    testImplementation (group: 'org.glassfish.jersey.test-framework.providers', name: 'jersey-test-framework-provider-inmemory', version: '3.1.0-M3') {
+    testImplementation (group: 'org.glassfish.jersey.test-framework.providers', name: 'jersey-test-framework-provider-inmemory', version: "$jerseyTestFrameworkProviderVersion") {
         exclude group: 'javax.servlet', module: 'javax.servlet-api'
         exclude group: 'junit', module: 'junit'
     }
-    testImplementation (group: 'org.glassfish.jersey.test-framework.providers', name: 'jersey-test-framework-provider-grizzly2', version: '3.1.0-M3') {
+    testImplementation (group: 'org.glassfish.jersey.test-framework.providers', name: 'jersey-test-framework-provider-grizzly2', version: "$jerseyTestFrameworkProviderVersion") {
         exclude group: 'javax.servlet', module: 'javax.servlet-api'
         exclude group: 'junit', module: 'junit'
     }
@@ -63,7 +61,7 @@ jar {
     manifest {
         attributes(
                 'Class-Path': configurations.implementation.join(' '),
-                'Main-Class': 'com.slabstech.revive.server.dropwizard.ShopApplication'
+                'Main-Class': 'com.slabstech.revive.server.dropwizard.App'
         )
     }
 }
@@ -75,5 +73,5 @@ task copyDependencies(type: Copy) {
 
 task runDropwizard(type: Exec){
     commandLine('build')
-    commandLine( 'java', '-jar', 'build/libs/app-0.0.1.jar', 'server', 'shop_config.yml')
+    commandLine( 'java', '-jar', 'build/libs/app-0.0.1.jar', 'server', 'config.yml')
 }

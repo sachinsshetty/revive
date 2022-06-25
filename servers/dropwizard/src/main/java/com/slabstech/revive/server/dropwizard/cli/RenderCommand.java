@@ -1,7 +1,7 @@
 package com.slabstech.revive.server.dropwizard.cli;
 
 
-import com.slabstech.revive.server.dropwizard.ShopConfiguration;
+import com.slabstech.revive.server.dropwizard.AppConfiguration;
 import com.slabstech.revive.server.dropwizard.core.Template;
 import io.dropwizard.cli.ConfiguredCommand;
 import io.dropwizard.setup.Bootstrap;
@@ -13,7 +13,7 @@ import org.slf4j.LoggerFactory;
 
 import java.util.Optional;
 
-public class RenderCommand extends ConfiguredCommand<ShopConfiguration> {
+public class RenderCommand extends ConfiguredCommand<AppConfiguration> {
     private static final Logger LOGGER = LoggerFactory.getLogger(RenderCommand.class);
 
     public RenderCommand() {
@@ -31,9 +31,9 @@ public class RenderCommand extends ConfiguredCommand<ShopConfiguration> {
     }
 
     @Override
-    protected void run(Bootstrap<ShopConfiguration> bootstrap,
+    protected void run(Bootstrap<AppConfiguration> bootstrap,
                        Namespace namespace,
-                       ShopConfiguration configuration) throws Exception {
+                       AppConfiguration configuration) throws Exception {
         final Template template = configuration.buildTemplate();
 
         if (Boolean.TRUE.equals(namespace.getBoolean("include-default"))) {

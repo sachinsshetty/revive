@@ -4,7 +4,7 @@ import io.dropwizard.auth.Authorizer;
 
 import com.slabstech.revive.server.dropwizard.core.User;
 
-public class ShopAuthorizer implements Authorizer<UserRole> {
+public class AppAuthorizer implements Authorizer<UserRole> {
 
     @Override
     public boolean authorize(UserRole userRole, String role) {

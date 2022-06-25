@@ -1,19 +1,17 @@
 package com.slabstech.revive.server.dropwizard;
 
-import io.dropwizard.Configuration;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import javax.validation.constraints.NotEmpty;
 import com.slabstech.revive.server.dropwizard.core.Template;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import io.dropwizard.Configuration;
 import io.dropwizard.db.DataSourceFactory;
-import javax.validation.constraints.NotEmpty;
+
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.Collections;
 import java.util.Map;
 
-public class ShopConfiguration extends Configuration {
+public class AppConfiguration extends Configuration {
     @NotEmpty
     private String template;
 
