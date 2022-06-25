@@ -31,6 +31,15 @@ import io.dropwizard.setup.Bootstrap;
 import io.dropwizard.setup.Environment;
 import io.dropwizard.views.ViewBundle;
 import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature;
+import io.dropwizard.auth.AuthDynamicFeature;
+import io.dropwizard.auth.AuthValueFactoryProvider;
+import io.dropwizard.auth.oauth.OAuthCredentialAuthFilter;
+import com.slabstech.revive.server.dropwizard.auth.AccessTokenPrincipal;
+import com.slabstech.revive.server.dropwizard.auth.OktaOAuthAuthenticator;
+import com.slabstech.revive.server.dropwizard.core.OktaOAuthConfig;
+import com.okta.jwt.JwtHelper;
+import org.apache.commons.lang3.StringUtils;
+
 
 import java.util.Map;
 

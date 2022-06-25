@@ -29,7 +29,7 @@ dependencies {
     implementation group: 'io.dropwizard', name: 'dropwizard-views-mustache', version: "$dropwizardVersion"
     implementation group: 'io.dropwizard', name: 'dropwizard-metrics-graphite', version: "$dropwizardVersion"
     implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.6'
-
+    implementation group: 'com.okta.jwt', name: 'okta-jwt-verifier', version: '0.5.2'
 
     testImplementation( group: 'io.dropwizard', name: 'dropwizard-testing', version: "$dropwizardVersion") {
         exclude group: 'junit', module: 'junit'
