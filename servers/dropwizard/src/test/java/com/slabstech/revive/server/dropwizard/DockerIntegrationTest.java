@@ -50,7 +50,7 @@ public class DockerIntegrationTest {
     static Supplier<String> ARCHIVED_LOG = () -> tempDir.resolve("application-%d-%i.log.gz").toString();
 
     public static final DropwizardAppExtension<AppConfiguration> APP = new DropwizardAppExtension<>(
-            ShopApplication.class, CONFIG, new ResourceConfigurationSourceProvider(),
+            App.class, CONFIG, new ResourceConfigurationSourceProvider(),
             ConfigOverride.config("database.url", POSTGRESQL_CONTAINER::getJdbcUrl),
             ConfigOverride.config("database.user", POSTGRESQL_CONTAINER::getUsername),
             ConfigOverride.config("database.password", POSTGRESQL_CONTAINER::getPassword),

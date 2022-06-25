@@ -38,7 +38,7 @@ class IntegrationTest {
     static Supplier<String> ARCHIVED_LOG = () -> tempDir.resolve("application-%d-%i.log.gz").toString();
 
     static final DropwizardAppExtension<AppConfiguration> APP = new DropwizardAppExtension<>(
-            ShopApplication.class, CONFIG,
+            App.class, CONFIG,
             new ResourceConfigurationSourceProvider(),
             config("database.url", () -> "jdbc:h2:" + tempDir.resolve("database.h2")),
             config("logging.appenders[1].currentLogFilename", CURRENT_LOG),
@@ -51,7 +51,7 @@ class IntegrationTest {
     }
 
     @Test
-    void testShop() {
+    void testApp() {
         final Optional<String> name = Optional.of("Dr. IntegrationTest");
         final Saying saying = APP.client().target("http://localhost:" + APP.getLocalPort() + "/hello-world")
                 .queryParam("name", name.get())

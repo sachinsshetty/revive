@@ -79,6 +79,33 @@ public class App extends Application<AppConfiguration> {
         });
     }
 
+    private void configureOAuth(final AppConfiguration configuration, final Environment environment) {
+        try {
+            OktaOAuthConfig widgetConfig = configuration.oktaOAuth;
+            // Configure the JWT Validator, it will validate Okta's JWT access tokens
+            JwtHelper helper = new JwtHelper()
+                    .setIssuerUrl(widgetConfig.issuer)
+                    .setClientId(widgetConfig.clientId);
+
+            // set the audience only if set, otherwise the default is: api://default
+            String audience = widgetConfig.audience;
+            if (StringUtils.isNotEmpty(audience)) {
+                helper.setAudience(audience);
+            }
+
+            // register the OktaOAuthAuthenticator
+            environment.jersey().register(new AuthDynamicFeature(
+                    new OAuthCredentialAuthFilter.Builder<AccessTokenPrincipal>()
+                            .setAuthenticator(new OktaOAuthAuthenticator(helper.build()))
+                            .setPrefix("Bearer")
+                            .buildAuthFilter()));
+
+            // Bind our custom principal to the @Auth annotation
+            environment.jersey().register(new AuthValueFactoryProvider.Binder<>(AccessTokenPrincipal.class));
+        } catch (Exception e) {
+            throw new IllegalStateException("Failed to configure JwtVerifier", e);
+        }
+    }
     @Override
     public void run(AppConfiguration configuration, Environment environment) {
         final UserDAO dao = new UserDAO(hibernateBundle.getSessionFactory());
@@ -92,6 +119,9 @@ public class App extends Application<AppConfiguration> {
                 .setAuthorizer(new AppAuthorizer())
                 .setRealm("SUPER SECRET STUFF")
                 .buildAuthFilter()));
+
+        // configure OAuth
+        configureOAuth(configuration, environment);
         environment.jersey().register(new AuthValueFactoryProvider.Binder<>(UserRole.class));
         environment.jersey().register(RolesAllowedDynamicFeature.class);
         environment.jersey().register(new AppResource(template));
