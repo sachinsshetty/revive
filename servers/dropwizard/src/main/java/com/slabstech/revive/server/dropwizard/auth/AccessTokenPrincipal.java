@@ -1,9 +1,11 @@
 package com.slabstech.revive.server.dropwizard.auth;
 
-import com.okta.jwt.Jwt;
+//import com.okta.jwt.Jwt;
 
 import java.security.Principal;
 
+public class AccessTokenPrincipal{
+/*  TODO - Fix okta import
 public class AccessTokenPrincipal implements Principal {
 
     private final Jwt accessToken;
@@ -17,4 +19,6 @@ public class AccessTokenPrincipal implements Principal {
         // the 'sub' claim in the access token will be the email address
         return (String) accessToken.getClaims().get("sub");
     }
+
+ */
 }

@@ -71,3 +71,11 @@ task runDropwizard(type: Exec){
     commandLine('build')
     commandLine( 'java', '-jar', 'build/libs/app-0.0.1.jar', 'server', 'config.yml')
 }
+
+task mBuild(type: Exec){
+    commandLine('mvn', 'install', '-DskipTests=true')
+}
+
+task mRun(type: Exec){
+    commandLine('java', '-jar', 'target/app-0.0.1.jar', 'server', 'config.yml')
+}

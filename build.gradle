@@ -90,3 +90,15 @@ task createAllImages(type: Exec){
     // DB 
     commandLine 'docker', 'build', '--rm', '.', '-t', "${dockerRepo}/${rootProject.name}-db-postgresql", "-f", "docker/db/postgresql/Dockerfile"
 }
+
+
+task buildChess(type: Exec){
+    dependsOn createServerBuildDropwizard
+    commandLine('cp', 'servers/dropwizard/build/libs/app-0.0.1.jar', 'chess/app-0.0.1.jar')
+    commandLine('cp', 'servers/dropwizard/config.yml', 'chess/config.yml')
+}
+
+task runChess(type: Exec){
+    dependsOn buildChess
+    commandLine('java', '-jar', 'chess/app-0.0.1.jar', 'server' , 'chess/config.yml')
+}

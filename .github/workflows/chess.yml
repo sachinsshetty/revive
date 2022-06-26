@@ -1,4 +1,4 @@
-name: "CI/CD"
+name: "chess CI/CD"
 on: [push]
 jobs:
   setup-build:
@@ -29,7 +29,8 @@ jobs:
           path: build/reports/tests/test
   push-deploy:
     name: push-deploy
-    runs-on : ubuntu-latest
+    needs: setup-build
+    runs-on: ubuntu-latest
     permissions:
       packages: write
       contents: read
