@@ -4,14 +4,10 @@ plugins {
 
 }
 
-project.ext {
-    configPath = "$projectDir/config/"
-    mainClassName = "com.slabstech.revive.server.dropwizard.App"
-    archivesBaseName = 'app'
-    group = 'com.slabstech.revive.server.dropwizard'
-    version = '0.0.1'
-}
-
+archivesBaseName = 'app'
+group = 'com.slabstech.revive.server.dropwizard'
+version = '0.0.1'
+//mainClassName = "com.slabstech.revive.server.dropwizard.App"
 
 repositories {
     mavenCentral()

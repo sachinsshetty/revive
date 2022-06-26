@@ -37,9 +37,9 @@ import io.dropwizard.auth.oauth.OAuthCredentialAuthFilter;
 import com.slabstech.revive.server.dropwizard.auth.AccessTokenPrincipal;
 import com.slabstech.revive.server.dropwizard.auth.OktaOAuthAuthenticator;
 import com.slabstech.revive.server.dropwizard.core.OktaOAuthConfig;
-import com.okta.jwt.JwtHelper;
 import org.apache.commons.lang3.StringUtils;
 
+//import com.okta.jwt.JwtHelper;
 
 import java.util.Map;
 
@@ -88,6 +88,8 @@ public class App extends Application<AppConfiguration> {
         });
     }
 
+    /*
+
     private void configureOAuth(final AppConfiguration configuration, final Environment environment) {
         try {
             OktaOAuthConfig widgetConfig = configuration.oktaOAuth;
@@ -115,6 +117,9 @@ public class App extends Application<AppConfiguration> {
             throw new IllegalStateException("Failed to configure JwtVerifier", e);
         }
     }
+
+
+     */
     @Override
     public void run(AppConfiguration configuration, Environment environment) {
         final UserDAO dao = new UserDAO(hibernateBundle.getSessionFactory());
@@ -130,7 +135,7 @@ public class App extends Application<AppConfiguration> {
                 .buildAuthFilter()));
 
         // configure OAuth
-        configureOAuth(configuration, environment);
+      //  configureOAuth(configuration, environment);
         environment.jersey().register(new AuthValueFactoryProvider.Binder<>(UserRole.class));
         environment.jersey().register(RolesAllowedDynamicFeature.class);
         environment.jersey().register(new AppResource(template));

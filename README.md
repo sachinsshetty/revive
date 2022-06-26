@@ -4,6 +4,11 @@
 ![CodeQL](https://github.com/sachinsshetty/revive/actions/workflows/codeql-analysis.yml/badge.svg)
 
 
+# Chess
+docker build -t slabstech/chess:0.0.1 -f chess/Dockerfile .
+
+docker container run slabstech/chess:0.0.1
+
 #### Options for Template
 
 | Docker Image        | Docker Hub Repo                                                                                     | Github Package Registry                                                                                       |     Size(Mb)                                       | Status                                                                        |
@@ -31,7 +36,7 @@
 
 
 #### Important Links
-* Documents maintained at Wiki - [https://github.com/sachinsshetty/revive/wiki](https://github.com/sachinsshetty/revive/wiki)
+* Documents maintained at Wiki - [https://sachinsshetty.github.io/docs_revive/](https://sachinsshetty.github.io/docs_revive/)
 
 | Description       | Document                                                                |
 |-------------------|-------------------------------------------------------------------------|

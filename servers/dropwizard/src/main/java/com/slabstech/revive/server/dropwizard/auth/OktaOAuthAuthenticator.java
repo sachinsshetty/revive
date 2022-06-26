@@ -1,13 +1,16 @@
 package com.slabstech.revive.server.dropwizard.auth;
-
+/*
 import com.okta.jwt.JoseException;
 import com.okta.jwt.Jwt;
 import com.okta.jwt.JwtVerifier;
+*/
+
 import io.dropwizard.auth.AuthenticationException;
 import io.dropwizard.auth.Authenticator;
 
-public class OktaOAuthAuthenticator implements Authenticator<String, AccessTokenPrincipal> {
-
+//public class OktaOAuthAuthenticator implements Authenticator<String, AccessTokenPrincipal> {
+public class OktaOAuthAuthenticator{
+    /*
     private final JwtVerifier jwtVerifier;
 
     public OktaOAuthAuthenticator(JwtVerifier jwtVerifier) {
@@ -25,6 +28,8 @@ public class OktaOAuthAuthenticator implements Authenticator<String, AccessToken
             throw new AuthenticationException(e);
         }
     }
+
+     */
 }
 
 
