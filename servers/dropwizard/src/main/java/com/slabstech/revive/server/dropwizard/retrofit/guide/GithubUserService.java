@@ -1,6 +1,8 @@
-package com.slabstech.revive.server.dropwizard.services;
+package com.slabstech.revive.server.dropwizard.retrofit.guide;
 
-import com.slabstech.revive.server.dropwizard.core.GithubUser;
+import com.slabstech.revive.server.dropwizard.retrofit.guide.GithubUser;
+
+import java.util.List;
 
 public interface GithubUserService {
     @GET("/users")

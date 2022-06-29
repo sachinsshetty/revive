@@ -1,4 +1,4 @@
-package com.slabstech.revive.server.dropwizard.core;
+package com.slabstech.revive.server.dropwizard.retrofit.guide;
 
 public class GithubUser {
     private String login;
