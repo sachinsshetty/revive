@@ -1,0 +1,81 @@
+plugins {
+    id 'java'
+    id 'idea'
+
+}
+
+archivesBaseName = 'app'
+group = 'com.slabstech.revive.server.dropwizard'
+version = '0.0.1'
+//mainClassName = "com.slabstech.revive.server.dropwizard.App"
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    implementation group: 'io.dropwizard', name: 'dropwizard-core', version: "$dropwizardVersion"
+    implementation group: 'io.dropwizard', name: 'dropwizard-auth', version: "$dropwizardVersion"
+    implementation group: 'io.dropwizard', name: 'dropwizard-assets', version: "$dropwizardVersion"
+    implementation group: 'io.dropwizard', name: 'dropwizard-http2', version: "$dropwizardVersion"
+    implementation group: 'io.dropwizard', name: 'dropwizard-hibernate', version: "$dropwizardVersion"
+    implementation group: 'io.dropwizard', name: 'dropwizard-migrations', version: "$dropwizardVersion"
+    implementation group: 'io.dropwizard', name: 'dropwizard-views-freemarker', version: "$dropwizardVersion"
+    implementation group: 'io.dropwizard', name: 'dropwizard-views-mustache', version: "$dropwizardVersion"
+    implementation group: 'io.dropwizard', name: 'dropwizard-metrics-graphite', version: "$dropwizardVersion"
+    implementation group: 'org.postgresql', name: 'postgresql', version: '42.3.6'
+    implementation group: 'com.okta.jwt', name: 'okta-jwt-verifier', version: '0.5.2'
+
+    testImplementation( group: 'io.dropwizard', name: 'dropwizard-testing', version: "$dropwizardVersion") {
+        exclude group: 'junit', module: 'junit'
+    }
+    testImplementation group: 'org.mockito', name: 'mockito-core', version: '2.1.0'
+    testImplementation group: 'org.assertj', name: 'assertj-core', version: '3.23.0'
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter', version: "$junit5Version"
+    testImplementation group: 'org.junit.jupiter', name: 'junit-jupiter-params', version: "$junit5Version"
+    testImplementation group: 'org.testcontainers', name: 'testcontainers', version: "$testContainerVersion"
+    testImplementation group: 'org.testcontainers', name: 'postgresql', version: "$testContainerVersion"
+    testImplementation group: 'org.testcontainers', name: 'junit-jupiter', version: "$testContainerVersion"
+    testImplementation(group: 'javax.ws.rs', name: 'javax.ws.rs-api', version: '2.1.1')
+
+    testImplementation (group: 'org.glassfish.jersey.test-framework.providers', name: 'jersey-test-framework-provider-inmemory', version: "$jerseyTestFrameworkProviderVersion") {
+        exclude group: 'javax.servlet', module: 'javax.servlet-api'
+        exclude group: 'junit', module: 'junit'
+    }
+    testImplementation (group: 'org.glassfish.jersey.test-framework.providers', name: 'jersey-test-framework-provider-grizzly2', version: "$jerseyTestFrameworkProviderVersion") {
+        exclude group: 'javax.servlet', module: 'javax.servlet-api'
+        exclude group: 'junit', module: 'junit'
+    }
+
+}
+
+configurations.implementation.canBeResolved = true
+
+
+jar {
+    manifest {
+        attributes(
+                'Class-Path': configurations.implementation.join(' '),
+                'Main-Class': 'com.slabstech.revive.server.dropwizard.App'
+        )
+    }
+}
+
+task copyDependencies(type: Copy) {
+    from configurations.runtimeClasspath
+    into "$buildDir/lib"
+}
+
+task runDropwizard(type: Exec){
+    commandLine('build')
+    commandLine( 'java', '-jar', 'build/libs/app-0.0.1.jar', 'server', 'config.yml')
+}
+
+task mBuild(type: Exec){
+    commandLine('mvn', 'install', '-DskipTests=true')
+}
+
+task mRun(type: Exec){
+    commandLine('java', '-jar', 'target/app-0.0.1.jar', 'server', 'config.yml')
+}
