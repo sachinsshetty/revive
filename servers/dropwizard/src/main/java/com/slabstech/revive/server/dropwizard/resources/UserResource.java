@@ -1,63 +1,51 @@
-package com.slabstech.revive.server.dropwizard.resources;
+package com.slabstech.revive.server.dropwizard.resources
 
-import com.slabstech.revive.server.dropwizard.core.User;
-import com.slabstech.revive.server.dropwizard.db.UserDAO;
-import com.slabstech.revive.server.dropwizard.views.UserView;
-
-import io.dropwizard.hibernate.UnitOfWork;
-
-import javax.ws.rs.BadRequestException;
-import javax.ws.rs.GET;
-import javax.ws.rs.NotFoundException;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
-import java.util.OptionalLong;
+import com.slabstech.revive.server.dropwizard.core.User
+import com.slabstech.revive.server.dropwizard.db.UserDAO
+import com.slabstech.revive.server.dropwizard.views.UserView
+import io.dropwizard.hibernate.UnitOfWork
+import java.util.*
+import javax.ws.rs.*
+import javax.ws.rs.core.MediaType
 
 @Path("/user/{userId}")
 @Produces(MediaType.APPLICATION_JSON)
-public class UserResource {
-
-    private final UserDAO userDAO;
-
-    public UserResource(UserDAO userDAO) {
-        this.userDAO = userDAO;
-    }
-
+class UserResource(private val userDAO: UserDAO) {
     @GET
     @UnitOfWork
-    public User getUser(@PathParam("userId") OptionalLong userId) {
-        return findSafely(userId.orElseThrow(() -> new BadRequestException("user ID is required")));
+    fun getUser(@PathParam("userId") userId: OptionalLong): User {
+        return findSafely(userId.orElseThrow { BadRequestException("user ID is required") })
     }
 
     @GET
     @Path("/view_freemarker")
     @UnitOfWork
     @Produces(MediaType.TEXT_HTML)
-    public UserView getUserViewFreemarker(@PathParam("userId") OptionalLong userId) {
-        return new UserView(UserView.Template.FREEMARKER, findSafely(userId.orElseThrow(() -> new BadRequestException("user ID is required"))));
+    fun getUserViewFreemarker(@PathParam("userId") userId: OptionalLong): UserView {
+        return UserView(
+            UserView.Template.FREEMARKER,
+            findSafely(userId.orElseThrow { BadRequestException("user ID is required") })
+        )
     }
 
     @GET
     @Path("/view_mustache")
     @UnitOfWork
     @Produces(MediaType.TEXT_HTML)
-    public UserView getUserViewMustache(@PathParam("userId") OptionalLong userId) {
-        return new UserView(UserView.Template.MUSTACHE, findSafely(userId.orElseThrow(() -> new BadRequestException("user ID is required"))));
+    fun getUserViewMustache(@PathParam("userId") userId: OptionalLong): UserView {
+        return UserView(
+            UserView.Template.MUSTACHE,
+            findSafely(userId.orElseThrow { BadRequestException("user ID is required") })
+        )
     }
 
-    private User findSafely(long userId) {
-        return userDAO.findById(userId).orElseThrow(() -> new NotFoundException("No such user."));
+    private fun findSafely(userId: Long): User {
+        return userDAO.findById(userId).orElseThrow { NotFoundException("No such user.") }
     }
 
     // TODO implement the functions for ShopModel
-    public void buyProduct(long productArticleNumber){}
-
-    public void subscribeEvents(String eventName){}
-
-    public void notifyCustomerProductUpdate(long productArticleNumber){}
-
-    public void notifySellerProductStock(long productArticleNumber){}
+    fun buyProduct(productArticleNumber: Long) {}
+    fun subscribeEvents(eventName: String?) {}
+    fun notifyCustomerProductUpdate(productArticleNumber: Long) {}
+    fun notifySellerProductStock(productArticleNumber: Long) {}
 }
-

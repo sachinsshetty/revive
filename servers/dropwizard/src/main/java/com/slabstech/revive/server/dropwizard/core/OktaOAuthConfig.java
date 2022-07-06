@@ -1,8 +1,8 @@
-package com.slabstech.revive.server.dropwizard.core;
+package com.slabstech.revive.server.dropwizard.core
 
-public class OktaOAuthConfig {
-    public String baseUrl;
-    public String clientId;
-    public String issuer;
-    public String audience;
+class OktaOAuthConfig {
+    var baseUrl: String? = null
+    var clientId: String? = null
+    var issuer: String? = null
+    var audience: String? = null
 }

@@ -1,55 +1,53 @@
-package com.slabstech.revive.server.dropwizard.resources;
-import com.codahale.metrics.annotation.Metered;
-import com.codahale.metrics.annotation.Timed;
-import com.slabstech.revive.server.dropwizard.api.Saying;
-import com.slabstech.revive.server.dropwizard.core.Template;
-import io.dropwizard.jersey.caching.CacheControl;
-import io.dropwizard.jersey.jsr310.LocalDateParam;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+package com.slabstech.revive.server.dropwizard.resources
 
-import javax.ws.rs.*;
-import javax.ws.rs.core.MediaType;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicLong;
-import java.util.Optional;
+import com.codahale.metrics.annotation.Metered
+import com.codahale.metrics.annotation.Timed
+import com.slabstech.revive.server.dropwizard.api.Saying
+import com.slabstech.revive.server.dropwizard.core.Template
+import io.dropwizard.jersey.caching.CacheControl
+import io.dropwizard.jersey.jsr310.LocalDateParam
+import org.slf4j.LoggerFactory
+import java.util.*
+import java.util.concurrent.TimeUnit
+import java.util.concurrent.atomic.AtomicLong
+import javax.ws.rs.*
+import javax.ws.rs.core.MediaType
 
 @Path("/hello-world")
 @Produces(MediaType.APPLICATION_JSON)
-public class AppResource {
+class AppResource(private val template: Template) {
+    private val counter: AtomicLong
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(AppResource.class);
-    private final Template template;
-    private final AtomicLong counter;
-
-    public AppResource(Template template) {
-        this.template = template;
-        this.counter = new AtomicLong();
+    init {
+        counter = AtomicLong()
     }
 
     @GET
     @Timed(name = "get-requests-timed")
     @Metered(name = "get-requests-metered")
     @CacheControl(maxAge = 1, maxAgeUnit = TimeUnit.DAYS)
-    public Saying sayHello(@QueryParam("name") Optional<String> name) {
-        return new Saying(counter.incrementAndGet(), template.render(name));
+    fun sayHello(@QueryParam("name") name: Optional<String?>?): Saying {
+        return Saying(counter.incrementAndGet(), template.render(name))
     }
 
     @POST
-    public void receiveHello(Saying saying) {
-        LOGGER.info("Received a saying: {}", saying);
+    fun receiveHello(saying: Saying?) {
+        LOGGER.info("Received a saying: {}", saying)
     }
 
     @GET
     @Path("/date")
     @Produces(MediaType.TEXT_PLAIN)
-    public String receiveDate(@QueryParam("date") LocalDateParam date) {
+    fun receiveDate(@QueryParam("date") date: LocalDateParam?): String? {
         if (date == null) {
-            LOGGER.warn("No received date");
-            return null;
+            LOGGER.warn("No received date")
+            return null
         }
+        LOGGER.info("Received a date: {}", date)
+        return date.get().toString()
+    }
 
-        LOGGER.info("Received a date: {}", date);
-        return date.get().toString();
+    companion object {
+        private val LOGGER = LoggerFactory.getLogger(AppResource::class.java)
     }
 }
