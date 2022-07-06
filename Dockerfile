@@ -13,11 +13,11 @@ WORKDIR /
 COPY --from=jre-build /jre jre
 
 # copy the app
-COPY chess/app-0.0.1.jar app-0.0.1.jar
+COPY target/app-0.0.1.jar app-0.0.1.jar
 
-COPY chess/config.yml config.yml
+COPY config.yml config.yml
 
-COPY chess/postgresql_schema.sql /docker-entrypoint-initdb.d/
+COPY postgresql_schema.sql /docker-entrypoint-initdb.d/
 
 ENV POSTGRES_USER revive_db
 ENV POSTGRES_PASSWORD revive_db
