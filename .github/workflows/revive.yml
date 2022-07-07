@@ -1,8 +1,8 @@
-name: "CI/CD"
+name: "revive"
 on:
   push:
     branches:
-      - other
+      - main
     tags:
       - 'v*'
   pull_request:
@@ -15,9 +15,7 @@ jobs:
     name: setup-build
     strategy:
       matrix:
-        #TODO -remove comment before ver2 tag
-        #os: [ubuntu-latest, macos-latest, windows-latest]
-        #version : [11, 17, 18]
+        version : [17]
         os: [ubuntu-latest]
     runs-on: ${{ matrix.os }}
     steps:
@@ -25,12 +23,10 @@ jobs:
       - uses: actions/setup-java@v2
         with:
           distribution: adopt
-          java-version: 17
-          cache: gradle
+          java-version: ${{ matrix.version }}
+          cache: maven
       - name: "Build the configured project"
-        uses: gradle/gradle-build-action@v2
-        with:
-          arguments: buildAllTasks --scan -x test
+        run: mvn -B package --file pom.xml
 
       - name: Archive test report
         uses: actions/upload-artifact@v2
@@ -38,7 +34,7 @@ jobs:
           name: Test report
           path: build/reports/tests/test
   push-deploy:
-    name: push-deply
+    name: push-deploy
     runs-on : ubuntu-latest
     permissions:
       packages: write
@@ -55,7 +51,7 @@ jobs:
           github-repository: ${{ github.repository }}
           project-name: revive
           service-name: client-reactjs
-          dockerfile-path: ./docker/client/reactjs/Dockerfile
+          dockerfile-path: ./Dockerfile
       - name: deploy-container-to-registry-db
         uses: slabstech/action-deploy-container-to-registry@v0.0.1
         with:
@@ -65,27 +61,5 @@ jobs:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           github-repository: ${{ github.repository }}
           project-name: revive
-          service-name: db-postgresql
-          dockerfile-path: ./docker/db/postgresql/Dockerfile
-      - name: deploy-container-to-registry-dropwizard
-        uses: slabstech/action-deploy-container-to-registry@v0.0.1
-        with:
-          docker-username: ${{ secrets.DOCKER_USERNAME }}
-          docker-password: ${{ secrets.DOCKER_PASSWORD }}
-          github-actor: ${{ github.actor }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          github-repository: ${{ github.repository }}
-          project-name: revive
-          service-name: server-dropwizard
-          dockerfile-path: ./docker/server/dropwizard/Dockerfile
-      - name: deploy-container-to-registry-sprinboot
-        uses: slabstech/action-deploy-container-to-registry@v0.0.1
-        with:
-          docker-username: ${{ secrets.DOCKER_USERNAME }}
-          docker-password: ${{ secrets.DOCKER_PASSWORD }}
-          github-actor: ${{ github.actor }}
-          github-token: ${{ secrets.GITHUB_TOKEN }}
-          github-repository: ${{ github.repository }}
-          project-name: revive
-          service-name: server-spring-boot
-          dockerfile-path: ./docker/server/spring_boot/Dockerfile
+          service-name: all
+          dockerfile-path: ./Dockerfile
