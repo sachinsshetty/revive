@@ -1,8 +1,8 @@
 # revive
 
-![CICD](https://github.com/sachinsshetty/revive/actions/workflows/cicd.yml/badge.svg)
-![chess](https://github.com/sachinsshetty/revive/actions/workflows/chess.yml/badge.svg)
-![CodeQL](https://github.com/sachinsshetty/revive/actions/workflows/codeql-analysis.yml/badge.svg)
+
+![chess](https://github.com/sachinsshetty/revive/actions/workflows/revive.yml/badge.svg)
+
 
 Built on SOLID
 + Single use Principle
