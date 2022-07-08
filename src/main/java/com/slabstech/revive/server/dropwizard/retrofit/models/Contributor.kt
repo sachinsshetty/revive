@@ -14,7 +14,7 @@ class Contributor {
         TODO("Not yet implemented")
     }
 
-    fun getContributions(): Any {
+    fun getContributions() {
 
     }
 }

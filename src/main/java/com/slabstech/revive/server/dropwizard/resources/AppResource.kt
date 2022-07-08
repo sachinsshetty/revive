@@ -26,8 +26,8 @@ class AppResource(private val template: Template) {
     @Timed(name = "get-requests-timed")
     @Metered(name = "get-requests-metered")
     @CacheControl(maxAge = 1, maxAgeUnit = TimeUnit.DAYS)
-    fun sayHello(@QueryParam("name") name: Optional<String?>?): Saying {
-        return Saying(counter.incrementAndGet(), template.render(name))
+    fun sayHello(@QueryParam("name") name: String?): Saying {
+        return Saying(counter.incrementAndGet(), name?.let { template.render(it) })
     }
 
     @POST

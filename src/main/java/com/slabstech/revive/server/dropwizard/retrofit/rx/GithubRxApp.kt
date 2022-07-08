@@ -7,6 +7,6 @@ object GitHubRxApp {
     @JvmStatic
     fun main(args: Array<String>) {
         val userName = "sachinsshetty"
-        GitHubRxService().getTopContributors(userName).subscribe(System.out::println)
+        GitHubRxService().getTopContributors(userName)?.subscribe(System.out::println)
     }
 }

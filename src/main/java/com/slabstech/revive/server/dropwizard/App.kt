@@ -31,8 +31,11 @@ class App : Application<AppConfiguration>() {
     private val hibernateBundle: HibernateBundle<AppConfiguration?> = object : HibernateBundle<AppConfiguration?>(
         User::class.java
     ) {
-        override fun getDataSourceFactory(p0: AppConfiguration?): PooledDataSourceFactory? {
-            return configuration.dataSourceFactory!!
+        override fun getDataSourceFactory(configuration: AppConfiguration?): PooledDataSourceFactory? {
+            if (configuration != null) {
+                return configuration.dataSourceFactory!!
+            }
+            return null
         }
     }
 
@@ -49,9 +52,13 @@ class App : Application<AppConfiguration>() {
         bootstrap.addCommand(RenderCommand())
         bootstrap.addBundle(AssetsBundle())
         bootstrap.addBundle(object : MigrationsBundle<AppConfiguration?>() {
-            override fun getDataSourceFactory(p0: AppConfiguration?): PooledDataSourceFactory? {
-                return configuration.dataSourceFactory!!
+            override fun getDataSourceFactory(configuration: AppConfiguration?): PooledDataSourceFactory? {
+                if (configuration != null) {
+                    return configuration.dataSourceFactory!!
+                }
+                return null
             }
+
         })
         bootstrap.addBundle(hibernateBundle)
         bootstrap.addBundle(object : ViewBundle<AppConfiguration>() {

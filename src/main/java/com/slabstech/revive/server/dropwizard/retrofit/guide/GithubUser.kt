@@ -1,18 +1,15 @@
 package com.slabstech.revive.server.dropwizard.retrofit.guide
 
-import retrofit2.Call
-import retrofit2.http.GET
-import retrofit2.http.Path
-import retrofit2.http.Query
 
-interface GithubUserService {
-    @GET("/users")
-    fun getUsers(
-        @Query("per_page") per_page: Int,
-        @Query("page") page: Int
-    ): Call<List<GithubUser?>?>?
+class GithubUser {
+    var login: String? = null
+    var id: Long = 0
+    var url: String? = null
+    var company: String? = null
+    var blog: String? = null
+    var email: String? = null
 
-    @GET("/users/{username}")
-    fun getUser(@Path("username") username: String?): Call<GithubUser?>?
-    abstract fun getGithubUser(s: String): Call<GithubUser>
+    override fun toString(): String {
+        return "GithubUser{login=$login, id=$id, url=$url, company=$company, blog=$blog, email=$email}"
+    }
 }
