@@ -18,6 +18,7 @@ import io.dropwizard.auth.basic.BasicCredentialAuthFilter
 import io.dropwizard.configuration.EnvironmentVariableSubstitutor
 import io.dropwizard.configuration.SubstitutingSourceProvider
 import io.dropwizard.db.DataSourceFactory
+import io.dropwizard.db.PooledDataSourceFactory
 import io.dropwizard.hibernate.HibernateBundle
 import io.dropwizard.migrations.MigrationsBundle
 import io.dropwizard.setup.Bootstrap
@@ -27,10 +28,10 @@ import org.glassfish.jersey.server.filter.RolesAllowedDynamicFeature
 
 //import com.okta.jwt.JwtHelper;
 class App : Application<AppConfiguration>() {
-    private val hibernateBundle: HibernateBundle<AppConfiguration> = object : HibernateBundle<AppConfiguration?>(
+    private val hibernateBundle: HibernateBundle<AppConfiguration?> = object : HibernateBundle<AppConfiguration?>(
         User::class.java
     ) {
-        override fun getDataSourceFactory(configuration: AppConfiguration): DataSourceFactory {
+        override fun getDataSourceFactory(p0: AppConfiguration?): PooledDataSourceFactory? {
             return configuration.dataSourceFactory!!
         }
     }
@@ -48,7 +49,7 @@ class App : Application<AppConfiguration>() {
         bootstrap.addCommand(RenderCommand())
         bootstrap.addBundle(AssetsBundle())
         bootstrap.addBundle(object : MigrationsBundle<AppConfiguration?>() {
-            override fun getDataSourceFactory(configuration: AppConfiguration): DataSourceFactory {
+            override fun getDataSourceFactory(p0: AppConfiguration?): PooledDataSourceFactory? {
                 return configuration.dataSourceFactory!!
             }
         })
@@ -95,7 +96,7 @@ class App : Application<AppConfiguration>() {
     override fun run(configuration: AppConfiguration, environment: Environment) {
         val dao = UserDAO(hibernateBundle.sessionFactory)
         val template = configuration.buildTemplate()
-        environment.healthChecks().register("template", TemplateHealthCheck(template))
+        environment.healthChecks().register("template", template?.let { TemplateHealthCheck(it) })
         environment.admin().addTask(EchoTask())
         environment.jersey().register(DateRequiredFeature::class.java)
         environment.jersey().register(
@@ -112,7 +113,7 @@ class App : Application<AppConfiguration>() {
         //  configureOAuth(configuration, environment);
         environment.jersey().register(AuthValueFactoryProvider.Binder(UserRole::class.java))
         environment.jersey().register(RolesAllowedDynamicFeature::class.java)
-        environment.jersey().register(AppResource(template))
+        environment.jersey().register(template?.let { AppResource(it) })
         environment.jersey().register(ViewResource())
         environment.jersey().register(ProtectedResource())
         environment.jersey().register(UsersResource(dao))

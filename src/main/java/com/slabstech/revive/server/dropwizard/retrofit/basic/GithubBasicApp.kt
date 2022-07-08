@@ -9,6 +9,8 @@ object GitHubBasicApp {
     fun main(args: Array<String>) {
         val userName = "sachinsshetty"
         val topContributors = GitHubBasicService().getTopContributors(userName)
-        topContributors.forEach(Consumer { x: String? -> println(x) })
+        if (topContributors != null) {
+            topContributors.forEach(Consumer { x: String? -> println(x) })
+        }
     }
 }

@@ -1,11 +1,10 @@
 # revive
 
-
-![chess](https://github.com/sachinsshetty/revive/actions/workflows/revive.yml/badge.svg)
-
+![Revive](https://github.com/sachinsshetty/revive/actions/workflows/revive.yml/badge.svg)
 
 Built on SOLID
 + Single use Principle
++ Liskov Principle 
 
 v.0.0.1 - Kotlin + Docker + Maven + Kubernetes + GraphQL + IntelliJ Plugin
 
@@ -22,6 +21,3 @@ Revive is awaiting Contributors for creating more templates
 #### Sponsors
 
 Revive is awaiting Sponsors for creating more templates
-
-
-

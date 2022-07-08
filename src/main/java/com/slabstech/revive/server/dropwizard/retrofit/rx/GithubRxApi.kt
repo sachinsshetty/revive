@@ -1,7 +1,10 @@
 package com.slabstech.revive.server.dropwizard.retrofit.rx
 
+import com.slabstech.revive.server.dropwizard.retrofit.models.Contributor
 import com.slabstech.revive.server.dropwizard.retrofit.models.Repository
 import retrofit2.http.GET
+import retrofit2.http.Path
+import rx.Observable
 
 interface GitHubRxApi {
     /**

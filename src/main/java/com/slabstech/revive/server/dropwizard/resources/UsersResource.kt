@@ -15,13 +15,13 @@ import javax.ws.rs.core.MediaType
 class UsersResource(private val peopleDAO: UserDAO) {
     @POST
     @UnitOfWork
-    fun createUser(user: @Valid User?): User {
+    fun createUser(user: @Valid User?): User? {
         return peopleDAO.create(user)
     }
 
     @GET
     @UnitOfWork
-    fun listUsers(): List<User> {
+    fun listUsers(): List<User?> {
         return peopleDAO.findAll()
     }
 }

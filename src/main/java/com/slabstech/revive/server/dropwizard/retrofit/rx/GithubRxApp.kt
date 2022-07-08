@@ -6,7 +6,7 @@ object GitHubRxApp {
     @Throws(IOException::class)
     @JvmStatic
     fun main(args: Array<String>) {
-        val userName = "eugenp"
+        val userName = "sachinsshetty"
         GitHubRxService().getTopContributors(userName).subscribe(System.out::println)
     }
 }

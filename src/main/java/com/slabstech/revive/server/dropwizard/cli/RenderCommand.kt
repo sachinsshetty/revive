@@ -31,11 +31,15 @@ class RenderCommand : ConfiguredCommand<AppConfiguration>("render", "Render the 
     ) {
         val template = configuration.buildTemplate()
         if (Boolean.TRUE == namespace.getBoolean("include-default")) {
-            LOGGER.info("DEFAULT => {}", template.render(Optional.empty()))
+            if (template != null) {
+                LOGGER.info("DEFAULT => {}", template.render(Optional.empty()))
+            }
         }
         for (name in namespace.getList<String>("names")) {
             for (i in 0..999) {
-                LOGGER.info("{} => {}", name, template.render(Optional.of(name)))
+                if (template != null) {
+                    LOGGER.info("{} => {}", name, template.render(Optional.of(name)))
+                }
                 Thread.sleep(1000)
             }
         }
