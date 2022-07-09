@@ -38,12 +38,12 @@ import javax.ws.rs.core.Response
 class DockerIntegrationTest {
     @Test
     fun testShop() {
-        val name: Optional<String?> = Optional.of("Dr. IntegrationTest")
+        val name: Optional<String> = Optional.of("Dr. IntegrationTest")
         val saying = APP.client().target("http://localhost:" + APP.localPort + "/hello-world")
             .queryParam("name", name.get())
             .request()
             .get(Saying::class.java)
-        Assertions.assertThat(saying.content).isEqualTo(APP.configuration.buildTemplate().render(name))
+        Assertions.assertThat(saying.content).isEqualTo(APP.configuration.buildTemplate()?.render(name) ?: null)
     }
 
     @Nested
