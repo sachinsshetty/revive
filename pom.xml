@@ -29,7 +29,7 @@
         <async.http.client.version>2.2.0</async.http.client.version>
         <retrofit.version>2.9.0</retrofit.version>
         <unirest.version>1.4.9</unirest.version>
-        <javalin.version>1.6.0</javalin.version>
+        <javalin.version>4.6.4</javalin.version>
         <logging-interceptor.version>3.9.0</logging-interceptor.version>
         <revive.url>https://sachinsshetty.github.io/docs_revive/</revive.url>
         <dropwizard.version>2.1.0</dropwizard.version>
