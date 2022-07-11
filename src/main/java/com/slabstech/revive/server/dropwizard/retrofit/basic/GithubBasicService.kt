@@ -19,12 +19,12 @@ internal class GitHubBasicService {
     }
 
     @Throws(IOException::class)
-    fun getTopContributors(userName: String?): List<String> {
+    fun getTopContributors(userName: String?): MutableList<String?>? {
         var repos = gitHubApi.listRepos(userName)!!
             .execute().body()
         repos = repos ?: emptyList<Repository>()
         return repos.stream().flatMap { repo: Repository? -> getContributors(userName, repo) }
-            .sorted { a: Contributor?, b: Contributor? -> b!!.contributions - a!!.contributions }
+            .sorted { a: Contributor?, b: Contributor? -> (b!!.contributions?.minus(a!!.contributions!!) ?: b.contributions) as Int }
             .map { obj: Contributor? -> obj!!.name }.distinct().sorted().collect(Collectors.toList())
     }
 
@@ -36,6 +36,6 @@ internal class GitHubBasicService {
             e.printStackTrace()
         }
         contributors = contributors ?: emptyList<Contributor>()
-        return contributors.stream().filter { c: Contributor? -> c!!.contributions > 100 }
+        return contributors.stream().filter { c: Contributor? -> c!!.contributions!! > 100 }
     }
 }

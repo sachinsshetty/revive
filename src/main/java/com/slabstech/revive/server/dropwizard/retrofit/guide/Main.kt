@@ -1,37 +1,46 @@
 package com.slabstech.revive.server.dropwizard.retrofit.guide
 
+import com.baeldung.retrofitguide.GitHubServiceGenerator
 import okhttp3.OkHttpClient
-
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import java.io.IOException
+import com.slabstech.revive.server.dropwizard.retrofit.guide.GithubUser
 object Main {
     @JvmStatic
     fun main(args: Array<String>) {
         // Manual creation
-        val httpClient: OkHttpClient.Builder = Builder()
+        val httpClient: OkHttpClient.Builder = OkHttpClient.Builder()
         val retrofit: Retrofit =
-            Builder().baseUrl("https://api.github.com/").addConverterFactory(GsonConverterFactory.create())
+            Retrofit.Builder().baseUrl("https://api.github.com/").addConverterFactory(GsonConverterFactory.create())
                 .client(httpClient.build()).build()
-        var service: GithubUserService = retrofit.create(GithubUserService::class.java)
+
         // Using GitHubServiceGenerator
-        service = GitHubServiceGenerator.createService(GithubUserService::class.java)
-        val callSync: Call<GithubUser> = service.getGithubUser("eugenp")
-        val callAsync: Call<GithubUser> = service.getGithubUser("eugenp")
+        var service = GitHubServiceGenerator.createService(GithubUserService::class.java)
+        val callSync: Call<GithubUser?>? = service.getGithubUser("sachinsshetty")
+        val callAsync: Call<GithubUser?>? = service.getGithubUser("sachinsshetty")
         try {
-            val response: Response<GithubUser> = callSync.execute()
-            val GithubUser: GithubUser = response.body()
+            val response: Response<GithubUser?> = (callSync?.execute() ?: null) as Response<GithubUser?>
+            val GithubUser: GithubUser? = response.body()
             println(GithubUser)
         } catch (ex: IOException) {
         }
 
         // Execute the call asynchronously. Get a positive or negative callback.
-        callAsync.enqueue(object : Callback<GithubUser?>() {
-            fun onResponse(call: Call<GithubUser?>?, response: Response<GithubUser?>) {
-                val GithubUser: GithubUser = response.body()
-                System.out.println(user)
-            }
+        if (callAsync != null) {
+            callAsync.enqueue(object : Callback<GithubUser?> {
+                override fun onResponse(call: Call<GithubUser?>?, response: Response<GithubUser?>) {
+                    val GithubUser: GithubUser? = response.body()
+                    System.out.println(GithubUser)
+                }
 
-            fun onFailure(call: Call<GithubUser?>?, throwable: Throwable?) {
-                println(throwable)
-            }
-        })
+                override fun onFailure(call: Call<GithubUser?>?, throwable: Throwable?) {
+                    println(throwable)
+                }
+            })
+        }
     }
 }

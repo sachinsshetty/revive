@@ -8,7 +8,6 @@ import net.sourceforge.argparse4j.inf.Namespace
 import net.sourceforge.argparse4j.inf.Subparser
 import org.slf4j.LoggerFactory
 import java.lang.Boolean
-import java.util.*
 import kotlin.Exception
 import kotlin.String
 import kotlin.Throws
@@ -31,11 +30,15 @@ class RenderCommand : ConfiguredCommand<AppConfiguration>("render", "Render the 
     ) {
         val template = configuration.buildTemplate()
         if (Boolean.TRUE == namespace.getBoolean("include-default")) {
-            LOGGER.info("DEFAULT => {}", template.render(Optional.empty()))
+            if (template != null) {
+                LOGGER.info("DEFAULT => {}", template.render(""))
+            }
         }
         for (name in namespace.getList<String>("names")) {
             for (i in 0..999) {
-                LOGGER.info("{} => {}", name, template.render(Optional.of(name)))
+                if (template != null) {
+                    LOGGER.info("{} => {}", name, template.render(name))
+                }
                 Thread.sleep(1000)
             }
         }

@@ -29,18 +29,22 @@ replay_pid*
 .vscode
 .classpath
 .project
-client/.gradle/
-client/static/
-docker/build
-docker/server/build
+other/client/.gradle/
+other/client/static/
+other/docker/build
+other/docker/server/build
 
 # after template
-clients/reactjs/.gradle/
-clients/reactjs/static/
-servers/dropwizard/build/
-servers/dropwizard/dependency-reduced-pom.xml
-servers/dropwizard/target/
-clients/build/
-servers/build
+#TODO revert other after kotlin
+other/clients/reactjs/.gradle/
+other/clients/reactjs/static/
+other/servers/dropwizard/build/
+other/servers/dropwizard/dependency-reduced-pom.xml
+other/servers/dropwizard/target/
+other/clients/build/
+other/servers/build
 
-servers/dropwizard/.idea/
+other/servers/dropwizard/.idea/
+.idea/
+#maven
+target/

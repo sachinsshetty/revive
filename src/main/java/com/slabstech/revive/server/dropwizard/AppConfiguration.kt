@@ -25,10 +25,10 @@ class AppConfiguration : Configuration() {
 
     @get:JsonProperty("viewRendererConfiguration")
     @set:JsonProperty("viewRendererConfiguration")
-    var viewRendererConfiguration: @NotNull MutableMap<String, Map<String, String>>? =
+    var viewRendererConfiguration: Map<String, Map<String, String>> =
         emptyMap<String, Map<String, String>>()
 
-    fun buildTemplate(): Template {
-        return Template(template, defaultName)
+    fun buildTemplate(): Template? {
+        return template?.let { defaultName?.let { it1 -> Template(it, it1) } }
     }
 }

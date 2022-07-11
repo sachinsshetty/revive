@@ -30,7 +30,7 @@ import javax.ws.rs.core.Response
 internal class IntegrationTest {
     @Test
     fun testApp() {
-        val name: Optional<String?> = Optional.of("Dr. IntegrationTest")
+        val name: Optional<String> = Optional.of("Dr. IntegrationTest")
         val saying = APP.client().target("http://localhost:" + APP.localPort + "/hello-world")
             .queryParam("name", name.get())
             .request()

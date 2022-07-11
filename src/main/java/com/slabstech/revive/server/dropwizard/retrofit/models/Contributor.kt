@@ -9,4 +9,12 @@ class Contributor {
     override fun toString(): String {
         return "Contributer [name=$name, contributions=$contributions]"
     }
+
+    fun getName() {
+        TODO("Not yet implemented")
+    }
+
+    fun getContributions() {
+
+    }
 }
