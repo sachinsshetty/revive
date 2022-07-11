@@ -34,7 +34,7 @@
         <revive.url>https://sachinsshetty.github.io/docs_revive/</revive.url>
         <dropwizard.version>2.1.0</dropwizard.version>
         <junit5.version>5.9.0-M1</junit5.version>
-        <junit-jupiter.version>5.9.0-M1</junit-jupiter.version>
+        <junit-jupiter.version>5.9.0-RC1</junit-jupiter.version>
         <maven.implementationr.source>17</maven.implementationr.source>
         <maven.implementationr.target>17</maven.implementationr.target>
         <cyclonedx-maven-plugin.version>2.7.0</cyclonedx-maven-plugin.version>
