@@ -1,6 +1,6 @@
 # revive
 
-![Revive](https://github.com/sachinsshetty/revive/actions/workflows/revive.yml/badge.svg)
+![Revive](https://github.com/slabstech/revive/actions/workflows/revive.yml/badge.svg)
 
 Built on SOLID
 + Single use Principle
@@ -9,9 +9,9 @@ Built on SOLID
 v.0.0.1 - Kotlin + Docker + Maven + Kubernetes + GraphQL + IntelliJ Plugin
 
 #### Important Links
-* Documents and build steps maintained at Wiki - [https://sachinsshetty.github.io/docs_revive/](https://sachinsshetty.github.io/docs_revive/)
+* Documents and build steps maintained at Wiki - [https://slabstech.com/docs_revive/](https://sachinsshetty.github.io/docs_revive/)
 
-* [Blog- WIP - How to migrate project from Monolith to Microservice](https://slabstech.github.io/blog/monolith-microservice/)
+* [Blog- WIP - How to migrate project from Monolith to Microservice](https://slabstech.com/blog/monolith-microservice/)
 
 #### Contributors
 
