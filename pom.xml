@@ -65,7 +65,7 @@
 
         <dropwizard.version>2.1.0</dropwizard.version>
         <guicey.version>5.6.0-1</guicey.version>
-        <kotlin.version>1.7.0</kotlin.version>
+        <kotlin.version>1.7.10</kotlin.version>
         <vavr.version>0.10.4</vavr.version>
         <jackson-module.version>2.13.3</jackson-module.version>
         <vavr-jackson.version>0.10.3</vavr-jackson.version>
