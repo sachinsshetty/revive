@@ -32,7 +32,7 @@
         <javalin.version>1.6.0</javalin.version>
         <logging-interceptor.version>3.9.0</logging-interceptor.version>
         <revive.url>https://sachinsshetty.github.io/docs_revive/</revive.url>
-        <dropwizard.version>2.1.0</dropwizard.version>
+        <dropwizard.version>2.1.1</dropwizard.version>
         <junit5.version>5.9.0-M1</junit5.version>
         <junit-jupiter.version>5.9.0-M1</junit-jupiter.version>
         <maven.implementationr.source>17</maven.implementationr.source>
