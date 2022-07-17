@@ -29,7 +29,7 @@ jobs:
         run: mvn -B package --file pom.xml
 
       - name: Archive test report
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v3
         with:
           name: Test report
           path: build/reports/tests/test
