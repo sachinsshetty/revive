@@ -69,7 +69,7 @@
         <vavr.version>0.10.4</vavr.version>
         <jackson-module.version>2.13.3</jackson-module.version>
         <vavr-jackson.version>0.10.3</vavr-jackson.version>
-        <jdbi3.version>3.30.0</jdbi3.version>
+        <jdbi3.version>3.31.0</jdbi3.version>
         <postgresql.version>42.4.0</postgresql.version>
         <swagger.io.version>2.2.1</swagger.io.version>
 
